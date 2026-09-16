@@ -37,12 +37,6 @@ The project combines **OpenFOAM CFD**, **PyTorch**, and numerical optimization t
 
 `Python` `PyTorch` `OpenFOAM` `ParaView` `Java` `Git` `Linux`
 
-## Projects
-
-I'm currently working on projects involving aerospace engineering, CFD, machine learning, and computational modeling.
-
-More projects will be added as they develop.
-
 ## Connect
 
 [GitHub](https://github.com/theatharvab) • [LinkedIn](https://www.linkedin.com/in/atharva-banchhod-34705a428/)
