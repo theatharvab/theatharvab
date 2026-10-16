@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research notes on machine-learning-assisted regenerative cooling channel optimization, evaluated against OpenFOAM CFD.">
+  <title>Regenerative Cooling Research | Atharva Banchhod</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .research-hero{padding:90px 0 65px;border-bottom:1px solid var(--line)}.research-hero h1{font-size:clamp(2.8rem,6vw,5.4rem);max-width:980px}.research-hero .lead{max-width:760px;color:#b4bec8;font-size:1.05rem;line-height:1.9}.research-meta{display:flex;flex-wrap:wrap;gap:10px;margin:25px 0}.research-meta span{font: .68rem var(--mono);color:#c3cdd5;border:1px solid var(--line);padding:7px 10px}.research-layout{display:grid;grid-template-columns:220px minmax(0,760px);gap:70px;padding:65px 0 100px}.research-toc{position:sticky;top:25px;align-self:start}.research-toc a{display:block;font-size:.77rem;color:var(--muted);padding:8px 0}.research-toc a:hover{color:var(--accent)}.research-body h2{font-size:1.65rem;letter-spacing:-.04em;margin:42px 0 15px}.research-body h2:first-child{margin-top:0}.research-body p,.research-body li{font-size:.9rem;line-height:1.9;color:#b6c0c9}.research-body ul{padding-left:22px}.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:25px 0}.result{border:1px solid var(--line);background:var(--panel);padding:20px}.result strong{display:block;font-size:1.8rem;letter-spacing:-.05em;color:var(--accent)}.result span{font-size:.75rem;color:var(--muted)}.note{border-left:2px solid var(--accent);padding:14px 18px;background:#141b1d;color:#b9c5cc;font-size:.82rem;line-height:1.8;margin:24px 0}.back-link{display:inline-block;margin-top:25px;font-size:.83rem;color:var(--accent)}@media(max-width:760px){.research-layout{grid-template-columns:1fr;gap:25px}.research-toc{position:static;display:flex;gap:12px;flex-wrap:wrap}.research-toc a{padding:4px 0}.result-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<header class="site-header"><a class="wordmark" href="../index.html">AB<span>.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">Projects</a><a href="../index.html#about">About</a><a href="../index.html#experience">Experience</a><a class="nav-contact" href="../index.html#contact">Contact ↗</a></nav></header>
+<main class="section-wrap">
+  <section class="research-hero">
+    <p class="eyebrow">INDEPENDENT RESEARCH · MAY–SEPTEMBER 2026</p>
+    <h1>Machine-learning-assisted regenerative cooling channel optimization</h1>
+    <p class="lead">A computational study exploring whether a neural-network surrogate can accelerate the screening of rectangular cooling-channel designs for liquid rocket engines, with a selected design compared against OpenFOAM CFD.</p>
+    <div class="research-meta"><span>PYTHON / PYTORCH</span><span>OPENFOAM 14</span><span>PARAVIEW</span><span>TJAS 2026 · HONORABLE MENTION</span></div>
+    <a class="button button-primary" href="https://github.com/theatharvab/physics-informed-ml" target="_blank" rel="noreferrer">View source code ↗</a>
+  </section>
+  <div class="research-layout">
+    <aside class="research-toc" aria-label="On this page"><a href="#question">Research question</a><a href="#method">Method</a><a href="#results">Results</a><a href="#limitations">Limitations</a><a href="#next">Next steps</a></aside>
+    <article class="research-body">
+      <h2 id="question">Research question</h2>
+      <p>Can a neural-network surrogate trained on a physics-generated dataset help screen regenerative cooling channel geometries more quickly than running a high-resolution CFD simulation for every candidate, while producing predictions consistent with CFD for an evaluated design?</p>
+      <p>The project focused on rectangular channel geometry and thermal-fluid constraints. It was a computational design-space study, not a combustion simulation or an experimental engine test.</p>
+      <h2 id="method">Method</h2>
+      <ul>
+        <li>Generated a physics-based dataset and trained a PyTorch neural network to predict thermal performance and wall temperature from channel geometry.</li>
+        <li>Used Monte Carlo sampling to screen 20,000 candidate geometries. After a geometric-height filter, 12,699 remained; 1,498 satisfied all implemented constraints.</li>
+        <li>Applied hard limits including a maximum wall temperature of 825 K and a maximum pressure drop of 1.8 MPa, alongside coolant velocity, Reynolds number, outlet temperature, and geometry constraints.</li>
+        <li>Ran OpenFOAM 14 using a k-epsilon turbulence model in WSL Ubuntu, then inspected temperature distributions in ParaView.</li>
+        <li>Compared three mesh sizes: 38,400, 307,200, and 2,457,600 cells.</li>
+      </ul>
+      <h2 id="results">Selected results</h2>
+      <div class="result-grid">
+        <div class="result"><strong>553.26 K</strong><span>Neural-network temperature prediction</span></div>
+        <div class="result"><strong>552.95 K</strong><span>Fine-mesh CFD temperature result</span></div>
+        <div class="result"><strong>~0.06%</strong><span>Difference for this evaluated design</span></div>
+        <div class="result"><strong>~21.5M×</strong><span>Reported per-evaluation speed ratio</span></div>
+      </div>
+      <p>For the selected comparison, the physics-based model predicted 564.19 K, approximately 1.99% above the fine-mesh CFD result. A single surrogate evaluation took approximately 0.000382 seconds versus 8,206.8 seconds for the fine-mesh CFD evaluation in the recorded setup.</p>
+      <div class="note">The reported speed ratio compares one surrogate evaluation with one fine-mesh CFD evaluation. It excludes model training and setup time and should not be interpreted as an end-to-end project speedup.</div>
+      <h2 id="limitations">Limitations & scope</h2>
+      <ul>
+        <li>Gas-side heat transfer was prescribed; combustion was not simulated.</li>
+        <li>Liquid methane coolant was modeled using constant properties.</li>
+        <li>Validation was computational rather than experimental, and mesh independence was not fully established.</li>
+        <li>Generalization beyond the sampled design space is limited and requires additional validation.</li>
+        <li>The model uses physics-generated data and constraint screening; it is not a PDE-residual physics-informed neural network (PINN).</li>
+      </ul>
+      <p>A throat-region stress test produced CFD temperatures near 1,475 K, well above the 825 K constraint. This illustrates why designs outside the modeled training range cannot be trusted without further analysis.</p>
+      <h2 id="next">Next steps</h2>
+      <p>Future work could include broader validation across the design space, stronger mesh-independence studies, and comparisons against experimentally sourced or independently validated cases. Extending the workflow to additional thermal-fluid and high-speed-flow problems is a longer-term goal.</p>
+      <p><strong>Research status:</strong> Presented at the 2026 Texas Junior Academy of Science, Engineering I, and received Honorable Mention. The paper has not been published or peer-reviewed.</p>
+      <a class="back-link" href="../index.html#work">← Back to selected work</a>
+    </article>
+  </div>
+</main>
+<footer class="site-footer section-wrap"><a class="wordmark" href="../index.html">AB<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Built to keep iterating.</span></footer>
+</body></html>
