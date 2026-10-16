@@ -3,131 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Atharva Banchhod's engineering portfolio: aerospace research, computational fluid dynamics, machine learning, and motorsport engineering.">
-  <title>Atharva Banchhod | Aerospace & Motorsport Engineering</title>
+  <meta name="description" content="Atharva Banchhod's student engineering portfolio, featuring aerospace research, computational modeling, and motorsport projects.">
+  <meta name="theme-color" content="#171719">
+  <title>Atharva Banchhod | Student Engineer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="wordmark" href="#home" aria-label="Atharva Banchhod home">AB<span>.</span></a>
+    <a class="wordmark" href="#home" aria-label="Atharva Banchhod home">Atharva<span>.</span></a>
     <nav aria-label="Main navigation">
-      <a href="#work">Projects</a>
-      <a href="#research">Research</a>
+      <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a class="nav-contact" href="#contact">Contact ↗</a>
+      <a href="#outside">Outside the lab</a>
+      <a href="#contact">Contact ↗</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero section-wrap" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> STUDENT ENGINEER · CYPRESS, TEXAS</p>
-        <h1>I build models.<br><span class="muted">Then test the assumptions.</span></h1>
-        <p class="hero-intro">I'm Atharva, a Cypress Woods junior interested in aerospace and motorsport engineering. My current work combines Python-based modeling with OpenFOAM CFD to study heat transfer in rocket-engine cooling channels.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#work">Explore my work <span>↘</span></a>
-          <a class="text-link" href="https://github.com/theatharvab" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a class="text-link" href="https://www.linkedin.com/in/theatharvab/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    <section class="intro section-wrap" id="home">
+      <div class="intro-copy">
+        <p class="eyebrow"><span class="red-mark"></span> STUDENT ENGINEER · CYPRESS, TEXAS</p>
+        <h1>Atharva Banchhod</h1>
+        <p class="intro-lead">I'm a high school junior interested in aerospace engineering, computational modeling, and motorsport.</p>
+        <p class="intro-body">Right now, I'm exploring heat transfer in rocket-engine cooling channels through Python, machine learning, and OpenFOAM CFD. This site is where I keep the projects, results, and things I'm learning along the way.</p>
+        <div class="intro-links">
+          <a class="button" href="#work">Explore my work <span>↘</span></a>
+          <a class="underlined-link" href="https://github.com/theatharvab" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="underlined-link" href="https://www.linkedin.com/in/theatharvab/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         </div>
       </div>
-      <div class="hero-graphic" role="img" aria-label="Conceptual regenerative cooling channel diagram showing heat entering the wall and coolant flowing through the channel">
-        <div class="graphic-grid"></div>
-        <span class="diagram-kicker">REGENERATIVE COOLING / CONCEPT</span>
-        <span class="diagram-label hot-label">HOT-GAS SIDE</span>
-        <div class="hot-wall"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="coolant-channel"><div class="coolant-flow"></div><span class="flow-arrow">→</span></div>
-        <span class="diagram-label heat-label">HEAT FLUX ↓</span>
-        <span class="diagram-label flow-label">COOLANT FLOW →</span>
-        <span class="diagram-foot">SCHEMATIC ONLY · NOT TO SCALE</span>
-      </div>
-      <div class="hero-bottom">
-        <span>CURRENT INTERESTS</span><p>Propulsion <i>/</i> Thermal-fluids <i>/</i> CFD <i>/</i> Motorsport</p>
-        <span class="scroll-note">SCROLL TO EXPLORE ↓</span>
-      </div>
+      <aside class="portrait-slot image-slot" aria-label="Placeholder for a portrait photo">
+        <span class="slot-index">01 / PORTRAIT</span>
+        <div class="slot-icon" aria-hidden="true"><span></span><span></span></div>
+        <p>Headshot goes here</p>
+        <small>A simple photo is enough.<br>No studio setup needed.</small>
+      </aside>
+      <div class="intro-bottom"><span>INTERESTS</span><p>Propulsion <i>/</i> Thermal-fluids <i>/</i> CFD <i>/</i> Motorsport</p><span class="intro-note">STUDENT WORK · IN PROGRESS</span></div>
     </section>
 
-    <section class="metrics section-wrap" aria-label="Research at a glance">
-      <div class="metric"><strong>20,000</strong><span>candidate geometries sampled</span></div>
-      <div class="metric"><strong>1,498</strong><span>designs met all defined constraints</span></div>
-      <div class="metric"><strong>0.06%</strong><span>reported NN-to-fine-CFD temperature difference*</span></div>
-      <p class="metric-note">*For one evaluated design; computational comparison, not experimental validation.</p>
-    </section>
-
-    <section class="content-section section-wrap" id="work">
+    <section class="work-section section-wrap" id="work">
       <div class="section-heading">
-        <div><p class="eyebrow">01 / SELECTED WORK</p><h2>Projects built around<br><span class="muted">questions I wanted to answer.</span></h2></div>
-        <p class="section-aside">Research, design and simulation work. I try to show what I built, what the results support, and what they do not.</p>
+        <div><p class="eyebrow">01 / SELECTED WORK</p><h2>Things I've been<br>working on<span class="red-period">.</span></h2></div>
+        <p class="section-aside">A few projects I'm learning from. I'll add more as there's something worth showing.</p>
       </div>
-      <a class="project-card featured" href="projects/regenerative-cooling.html" id="research">
-        <div class="project-art cooling-art" aria-hidden="true"><div class="heat-lines"></div><div class="channel channel-a"></div><div class="channel channel-b"></div><div class="channel channel-c"></div><span class="art-caption">THERMAL-FLUIDS / 01</span></div>
-        <div class="project-info">
+
+      <article class="project project-research reveal" id="research">
+        <a class="project-image image-slot" href="projects/regenerative-cooling.html" aria-label="Open regenerative cooling research page">
+          <span class="slot-index">PROJECT 01 / CFD</span>
+          <div class="visual-placeholder cfd-placeholder" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="image-slot-caption"><strong>ParaView / OpenFOAM</strong><small>Replace with an actual temperature contour or channel visualization</small></div>
+        </a>
+        <div class="project-copy">
           <p class="project-type">INDEPENDENT RESEARCH · 2026</p>
           <h3>Machine-learning-assisted regenerative cooling optimization</h3>
-          <p>Exploring whether a neural-network surrogate can accelerate design-space screening for liquid rocket engine cooling channels, with a selected design checked against OpenFOAM CFD.</p>
+          <p>I generated a physics-based dataset, trained a PyTorch surrogate model, and compared a selected cooling-channel design against OpenFOAM CFD. The work was presented at TJAS 2026 and received Honorable Mention.</p>
           <div class="tag-row"><span>Python / PyTorch</span><span>OpenFOAM</span><span>ParaView</span></div>
-          <span class="card-link">Explore research <b>↗</b></span>
+          <a class="project-link" href="projects/regenerative-cooling.html">Read the research notes <span>↗</span></a>
         </div>
-      </a>
-      <article class="project-card featured car-project">
-        <div class="project-art car-art" aria-hidden="true"><div class="track track-one"></div><div class="track track-two"></div><span class="art-caption">ENGINEERING DESIGN / 02</span></div>
-        <div class="project-info">
+      </article>
+
+      <article class="project project-car reveal">
+        <a class="project-image image-slot" href="#car-project" aria-label="CO2-powered car CAD image placeholder">
+          <span class="slot-index">PROJECT 02 / DESIGN</span>
+          <div class="visual-placeholder car-placeholder" aria-hidden="true"><div class="car-shape"><span></span><span></span><i></i></div></div>
+          <div class="image-slot-caption"><strong>CO₂-powered car / CAD</strong><small>Replace with a Tinkercad or AutoCAD screenshot</small></div>
+        </a>
+        <div class="project-copy" id="car-project">
           <p class="project-type">DESIGN & FABRICATION</p>
           <h3>CO₂-powered vehicle</h3>
-          <p>Designed in AutoCAD and fabricated from wood. The car recorded the fastest run in my class over an approximately 80-foot course. I am preparing a fuller write-up of the design decisions and testing.</p>
-          <div class="tag-row"><span>AutoCAD</span><span>Fabrication</span><span>Testing</span></div>
-          <span class="coming-soon">Project write-up in progress</span>
+          <p>I designed the car in CAD and fabricated it from wood. It recorded the fastest run in my class over an approximately 80-foot course. I'd like to document the design choices and testing in more detail.</p>
+          <div class="tag-row"><span>CAD</span><span>Fabrication</span><span>Testing</span></div>
+          <span class="project-note">Full write-up in progress</span>
         </div>
       </article>
     </section>
 
     <section class="about-section" id="about">
       <div class="section-wrap about-layout">
-        <div><p class="eyebrow">02 / ABOUT</p><h2>Learn the tool.<br><span class="muted">Test it on a real problem.</span></h2></div>
+        <div class="about-heading"><p class="eyebrow">02 / A LITTLE ABOUT ME</p><h2>Learning by<br>building things<span class="red-period">.</span></h2></div>
         <div class="about-copy">
           <p>I'm a junior at Cypress Woods High School interested in propulsion, thermal-fluids, computational modeling, and motorsport. I like learning a tool by applying it to a problem instead of stopping at tutorials.</p>
-          <p>For my first independent research project, I built a physics-based dataset, trained a PyTorch surrogate, and compared a selected cooling-channel design against OpenFOAM CFD. I presented the work at TJAS 2026, where it received Honorable Mention.</p>
-          <p>The simulations are not experimental validation, and the model has limitations. I want the portfolio to make those boundaries clear, because that is part of the engineering.</p>
-          <a class="text-link" href="https://github.com/theatharvab/physics-informed-ml" target="_blank" rel="noreferrer">View research code on GitHub ↗</a>
+          <p>My current research is computational, not experimental, and it has limitations. I want the project pages to be clear about what the results show and what still needs to be tested.</p>
+          <a class="underlined-link" href="https://github.com/theatharvab/physics-informed-ml" target="_blank" rel="noreferrer">Research code on GitHub ↗</a>
         </div>
       </div>
     </section>
 
-    <section class="content-section section-wrap" id="experience">
+    <section class="details-section section-wrap">
       <div class="section-heading">
-        <div><p class="eyebrow">03 / EXPERIENCE & RECOGNITION</p><h2>Building skills<br><span class="muted">alongside the work.</span></h2></div>
+        <div><p class="eyebrow">03 / EXPERIENCE</p><h2>Other work worth<br>mentioning<span class="red-period">.</span></h2></div>
+        <p class="section-aside">A few things I've done alongside independent projects and coursework.</p>
       </div>
       <div class="timeline">
-        <div class="timeline-item"><span class="timeline-date">2026</span><div><h3>Texas Junior Academy of Science · Engineering I</h3><p>Honorable Mention; presented independent computational aerospace research at the statewide competition.</p></div></div>
-        <div class="timeline-item"><span class="timeline-date">2026</span><div><h3>Technology Student Association · CFISD District</h3><p>1st place in Memory Game Soldering; designed, assembled, soldered, and programmed the game.</p></div></div>
-        <div class="timeline-item"><span class="timeline-date">2026–present</span><div><h3>SCEC STEM Club · Co-founder & research mentor</h3><p>Help lead a student STEM organization, coordinate activities, and mentor peers exploring research and technical projects.</p></div></div>
-        <div class="timeline-item"><span class="timeline-date">2022</span><div><h3>Destination Imagination Global Finals</h3><p>11th place globally as part of the Los Amigos team in the Daring Escape technical challenge.</p></div></div>
+        <div class="timeline-item"><span class="timeline-date">2026</span><div><h3>Texas Junior Academy of Science · Engineering I</h3><p>Presented independent computational aerospace research at the statewide competition; received Honorable Mention.</p></div></div>
+        <div class="timeline-item"><span class="timeline-date">2026</span><div><h3>Technology Student Association · CFISD District</h3><p>1st place in Memory Game Soldering; designed and built the game.</p></div></div>
+        <div class="timeline-item"><span class="timeline-date">2026–present</span><div><h3>SCEC STEM Club · Co-founder & research mentor</h3><p>Help lead a student STEM organization and mentor peers exploring research and technical projects.</p></div></div>
+        <div class="timeline-item"><span class="timeline-date">2022</span><div><h3>Destination Imagination Global Finals</h3><p>11th place globally with the Los Amigos team in the Daring Escape challenge.</p></div></div>
       </div>
     </section>
 
-    <section class="skills-section">
-      <div class="section-wrap">
-        <p class="eyebrow">04 / TOOLKIT</p><h2>Tools I use to<br><span class="muted">turn questions into models.</span></h2>
-        <div class="skills-grid">
-          <div><span>01</span><h3>Programming & ML</h3><p>Python, PyTorch, NumPy, Matplotlib, Java, MATLAB</p></div>
-          <div><span>02</span><h3>Simulation</h3><p>OpenFOAM 14, ParaView, heat-transfer calculations, mesh-resolution comparisons</p></div>
-          <div><span>03</span><h3>Design & fabrication</h3><p>AutoCAD, Autodesk Inventor, soldering, electronics assembly, woodworking tools</p></div>
-          <div><span>04</span><h3>Development</h3><p>Git, GitHub, Linux, Ubuntu, WSL, Google Colab</p></div>
+    <section class="toolkit-section">
+      <div class="section-wrap toolkit-layout">
+        <div><p class="eyebrow">04 / TOOLS & INTERESTS</p><h2>What I'm using<br>and learning<span class="red-period">.</span></h2></div>
+        <div class="toolkit-list">
+          <div><span>01</span><p><strong>Code & modeling</strong>Python, PyTorch, NumPy, Matplotlib, MATLAB</p></div>
+          <div><span>02</span><p><strong>CFD & visualization</strong>OpenFOAM 14, ParaView, heat-transfer calculations</p></div>
+          <div><span>03</span><p><strong>Design & making</strong>CAD, soldering, electronics assembly, woodworking</p></div>
+          <div><span>04</span><p><strong>Development</strong>Git, GitHub, Linux, Ubuntu, WSL, Google Colab</p></div>
         </div>
       </div>
+    </section>
+
+    <section class="outside-section section-wrap" id="outside">
+      <div class="outside-copy">
+        <p class="eyebrow">05 / OUTSIDE THE LAB</p>
+        <h2>Engineering and powerlifting scratch different itches<span class="red-period">.</span></h2>
+        <p>Outside engineering, I spend a lot of time powerlifting. I competed in my first USPA meet in October 2026, winning my age category overall and setting a Texas state bench press record.</p>
+        <p>Engineering and powerlifting scratch different itches, but I enjoy the process behind both: putting in the work, learning from mistakes, and seeing what I can improve.</p>
+        <span class="profile-link-note">OpenPowerlifting profile link coming when my results are listed.</span>
+      </div>
+      <aside class="lifting-slot image-slot" aria-label="Placeholder for a powerlifting photo">
+        <span class="slot-index">PERSONAL / POWERLIFTING</span>
+        <div class="slot-icon lifting-icon" aria-hidden="true"><span></span><span></span></div>
+        <p>Meet photo goes here</p>
+        <small>A smaller photo from competition<br>is all this section needs.</small>
+      </aside>
     </section>
 
     <section class="contact-section section-wrap" id="contact">
-      <p class="eyebrow">05 / GET IN TOUCH</p>
-      <h2>Have a good engineering<br>question? <span class="muted">Let's talk.</span></h2>
-      <p>I'm interested in research, engineering projects, and opportunities to learn from people working in aerospace and motorsport.</p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="mailto:Atharva.banchhod@gmail.com">Email me ↗</a>
-        <a class="text-link" href="https://www.linkedin.com/in/theatharvab/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a>
-      </div>
+      <p class="eyebrow">06 / CONTACT</p>
+      <h2>Interested in similar work?<span class="red-period">.</span></h2>
+      <p>I'm interested in aerospace and motorsport projects, research, and learning from people who work in these fields.</p>
+      <div class="intro-links"><a class="button" href="mailto:Atharva.banchhod@gmail.com">Email me <span>↗</span></a><a class="underlined-link" href="https://www.linkedin.com/in/theatharvab/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="underlined-link" href="https://github.com/theatharvab" target="_blank" rel="noreferrer">GitHub ↗</a></div>
     </section>
   </main>
 
-  <footer class="site-footer section-wrap"><a class="wordmark" href="#home">AB<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Independent student work · October 2026</span></footer>
+  <footer class="site-footer section-wrap"><a class="wordmark" href="#home">Atharva<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Independent student work · 2026</span></footer>
+  <script>
+    document.documentElement.classList.add('js');
+    const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}})},{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(item=>observer.observe(item));
+  </script>
 </body>
 </html>
