@@ -34,9 +34,9 @@
       </div>
       <aside class="garage-card" aria-label="Interactive daily featured car">
         <div class="garage-topline"><span class="slot-index">GARAGE NOTES / 001</span><span class="garage-live"><i></i> DAILY FEATURE</span></div>
-        <div class="car-viewer" id="car-viewer" aria-label="Interactive 3D car model. Drag to rotate.">
-          <div class="viewer-hint">DRAG TO ROTATE ↔</div>
-          <div id="car-loading" class="car-loading">LOADING MODEL<span>•••</span></div>
+        <div class="car-viewer" id="car-viewer" aria-label="Featured car image">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=85" alt="Sports car photographed on a road" loading="eager">
+          <span class="viewer-caption">GARAGE NOTES · PHOTO FEATURE</span>
         </div>
         <div class="garage-info">
           <div class="garage-number" id="car-count">01 / 08</div>
@@ -159,23 +159,19 @@
       document.querySelectorAll('.reveal').forEach(item=>observer.observe(item));
     } else document.querySelectorAll('.reveal').forEach(item=>item.classList.add('is-visible'));
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script>
   (() => {
     const cars = [
-      {name:'Nissan Skyline GT-R',year:'1999 · R34',category:'JAPANESE PERFORMANCE',engine:'2.6L twin-turbo I6',power:'276 hp claimed',description:'A performance icon built around balance, tuning potential, and all-wheel-drive traction.',color:0x6d777d,shape:'coupe'},
-      {name:'McLaren Senna',year:'2018 · Ultimate Series',category:'TRACK-FOCUSED SUPERCAR',engine:'4.0L twin-turbo V8',power:'789 hp',description:'A road car shaped by downforce, braking performance, and uncompromising track intent.',color:0x781b1b,shape:'race'},
-      {name:'Honda NSX',year:'1992 · NA1',category:'ENGINEERING ICON',engine:'3.0L naturally aspirated V6',power:'270 hp (Japan)',description:'An everyday-drivable supercar that challenged the established order with thoughtful engineering.',color:0xb8b7b2,shape:'coupe'},
-      {name:'Porsche 911 GT3 RS',year:'2023 · 992',category:'AERODYNAMICS',engine:'4.0L naturally aspirated flat-six',power:'518 hp',description:'A high-revving flat-six paired with serious aero and chassis development.',color:0x8caa92,shape:'race'},
-      {name:'Nissan Laurel Club S',year:'1998 · C35',category:'JDM SLEEPER',engine:'2.5L turbocharged inline-six',power:'280 PS (market-rated)',description:'A restrained four-door shape with rear-drive proportions and serious tuning heritage.',color:0x34383c,shape:'sedan'},
-      {name:'Mercedes-Benz CLK GTR',year:'1998 · Homologation special',category:'ROAD-LEGAL RACE CAR',engine:'6.9L naturally aspirated V12',power:'604 hp',description:'A competition machine adapted for the road to satisfy GT1 homologation rules.',color:0x777d85,shape:'race'},
-      {name:'Mazda RX-7',year:'1993 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'255 hp (US spec)',description:'A compact rotary sports car known for its low mass and carefully balanced chassis.',color:0x781b1b,shape:'coupe'},
-      {name:'McLaren F1',year:'1992 · Road car',category:'LIGHTWEIGHT ENGINEERING',engine:'6.1L naturally aspirated V12',power:'618 hp',description:'A central driving position, extensive lightweight materials, and a singular focus on the driver.',color:0xb6a76e,shape:'supercar'}
+      {name:'Nissan Skyline GT-R',year:'1999 · R34',category:'JAPANESE PERFORMANCE',engine:'2.6L twin-turbo I6',power:'276 hp claimed',description:'A performance icon built around balance, tuning potential, and all-wheel-drive traction.'},
+      {name:'McLaren Senna',year:'2018 · Ultimate Series',category:'TRACK-FOCUSED SUPERCAR',engine:'4.0L twin-turbo V8',power:'789 hp',description:'A road car shaped by downforce, braking performance, and uncompromising track intent.'},
+      {name:'Honda NSX',year:'1992 · NA1',category:'ENGINEERING ICON',engine:'3.0L naturally aspirated V6',power:'270 hp (Japan)',description:'An everyday-drivable supercar that challenged the established order with thoughtful engineering.'},
+      {name:'Porsche 911 GT3 RS',year:'2023 · 992',category:'AERODYNAMICS',engine:'4.0L naturally aspirated flat-six',power:'518 hp',description:'A high-revving flat-six paired with serious aero and chassis development.'},
+      {name:'Nissan Laurel Club S',year:'1998 · C35',category:'JDM SLEEPER',engine:'2.5L turbocharged inline-six',power:'280 PS (market-rated)',description:'A restrained four-door shape with rear-drive proportions and serious tuning heritage.'},
+      {name:'Mercedes-Benz CLK GTR',year:'1998 · Homologation special',category:'ROAD-LEGAL RACE CAR',engine:'6.9L naturally aspirated V12',power:'604 hp',description:'A competition machine adapted for the road to satisfy GT1 homologation rules.'},
+      {name:'Mazda RX-7',year:'1993 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'255 hp (US spec)',description:'A compact rotary sports car known for its low mass and carefully balanced chassis.'},
+      {name:'McLaren F1',year:'1992 · Road car',category:'LIGHTWEIGHT ENGINEERING',engine:'6.1L naturally aspirated V12',power:'618 hp',description:'A central driving position, extensive lightweight materials, and a singular focus on the driver.'}
     ];
-    const dayIndex = Math.floor(Date.now() / 86400000) % cars.length;
-    let current = dayIndex;
-    const viewer = document.getElementById('car-viewer');
-    const loading = document.getElementById('car-loading');
+    let current = Math.floor(Date.now() / 86400000) % cars.length;
     const updateText = () => {
       const car = cars[current];
       document.getElementById('car-count').textContent = String(current+1).padStart(2,'0')+' / '+String(cars.length).padStart(2,'0');
@@ -186,74 +182,7 @@
       document.getElementById('featured-car-engine').textContent = car.engine;
       document.getElementById('featured-car-power').textContent = car.power;
       document.querySelector('.garage-topline .slot-index').textContent = 'GARAGE NOTES / '+String(current+1).padStart(3,'0');
-      if (bodyMaterial) bodyMaterial.color.setHex(car.color);
-      if (roofMaterial) roofMaterial.color.setHex(Math.max(0,car.color-0x111111));
-      if (spoiler) spoiler.visible = car.shape === 'race';
-      if (carBody) carBody.scale.x = car.shape === 'sedan' ? 1.15 : car.shape === 'supercar' ? 0.88 : 1;
-      if (carRoof) carRoof.scale.x = car.shape === 'sedan' ? 1.1 : 1;
-      if (renderer) renderer.render(scene,camera);
     };
-    let renderer,scene,camera,bodyMaterial,roofMaterial,spoiler,carBody,carRoof,carRoot;
-    if (window.THREE && viewer) {
-      try {
-        scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x202023);
-        camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
-        camera.position.set(5.5,4.1,7.2);
-        camera.lookAt(0,0.45,0);
-        renderer = new THREE.WebGLRenderer({antialias:true,alpha:false});
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1,2));
-        renderer.setSize(viewer.clientWidth,viewer.clientHeight);
-        renderer.outputColorSpace = THREE.SRGBColorSpace;
-        renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-        viewer.appendChild(renderer.domElement);
-        scene.add(new THREE.HemisphereLight(0xe8e5df,0x343035,2.1));
-        const key = new THREE.DirectionalLight(0xffffff,3.0); key.position.set(4,8,5); scene.add(key);
-        const rim = new THREE.DirectionalLight(0x9c4b4b,2.0); rim.position.set(-5,4,-4); scene.add(rim);
-        const floor = new THREE.Mesh(new THREE.CircleGeometry(4.5,64),new THREE.MeshStandardMaterial({color:0x252528,roughness:0.9}));
-        floor.rotation.x=-Math.PI/2;floor.position.y=-0.04;scene.add(floor);
-        const grid = new THREE.GridHelper(8,16,0x494044,0x343236);grid.position.y=-0.025;scene.add(grid);
-        carRoot = new THREE.Group();scene.add(carRoot);
-        bodyMaterial = new THREE.MeshStandardMaterial({color:cars[current].color,metalness:0.5,roughness:0.3});
-        roofMaterial = new THREE.MeshStandardMaterial({color:0x34363b,metalness:0.4,roughness:0.28});
-        const glass = new THREE.MeshStandardMaterial({color:0x1c292f,metalness:0.25,roughness:0.18});
-        const rubber = new THREE.MeshStandardMaterial({color:0x111113,roughness:0.9});
-        const rimMat = new THREE.MeshStandardMaterial({color:0xb8b8b5,metalness:0.8,roughness:0.25});
-        const addBox=(parent,w,h,d,mat,x,y,z)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);parent.add(m);return m};
-        carBody=addBox(carRoot,2.8,0.42,1.25,bodyMaterial,0,0.48,0);
-        carBody.rotation.z=-0.025;
-        carRoof=addBox(carRoot,1.35,0.48,0.94,roofMaterial,-0.12,0.89,0);
-        carRoof.rotation.z=0.03;
-        const windshield=addBox(carRoot,0.55,0.36,0.92,glass,0.53,0.82,0);windshield.rotation.z=-0.45;
-        const rearGlass=addBox(carRoot,0.48,0.32,0.92,glass,-0.7,0.83,0);rearGlass.rotation.z=0.48;
-        for(const x of [-0.92,0.92]) for(const z of [-0.66,0.66]){
-          const wheel=new THREE.Mesh(new THREE.CylinderGeometry(0.32,0.32,0.19,20),rubber);
-          wheel.rotation.x=Math.PI/2;wheel.position.set(x,0.31,z);carRoot.add(wheel);
-          const hub=new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.15,0.205,16),rimMat);
-          hub.rotation.x=Math.PI/2;hub.position.set(x,0.31,z*1.02);carRoot.add(hub);
-        }
-        const headlightMat=new THREE.MeshStandardMaterial({color:0xffe4b2,emissive:0x6d4a20,emissiveIntensity:0.4});
-        addBox(carRoot,0.13,0.1,0.32,headlightMat,1.42,0.55,-0.37);
-        addBox(carRoot,0.13,0.1,0.32,headlightMat,1.42,0.55,0.37);
-        spoiler=new THREE.Group();carRoot.add(spoiler);
-        addBox(spoiler,0.12,0.35,0.08,roofMaterial,-1.1,0.78,-0.4);
-        addBox(spoiler,0.12,0.35,0.08,roofMaterial,-1.1,0.78,0.4);
-        addBox(spoiler,0.34,0.07,1.45,bodyMaterial,-1.14,0.97,0);
-        const underglow=new THREE.PointLight(0x781b1b,1.1,3);underglow.position.set(0,0.2,0);carRoot.add(underglow);
-        carRoot.rotation.y=-0.45;
-        let dragging=false,lastX=0,lastY=0,autoRotate=true;
-        renderer.domElement.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;autoRotate=false;renderer.domElement.setPointerCapture(e.pointerId)});
-        renderer.domElement.addEventListener('pointermove',e=>{if(!dragging)return;carRoot.rotation.y+=(e.clientX-lastX)*0.012;carRoot.rotation.x=Math.max(-0.16,Math.min(0.16,carRoot.rotation.x+(e.clientY-lastY)*0.004));lastX=e.clientX;lastY=e.clientY;});
-        renderer.domElement.addEventListener('pointerup',()=>{dragging=false});
-        renderer.domElement.addEventListener('pointercancel',()=>{dragging=false});
-        const resize=()=>{const w=viewer.clientWidth,h=viewer.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h);renderer.render(scene,camera)};
-        new ResizeObserver(resize).observe(viewer);
-        const animate=()=>{requestAnimationFrame(animate);if(autoRotate&&!dragging)carRoot.rotation.y+=0.003;renderer.render(scene,camera)};
-        animate();
-        loading.remove();
-      } catch(e) { if(loading) loading.textContent='3D VIEW UNAVAILABLE'; }
-    } else if (loading) loading.textContent='3D VIEW UNAVAILABLE';
     document.getElementById('car-prev').addEventListener('click',()=>{current=(current-1+cars.length)%cars.length;updateText()});
     document.getElementById('car-next').addEventListener('click',()=>{current=(current+1)%cars.length;updateText()});
     updateText();
@@ -277,6 +206,7 @@
       modal.addEventListener('click',e=>{if(e.target===modal){running=false;cancelAnimationFrame(raf);document.removeEventListener('keydown',key);modal.remove()}});
       draw(false);
     });
+
   })();
   </script>
 </body>
