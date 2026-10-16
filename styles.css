@@ -147,3 +147,12 @@ nav{display:flex;align-items:center;gap:29px;font-size:.8rem;color:#c9c5c5}nav a
 @media(max-width:850px){.intro{grid-template-columns:minmax(0,1fr) minmax(280px,320px);gap:26px}.garage-card{max-width:320px}.car-viewer{height:190px;min-height:190px;max-height:190px}}
 @media(max-width:700px){.intro{grid-template-columns:minmax(0,1fr);gap:28px}.garage-card{width:min(100%,420px);max-width:420px;justify-self:start}.car-viewer{height:230px;min-height:230px;max-height:230px}}
 @media(max-width:420px){.car-viewer{height:205px;min-height:205px;max-height:205px}}
+
+/* 3D garage prototype: fixed viewport, no image zoom/crop or layout growth. */
+.car-viewer{isolation:isolate}
+.car-viewer canvas{position:absolute;inset:0;display:block!important;width:100%!important;height:100%!important;max-width:100%;max-height:100%;z-index:1;touch-action:none;outline:none}
+.car-viewer .car-loading{pointer-events:none}
+.viewer-caption,.viewer-hint{z-index:4}
+.viewer-hint{position:absolute;left:12px;bottom:34px;font:.48rem var(--mono);letter-spacing:.035em;color:#c9c2c3;pointer-events:none;text-shadow:0 1px 4px #000}
+.car-viewer .car-loading{font:.56rem var(--mono);letter-spacing:.07em;color:#d4cecf}
+@media(max-width:700px){.viewer-hint{max-width:90%;font-size:.43rem}}
