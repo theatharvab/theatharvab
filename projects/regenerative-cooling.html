@@ -6,11 +6,11 @@
   <title>Regenerative Cooling Research | Atharva Banchhod</title>
   <link rel="stylesheet" href="../styles.css">
   <style>
-    .research-hero{padding:90px 0 65px;border-bottom:1px solid var(--line)}.research-hero h1{font-size:clamp(2.8rem,6vw,5.4rem);max-width:980px}.research-hero .lead{max-width:760px;color:#b4bec8;font-size:1.05rem;line-height:1.9}.research-meta{display:flex;flex-wrap:wrap;gap:10px;margin:25px 0}.research-meta span{font: .68rem var(--mono);color:#c3cdd5;border:1px solid var(--line);padding:7px 10px}.research-layout{display:grid;grid-template-columns:220px minmax(0,760px);gap:70px;padding:65px 0 100px}.research-toc{position:sticky;top:25px;align-self:start}.research-toc a{display:block;font-size:.77rem;color:var(--muted);padding:8px 0}.research-toc a:hover{color:var(--accent)}.research-body h2{font-size:1.65rem;letter-spacing:-.04em;margin:42px 0 15px}.research-body h2:first-child{margin-top:0}.research-body p,.research-body li{font-size:.9rem;line-height:1.9;color:#b6c0c9}.research-body ul{padding-left:22px}.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:25px 0}.result{border:1px solid var(--line);background:var(--panel);padding:20px}.result strong{display:block;font-size:1.8rem;letter-spacing:-.05em;color:var(--accent)}.result span{font-size:.75rem;color:var(--muted)}.note{border-left:2px solid var(--accent);padding:14px 18px;background:#141b1d;color:#b9c5cc;font-size:.82rem;line-height:1.8;margin:24px 0}.back-link{display:inline-block;margin-top:25px;font-size:.83rem;color:var(--accent)}@media(max-width:760px){.research-layout{grid-template-columns:1fr;gap:25px}.research-toc{position:static;display:flex;gap:12px;flex-wrap:wrap}.research-toc a{padding:4px 0}.result-grid{grid-template-columns:1fr 1fr}}
+    .research-hero{padding:90px 0 65px;border-bottom:1px solid var(--line)}.research-figure{height:330px;margin:30px 0 45px;position:relative;overflow:hidden;border:1px solid var(--line);background:#202023}.research-figure-visual{position:absolute;inset:0;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:26px 26px}.research-figure-visual:before{content:"";position:absolute;left:9%;right:9%;top:25%;height:40%;border:1px solid #a15c5c;background:linear-gradient(90deg,#781b1b55,#a94b4b55,#d29a6c33,#6d7d7d44);transform:skewY(-10deg);opacity:.75}.research-figure-label{position:absolute;left:18px;bottom:17px;right:18px;display:flex;flex-direction:column;gap:4px}.research-figure-label strong{font-size:.78rem;font-weight:500}.research-figure-label span{font: .62rem var(--mono);color:var(--muted)}.research-hero h1{font-size:clamp(2.8rem,6vw,5.4rem);max-width:980px}.research-hero .lead{max-width:760px;color:#b4bec8;font-size:1.05rem;line-height:1.9}.research-meta{display:flex;flex-wrap:wrap;gap:10px;margin:25px 0}.research-meta span{font: .68rem var(--mono);color:#c3cdd5;border:1px solid var(--line);padding:7px 10px}.research-layout{display:grid;grid-template-columns:220px minmax(0,760px);gap:70px;padding:65px 0 100px}.research-toc{position:sticky;top:25px;align-self:start}.research-toc a{display:block;font-size:.77rem;color:var(--muted);padding:8px 0}.research-toc a:hover{color:var(--accent)}.research-body h2{font-size:1.65rem;letter-spacing:-.04em;margin:42px 0 15px}.research-body h2:first-child{margin-top:0}.research-body p,.research-body li{font-size:.9rem;line-height:1.9;color:#b6c0c9}.research-body ul{padding-left:22px}.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:25px 0}.result{border:1px solid var(--line);background:var(--panel);padding:20px}.result strong{display:block;font-size:1.8rem;letter-spacing:-.05em;color:var(--accent)}.result span{font-size:.75rem;color:var(--muted)}.note{border-left:2px solid var(--accent);padding:14px 18px;background:#141b1d;color:#b9c5cc;font-size:.82rem;line-height:1.8;margin:24px 0}.back-link{display:inline-block;margin-top:25px;font-size:.83rem;color:var(--accent)}@media(max-width:760px){.research-layout{grid-template-columns:1fr;gap:25px}.research-toc{position:static;display:flex;gap:12px;flex-wrap:wrap}.research-toc a{padding:4px 0}.result-grid{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
-<header class="site-header"><a class="wordmark" href="../index.html">AB<span>.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">Projects</a><a href="../index.html#about">About</a><a href="../index.html#experience">Experience</a><a class="nav-contact" href="../index.html#contact">Contact ↗</a></nav></header>
+<header class="site-header"><a class="wordmark" href="../index.html">Atharva<span>.</span></a><nav aria-label="Main navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="../index.html#outside">Outside the lab</a><a href="../index.html#contact">Contact ↗</a></nav></header>
 <main class="section-wrap">
   <section class="research-hero">
     <p class="eyebrow">INDEPENDENT RESEARCH · MAY–SEPTEMBER 2026</p>
@@ -20,7 +20,7 @@
     <a class="button button-primary" href="https://github.com/theatharvab/physics-informed-ml" target="_blank" rel="noreferrer">View source code ↗</a>
   </section>
   <div class="research-layout">
-    <aside class="research-toc" aria-label="On this page"><a href="#question">Research question</a><a href="#method">Method</a><a href="#results">Results</a><a href="#limitations">Limitations</a><a href="#next">Next steps</a></aside>
+    <aside class="research-toc" aria-label="On this page"><a href="#question">Research question</a><a href="#method">Method</a><a href="#visuals">Visuals</a><a href="#results">Results</a><a href="#limitations">Limitations</a><a href="#next">Next steps</a></aside>
     <article class="research-body">
       <h2 id="question">Research question</h2>
       <p>Can a neural-network surrogate trained on a physics-generated dataset help screen regenerative cooling channel geometries more quickly than running a high-resolution CFD simulation for every candidate, while producing predictions consistent with CFD for an evaluated design?</p>
@@ -33,6 +33,12 @@
         <li>Ran OpenFOAM 14 using a k-epsilon turbulence model in WSL Ubuntu, then inspected temperature distributions in ParaView.</li>
         <li>Compared three mesh sizes: 38,400, 307,200, and 2,457,600 cells.</li>
       </ul>
+      <h2 id="visuals">Visuals</h2>
+      <p>This space is reserved for an actual ParaView export or cooling-channel geometry image. The placeholder is not simulation output.</p>
+      <div class="research-figure" role="img" aria-label="Placeholder for an actual ParaView temperature contour image">
+        <div class="research-figure-visual" aria-hidden="true"></div>
+        <div class="research-figure-label"><strong>IMAGE PLACEHOLDER · ADD REAL PROJECT VISUAL</strong><span>ParaView temperature contour or channel geometry · not simulation output</span></div>
+      </div>
       <h2 id="results">Selected results</h2>
       <div class="result-grid">
         <div class="result"><strong>553.26 K</strong><span>Neural-network temperature prediction</span></div>
@@ -58,5 +64,5 @@
     </article>
   </div>
 </main>
-<footer class="site-footer section-wrap"><a class="wordmark" href="../index.html">AB<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Built to keep iterating.</span></footer>
+<footer class="site-footer section-wrap"><a class="wordmark" href="../index.html">Atharva<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Built to keep iterating.</span></footer>
 </body></html>
