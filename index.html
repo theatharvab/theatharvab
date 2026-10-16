@@ -173,7 +173,8 @@
     if (frame) {
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       // Kenney Car Kit "Race" model. CC0 1.0, so it is free to reuse.
-      const modelURL = "https://api.flockbay.com/bootstrap/library/models/v1/7495cca326e6271d67e765250524bc743f39f9bdcef5ecb4a2e32e35fd2db83d/race.glb";
+      const modelURL = "https://raw.githubusercontent.com/shorepine/kenney/main/3d/car/hatchback-sports.glb";
+      const textureBaseURL = "https://raw.githubusercontent.com/shorepine/kenney/main/3d/car/";
       try {
         const scene = new THREE.Scene();
         scene.background = new THREE.Color("#202023");
@@ -207,6 +208,7 @@
         let model = null, dragging = false, moved = false, lastX = 0, lastY = 0;
         let zoom = 1, rollMode = false;
         const loader = new GLTFLoader();
+        loader.setResourcePath(textureBaseURL);
         loader.load(modelURL, (gltf) => {
           model = gltf.scene;
           const box = new THREE.Box3().setFromObject(model);
@@ -220,7 +222,7 @@
           pivot.rotation.set(0.04, -0.48, 0);
           if (loading) loading.remove();
         }, undefined, () => {
-          if (loading) loading.innerHTML = '<span>!</span> 3D MODEL COULD NOT LOAD · REFRESH TO RETRY';
+          if (loading) loading.innerHTML = '<span>!</span> MODEL FAILED TO LOAD · CHECK CONNECTION';
         });
 
         const resize = () => {
