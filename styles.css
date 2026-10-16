@@ -75,3 +75,63 @@ nav{display:flex;align-items:center;gap:29px;font-size:.8rem;color:#c9c5c5}nav a
 @media(max-width:650px){.section-wrap,.site-header{width:calc(100% - 36px)}nav{gap:16px;font-size:.73rem}nav a:nth-child(3){display:none}.intro{grid-template-columns:1fr;gap:30px;padding-top:65px;padding-bottom:110px}.intro h1{font-size:clamp(3.1rem,12vw,4.8rem)}.intro-lead{font-size:1.1rem}.portrait-slot{width:150px;aspect-ratio:4/5;justify-self:start;grid-row:2}.intro-bottom{flex-wrap:wrap;gap:8px 16px}.intro-bottom p{width:100%;order:3}.intro-note{margin-left:0!important}.work-section,.details-section{padding:78px 0}.section-heading{display:block}.section-aside{margin-top:17px}.project{grid-template-columns:1fr}.project-image{min-height:285px;border-right:0;border-bottom:1px solid var(--line)}.project-copy{padding:25px 23px;min-height:300px}.about-section,.toolkit-section{padding:76px 0}.about-layout,.toolkit-layout{grid-template-columns:1fr;gap:32px}.timeline-item{grid-template-columns:1fr;gap:5px}.outside-section{grid-template-columns:1fr;gap:28px;padding-top:78px;padding-bottom:78px}.lifting-slot{width:140px;aspect-ratio:3/4;justify-self:start;grid-row:2}.contact-section{padding:78px 0}.site-footer span:last-child{display:none}}
 @media(max-width:420px){nav{gap:12px}nav a:nth-child(2){display:none}.intro h1{font-size:3.05rem}.intro-links{gap:18px}.image-slot-caption small{max-width:280px}.site-footer{font-size:.61rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}}
+
+/* Portfolio refinement: consistent rhythm, compact project cells, and the interactive garage. */
+:root{--section-space:clamp(76px,8vw,108px);--grid-gap:18px}
+.site-header{width:min(1120px,calc(100% - 56px))}
+.intro{grid-template-columns:minmax(0,1fr) minmax(330px,390px);column-gap:clamp(34px,5vw,72px);min-height:640px;padding-top:64px;padding-bottom:112px}
+.intro-copy{min-width:0}
+.garage-card{align-self:center;position:relative;min-width:0;border:1px solid #494448;background:#1d1d20;box-shadow:0 18px 55px #0002}
+.garage-topline{height:37px;display:flex;align-items:center;justify-content:space-between;padding:0 13px;border-bottom:1px solid var(--line);background:#222225}
+.garage-topline .slot-index{position:static;font-size:.55rem}
+.garage-live{font: .55rem var(--mono);letter-spacing:.06em;color:#c7bfc0}
+.garage-live i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#a94b4b;margin-right:6px}
+.car-viewer{height:220px;position:relative;overflow:hidden;background:#202023;touch-action:pan-y}
+.car-viewer canvas{display:block;width:100%;height:100%;cursor:grab;outline:none}
+.car-viewer canvas:active{cursor:grabbing}
+.viewer-hint{position:absolute;z-index:2;left:13px;bottom:10px;font: .53rem var(--mono);letter-spacing:.07em;color:#b2a9aa;pointer-events:none}
+.car-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;background:#202023;font:.58rem var(--mono);letter-spacing:.08em;color:#c4bfc0;z-index:3}
+.car-loading span{color:#c16a6a;animation:loadingPulse 1s infinite alternate}
+@keyframes loadingPulse{to{opacity:.25}}
+.garage-info{padding:17px 17px 13px}
+.garage-number{float:right;font:.58rem var(--mono);color:#a09da0}
+.garage-label{font:.58rem var(--mono);letter-spacing:.09em;color:#c17b7b;margin:0 0 5px}
+.garage-info h2{font-size:1.36rem;line-height:1.25;letter-spacing:-.05em;margin:0 0 2px}
+.garage-year{font:.62rem var(--mono);color:#a09da0;margin:0 0 10px}
+.garage-description{font-size:.72rem;line-height:1.7;color:#b5b0b0;margin:0 0 12px}
+.garage-specs{display:flex;flex-wrap:wrap;gap:6px 14px;border-top:1px solid var(--line);padding-top:10px;font:.56rem var(--mono);color:#c9c2c3}
+.garage-controls{display:grid;grid-template-columns:35px 1fr 35px;gap:8px;margin-top:13px}
+.garage-controls button{height:34px;border:1px solid #51484b;background:transparent;color:#e8e6e3;font: .7rem var(--mono);cursor:pointer;transition:background .2s,border-color .2s}
+.garage-controls button:hover{background:#2c2528;border-color:#a15c5c}
+.garage-controls .play-button{background:var(--accent);border-color:var(--accent);font-size:.6rem;letter-spacing:.08em;font-weight:500}
+.garage-controls .play-button:hover{background:#923333}
+.play-button span{margin-left:8px}
+.garage-footnote{font:.51rem var(--mono);letter-spacing:.035em;color:#8f898b;margin:10px 0 0;text-align:center}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+.project{display:flex;flex-direction:column;min-width:0;margin:0;height:100%;transition:border-color .25s,transform .25s}
+.project-image{position:relative;display:block;min-height:0;height:auto;aspect-ratio:1.45/1;border-right:0;border-bottom:1px solid var(--line);flex:none}
+.project-copy{padding:24px 24px 25px;min-height:280px;flex:1}
+.project-copy h3{font-size:1.25rem}
+.project-copy>p:not(.project-type){font-size:.79rem;line-height:1.8}
+.image-slot-caption small{font-size:.52rem;letter-spacing:.035em}
+.section-heading{margin-bottom:34px}
+.work-section,.details-section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+.about-section,.toolkit-section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+.outside-section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+.contact-section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+.game-modal{position:fixed;inset:0;z-index:1000;background:#0c0c0de8;display:grid;place-items:center;padding:22px;backdrop-filter:blur(8px)}
+.game-panel{position:relative;width:min(760px,100%);padding:clamp(20px,4vw,34px);background:#1d1d20;border:1px solid #51484b;box-shadow:0 30px 100px #0008}
+.game-close{position:absolute;right:14px;top:10px;border:0;background:transparent;color:#e8e6e3;font-size:1.8rem;cursor:pointer}
+.game-panel .eyebrow{margin-bottom:8px}
+.game-panel h2{font-size:clamp(2rem,6vw,3.4rem);letter-spacing:-.07em;line-height:1;margin:0 0 10px}
+.game-panel h2 span{color:var(--accent-soft)}
+.game-instructions{font-size:.75rem;color:var(--muted);margin:0 0 18px}
+.game-canvas{display:block;width:100%;height:auto;aspect-ratio:12/7;background:#202023;border:1px solid #3e393d}
+.game-footer{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:14px}
+.game-footer span{font:.62rem var(--mono);color:#c7bfc0}
+.game-start{background:var(--accent);border:1px solid var(--accent);color:#fff;padding:10px 14px;font:.63rem var(--mono);cursor:pointer}
+.game-start:disabled{opacity:.65;cursor:wait}
+@media(max-width:850px){.intro{grid-template-columns:minmax(0,1fr) minmax(280px,330px);gap:28px}.project-copy{padding:22px;min-height:300px}.garage-info h2{font-size:1.2rem}}
+@media(max-width:700px){.intro{grid-template-columns:1fr;gap:30px;padding-top:58px;padding-bottom:118px}.garage-card{width:min(100%,420px);justify-self:start}.car-viewer{height:230px}.project-grid{grid-template-columns:1fr}.project-image{aspect-ratio:1.6/1}.project-copy{min-height:0;padding:24px}.project-copy .tag-row{margin-top:8px}.project-copy h3{font-size:1.35rem}}
+@media(max-width:420px){.garage-info{padding:15px}.car-viewer{height:205px}.garage-info h2{font-size:1.2rem}.game-footer{align-items:flex-start;flex-direction:column}.game-start{width:100%}}
+@media(prefers-reduced-motion:reduce){.car-loading span{animation:none}}
