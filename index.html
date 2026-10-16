@@ -178,8 +178,8 @@
       try {
         const scene = new THREE.Scene();
         scene.background = new THREE.Color("#202023");
-        const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-        camera.position.set(3.7, 2.5, 5.3);
+        const camera = new THREE.PerspectiveCamera(38, 1, 0.01, 100);
+        camera.position.set(0, 1.2, 4.2);
         const renderer = new THREE.WebGLRenderer({antialias:true, alpha:false, powerPreference:"low-power"});
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
         renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -207,20 +207,35 @@
         scene.add(pivot);
         let model = null, dragging = false, moved = false, lastX = 0, lastY = 0;
         let zoom = 1, rollMode = false;
+        let cameraBase = new THREE.Vector3(3.0, 1.7, 4.2);
         const loader = new GLTFLoader();
         loader.setResourcePath(textureBaseURL);
         loader.load(modelURL, (gltf) => {
           model = gltf.scene;
-          const box = new THREE.Box3().setFromObject(model);
-          const size = box.getSize(new THREE.Vector3());
+          // Normalize the model around its own bounds so camera framing is asset-independent.
+          let box = new THREE.Box3().setFromObject(model);
+          const originalSize = box.getSize(new THREE.Vector3());
           const center = box.getCenter(new THREE.Vector3());
           model.position.sub(center);
-          const largest = Math.max(size.x, size.y, size.z) || 1;
-          model.scale.setScalar(2.45 / largest);
+          const largest = Math.max(originalSize.x, originalSize.y, originalSize.z) || 1;
+          model.scale.setScalar(2.35 / largest);
           pivot.add(model);
-          // Keep the model centered on the pivot so it rotates in place.
+          box = new THREE.Box3().setFromObject(pivot);
+          const fittedSize = box.getSize(new THREE.Vector3());
+          const fittedCenter = box.getCenter(new THREE.Vector3());
+          pivot.position.sub(fittedCenter);
+          const maxDim = Math.max(fittedSize.x, fittedSize.y, fittedSize.z) || 2.35;
+          camera.near = Math.max(0.01, maxDim / 100);
+          camera.far = maxDim * 100;
+          const distance = (maxDim * 0.72) / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+          cameraBase.set(distance * 0.72, distance * 0.40, distance);
+          camera.position.copy(cameraBase);
+          camera.lookAt(0, 0, 0);
+          camera.updateProjectionMatrix();
+          floor.position.y = -fittedSize.y * 0.53;
           pivot.rotation.set(0.04, -0.48, 0);
           if (loading) loading.remove();
+          console.info("3D car loaded; model bounds:", fittedSize);
         }, undefined, () => {
           if (loading) loading.innerHTML = '<span>!</span> MODEL FAILED TO LOAD · CHECK CONNECTION';
         });
@@ -268,7 +283,7 @@
         renderer.domElement.addEventListener("wheel", (event) => {
           event.preventDefault();
           zoom = Math.max(0.78, Math.min(1.45, zoom + (event.deltaY < 0 ? 0.055 : -0.055)));
-          camera.position.set(3.7 / zoom, 2.5 / zoom, 5.3 / zoom);
+          camera.position.copy(cameraBase).divideScalar(zoom);
         }, {passive:false});
 
         const clock = new THREE.Clock();
