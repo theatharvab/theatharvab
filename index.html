@@ -198,7 +198,7 @@
           new THREE.MeshStandardMaterial({color:0x29292d, roughness:0.92, metalness:0})
         );
         floor.rotation.x = -Math.PI / 2;
-        floor.position.y = -0.06;
+        floor.position.y = -0.48;
         scene.add(floor);
 
         const pivot = new THREE.Group();
@@ -215,9 +215,7 @@
           const largest = Math.max(size.x, size.y, size.z) || 1;
           model.scale.setScalar(2.45 / largest);
           pivot.add(model);
-          // Place the model above the display floor after centering.
-          const normalized = new THREE.Box3().setFromObject(model);
-          model.position.y -= normalized.min.y;
+          // Keep the model centered on the pivot so it rotates in place.
           pivot.rotation.set(0.04, -0.48, 0);
           if (loading) loading.remove();
         }, undefined, () => {
@@ -297,7 +295,8 @@
       {name:'Mazda RX-7',year:'1993 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'255 hp (US spec)',description:'A compact rotary sports car known for its low mass and carefully balanced chassis.'},
       {name:'McLaren F1',year:'1992 · Road car',category:'LIGHTWEIGHT ENGINEERING',engine:'6.1L naturally aspirated V12',power:'618 hp',description:'A central driving position, extensive lightweight materials, and a singular focus on the driver.'}
     ];
-    let current = Math.floor(Date.now() / 86400000) % cars.length;
+    const centralDate = new Intl.DateTimeFormat('en-CA', {timeZone:'America/Chicago', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date());
+    let current = Math.floor(Date.parse(centralDate + 'T00:00:00Z') / 86400000) % cars.length;
     const updateText = () => {
       const car = cars[current];
       document.getElementById('car-count').textContent = String(current+1).padStart(2,'0')+' / '+String(cars.length).padStart(2,'0');
