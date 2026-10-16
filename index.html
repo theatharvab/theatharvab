@@ -36,7 +36,7 @@
         <div class="garage-topline"><span class="slot-index">GARAGE NOTES / 001</span><span class="garage-live"><i></i> DAILY FEATURE</span></div>
         <div class="car-viewer" id="car-viewer" aria-label="Interactive 3D sports car model">
           <div class="car-loading" id="car-loading"><span>●</span> LOADING 3D MODEL</div>
-          <span class="viewer-caption">PROTOTYPE MODEL · NOT CAR-SPECIFIC YET</span>
+          <span class="viewer-caption">GENERIC MODEL PROTOTYPE · KENNEY / CC0</span>
           <span class="viewer-hint">DRAG TO ROTATE · SHIFT + DRAG FOR ROLL · SCROLL TO ZOOM</span>
         </div>
         <div class="garage-info">
@@ -170,7 +170,8 @@
 
     const frame = document.getElementById("car-viewer");
     const loading = document.getElementById("car-loading");
-    if (frame && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (frame) {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       // Kenney Car Kit "Race" model. CC0 1.0, so it is free to reuse.
       const modelURL = "https://api.flockbay.com/bootstrap/library/models/v1/7495cca326e6271d67e765250524bc743f39f9bdcef5ecb4a2e32e35fd2db83d/race.glb";
       try {
@@ -272,7 +273,7 @@
         function animate() {
           requestAnimationFrame(animate);
           const dt = Math.min(clock.getDelta(), 0.05);
-          if (model && !dragging) pivot.rotation.y += dt * 0.24;
+          if (model && !dragging && !reduceMotion) pivot.rotation.y += dt * 0.24;
           renderer.render(scene, camera);
         }
         renderer.domElement.style.cursor = "grab";
