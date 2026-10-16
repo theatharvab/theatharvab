@@ -135,3 +135,15 @@ nav{display:flex;align-items:center;gap:29px;font-size:.8rem;color:#c9c5c5}nav a
 @media(max-width:700px){.intro{grid-template-columns:1fr;gap:30px;padding-top:58px;padding-bottom:118px}.garage-card{width:min(100%,420px);justify-self:start}.car-viewer{height:230px}.project-grid{grid-template-columns:1fr}.project-image{aspect-ratio:1.6/1}.project-copy{min-height:0;padding:24px}.project-copy .tag-row{margin-top:8px}.project-copy h3{font-size:1.35rem}}
 @media(max-width:420px){.garage-info{padding:15px}.car-viewer{height:205px}.garage-info h2{font-size:1.2rem}.game-footer{align-items:flex-start;flex-direction:column}.game-start{width:100%}}
 @media(prefers-reduced-motion:reduce){.car-loading span{animation:none}}
+
+/* Emergency layout/rendering fix: keep the garage viewport bounded. */
+.intro{grid-template-columns:minmax(0,1fr) minmax(300px,370px);column-gap:clamp(28px,4vw,56px);align-items:center}
+.intro-copy{width:100%;min-width:0}
+.garage-card{width:100%;max-width:370px;min-width:0;overflow:hidden;justify-self:end;align-self:center}
+.car-viewer{display:block;width:100%;height:210px;min-height:210px;max-height:210px;position:relative;overflow:hidden;contain:layout paint size;background:#202023}
+.car-viewer img{display:block;position:absolute;inset:0;width:100%;height:100%;max-width:100%;object-fit:cover;object-position:center 55%}
+.viewer-caption{position:absolute;left:12px;bottom:10px;padding:4px 7px;background:#171719cc;color:#e8e6e3;font:.52rem var(--mono);letter-spacing:.06em}
+.car-viewer canvas{display:none!important}
+@media(max-width:850px){.intro{grid-template-columns:minmax(0,1fr) minmax(280px,320px);gap:26px}.garage-card{max-width:320px}.car-viewer{height:190px;min-height:190px;max-height:190px}}
+@media(max-width:700px){.intro{grid-template-columns:minmax(0,1fr);gap:28px}.garage-card{width:min(100%,420px);max-width:420px;justify-self:start}.car-viewer{height:230px;min-height:230px;max-height:230px}}
+@media(max-width:420px){.car-viewer{height:205px;min-height:205px;max-height:205px}}
