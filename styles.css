@@ -110,6 +110,7 @@ nav{display:flex;align-items:center;gap:29px;font-size:.8rem;color:#c9c5c5}nav a
 .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
 .project{display:flex;flex-direction:column;min-width:0;margin:0;height:100%;transition:border-color .25s,transform .25s}
 .project-image{position:relative;display:block;min-height:0;height:auto;aspect-ratio:1.45/1;border-right:0;border-bottom:1px solid var(--line);flex:none}
+.project-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}.project-photo-car{object-position:center 52%}.project-car .image-slot-caption{padding:32px 12px 10px;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,12,.88))}
 .project-copy{padding:24px 24px 25px;min-height:280px;flex:1}
 .project-copy h3{font-size:1.25rem}
 .project-copy>p:not(.project-type){font-size:.79rem;line-height:1.8}
