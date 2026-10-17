@@ -216,29 +216,41 @@
       let running=false,frame=0,score=0,lane=1,obstacles=[],raf=0;
       const roadHalf=(y)=>{const t=Math.max(0,Math.min(1,y/canvas.height));return canvas.width*(.17+.30*t)};
       const laneX=(laneIndex,y)=>canvas.width*.5+(laneIndex-1)*roadHalf(y)*.67;
-      const drawCar=(x,y,width,height,color,isPlayer)=>{
-        ctx.save();
-        ctx.translate(x,y);
-        ctx.fillStyle='#09090a';
-        ctx.fillRect(-width*.47,height*.18,width*.18,height*.26);
-        ctx.fillRect(width*.29,height*.18,width*.18,height*.26);
-        ctx.fillRect(-width*.47,height*.68,width*.18,height*.25);
-        ctx.fillRect(width*.29,height*.68,width*.18,height*.25);
-        ctx.fillStyle=color;
-        ctx.beginPath();
-        ctx.moveTo(-width*.34,0);ctx.lineTo(width*.34,0);
-        ctx.lineTo(width*.48,height*.18);ctx.lineTo(width*.43,height*.86);
-        ctx.lineTo(width*.28,height);ctx.lineTo(-width*.28,height);
-        ctx.lineTo(-width*.43,height*.86);ctx.lineTo(-width*.48,height*.18);
-        ctx.closePath();ctx.fill();
-        ctx.fillStyle=isPlayer?'#d9e3e5':'#25282b';
-        ctx.beginPath();ctx.moveTo(-width*.25,height*.22);ctx.lineTo(width*.25,height*.22);ctx.lineTo(width*.29,height*.46);ctx.lineTo(-width*.29,height*.46);ctx.closePath();ctx.fill();
-        ctx.fillStyle='#d7c6a9';
-        ctx.fillRect(-width*.31,height*.06,width*.15,Math.max(2,height*.055));
-        ctx.fillRect(width*.16,height*.06,width*.15,Math.max(2,height*.055));
-        ctx.fillStyle='#a52c2c';
-        ctx.fillRect(-width*.31,height*.83,width*.15,Math.max(2,height*.06));
-        ctx.fillRect(width*.16,height*.83,width*.15,Math.max(2,height*.06));
+      const selectedGarageCar=cars[current]||cars[0];
+      const garageName=selectedGarageCar.name;
+      const playerProfile=/Peel P50/i.test(garageName)?'micro':/Stagea/i.test(garageName)?'wagon':/Senna|RX-7/i.test(garageName)?'sports':'sedan';
+      const playerColor=/RX-7/i.test(garageName)?'#a52d32':/Stagea/i.test(garageName)?'#687581':/Altezza/i.test(garageName)?'#d5d0c5':/Senna/i.test(garageName)?'#c9c9c5':/Peel P50/i.test(garageName)?'#d4b44b':'#c7c5c0';
+      const drawCar=(x,y,width,height,color,isPlayer,profile='sports')=>{
+        const block=(c,rx,ry,rw,rh)=>{ctx.fillStyle=c;ctx.fillRect(Math.round(rx),Math.round(ry),Math.max(1,Math.round(rw)),Math.max(1,Math.round(rh)))};
+        ctx.save();ctx.translate(Math.round(x),Math.round(y));
+        const wheelW=width*(profile==='micro'?.19:.17),wheelH=height*.23;
+        block('#08090b',-width*.53,height*.18,wheelW,wheelH);block('#08090b',width*.36,height*.18,wheelW,wheelH);
+        block('#08090b',-width*.53,height*.66,wheelW,wheelH);block('#08090b',width*.36,height*.66,wheelW,wheelH);
+        block('#151518',-width*.47,height*.25,width*.12,height*.11);block('#151518',width*.35,height*.25,width*.12,height*.11);
+        block('#09090b',-width*.39,-height*.015,width*.78,height*1.03);
+        const bodyWidth=profile==='micro'?.65:profile==='wagon'?.76:profile==='sedan'?.72:.68;
+        block(color,-width*bodyWidth/2,height*.04,width*bodyWidth,height*.90);
+        block(color,-width*(bodyWidth*.42),height*.005,width*(bodyWidth*.84),height*.13);
+        if(profile==='sports'){
+          block('#25292d',-width*.25,height*.24,width*.50,height*.20);block('#3d4549',-width*.21,height*.26,width*.42,height*.055);
+          block('#202327',-width*.22,height*.48,width*.44,height*.12);block(color,-width*.31,height*.61,width*.62,height*.20);
+          block('#141518',-width*.38,height*.80,width*.76,height*.07);
+          if(/Senna/i.test(garageName)){block('#171719',-width*.53,height*.87,width*1.06,height*.07);block('#b5b4af',-width*.48,height*.91,width*.96,height*.025)}
+        }else if(profile==='wagon'){
+          block('#262b30',-width*.29,height*.20,width*.58,height*.38);block('#3b454c',-width*.25,height*.23,width*.50,height*.12);
+          block('#202428',-width*.25,height*.38,width*.50,height*.16);block(color,-width*.34,height*.61,width*.68,height*.22);block('#151619',-width*.34,height*.79,width*.68,height*.07);
+        }else if(profile==='micro'){
+          block('#24282b',-width*.24,height*.26,width*.48,height*.22);block('#4c565a',-width*.20,height*.29,width*.40,height*.07);
+          block(color,-width*.28,height*.61,width*.56,height*.18);block('#151619',-width*.30,height*.79,width*.60,height*.06);
+        }else{
+          block('#262a2d',-width*.28,height*.20,width*.56,height*.31);block('#41494d',-width*.24,height*.23,width*.48,height*.11);
+          block('#202326',-width*.24,height*.37,width*.48,height*.12);block(color,-width*.32,height*.54,width*.64,height*.27);block('#151619',-width*.34,height*.80,width*.68,height*.06);
+          if(/Laurel/i.test(garageName)){block('#ded8cb',-width*.025,height*.12,width*.05,height*.65)}
+        }
+        block('#f0dfad',-width*.31,height*.055,width*.18,height*.045);block('#f0dfad',width*.13,height*.055,width*.18,height*.045);
+        block('#a52c35',-width*.31,height*.84,width*.17,height*.055);block('#a52c35',width*.14,height*.84,width*.17,height*.055);
+        block('#111215',-width*.17,height*.91,width*.34,height*.035);
+        if(isPlayer)block('#f4eee3',-width*.12,height*.94,width*.24,height*.035);
         ctx.restore();
       };
       const draw=(playing)=>{
@@ -272,12 +284,13 @@
         if(playing){
           obstacles.forEach(o=>{
             const scale=.46+.78*Math.max(0,o.y/h);
-            drawCar(laneX(o.lane,o.y),o.y,29*scale,43*scale,o.color,false);
+            drawCar(laneX(o.lane,o.y),o.y,29*scale,43*scale,o.color,false,'sports');
           });
           const playerY=h-86;
-          drawCar(laneX(lane,playerY),playerY,43,64,'#781b1b',true);
+          drawCar(laneX(lane,playerY),playerY,playerProfile==='micro'?35:playerProfile==='sports'?43:46,playerProfile==='micro'?53:64,playerColor,true,playerProfile);
           ctx.fillStyle='#e8e6e3';ctx.font='bold 20px monospace';
           ctx.fillText(String(score).padStart(3,'0'),w-62,30);
+          ctx.fillStyle='#c9c2c3';ctx.font='10px monospace';ctx.fillText(('PLAYER · '+garageName).toUpperCase().slice(0,34),22,h-15);
         }
       };
       const tick=()=>{
