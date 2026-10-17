@@ -156,3 +156,10 @@ nav{display:flex;align-items:center;gap:29px;font-size:.8rem;color:#c9c5c5}nav a
 .viewer-hint{position:absolute;left:12px;bottom:34px;font:.48rem var(--mono);letter-spacing:.035em;color:#c9c2c3;pointer-events:none;text-shadow:0 1px 4px #000}
 .car-viewer .car-loading{font:.56rem var(--mono);letter-spacing:.07em;color:#d4cecf}
 @media(max-width:700px){.viewer-hint{max-width:90%;font-size:.43rem}}
+
+
+/* Embedded vehicle models for the garage collection */
+.car-viewer iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0;background:#202023;z-index:1}
+.car-viewer #car-loading{z-index:3;transition:opacity .2s}
+.car-viewer #viewer-caption{z-index:4;max-width:calc(100% - 24px);cursor:pointer;pointer-events:auto;line-height:1.5}
+.car-viewer #viewer-caption:hover{color:#fff;background:#781b1bee}
