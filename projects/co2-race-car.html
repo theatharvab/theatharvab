@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CAD, fabrication, and testing notes for Atharva Banchhod's CO₂-powered car project.">
+  <title>CO₂-Powered Car | Atharva Banchhod</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .car-hero{padding:90px 0 65px;border-bottom:1px solid var(--line)}
+    .car-hero h1{font-size:clamp(2.8rem,6vw,5.4rem);max-width:900px}
+    .car-hero .lead{max-width:760px;color:#b4bec8;font-size:1.05rem;line-height:1.9}
+    .car-meta{display:flex;flex-wrap:wrap;gap:10px;margin:25px 0}
+    .car-meta span{font:.68rem var(--mono);color:#c3cdd5;border:1px solid var(--line);padding:7px 10px}
+    .car-layout{display:grid;grid-template-columns:200px minmax(0,760px);gap:70px;padding:65px 0 100px}
+    .car-toc{position:sticky;top:25px;align-self:start}
+    .car-toc a{display:block;font-size:.77rem;color:var(--muted);padding:8px 0}
+    .car-body h2{font-size:1.65rem;letter-spacing:-.04em;margin:42px 0 15px}
+    .car-body h2:first-child{margin-top:0}
+    .car-body p,.car-body li{font-size:.9rem;line-height:1.9;color:#b6c0c9}
+    .car-body ul{padding-left:22px}
+    .cad-figure{margin:24px 0 18px;border:1px solid var(--line);background:#202023;overflow:hidden}
+    .cad-figure img{display:block;width:100%;height:auto}
+    .figure-caption{font:.68rem var(--mono);line-height:1.7;color:var(--muted);padding:12px 15px;border-top:1px solid var(--line)}
+    .note{border-left:2px solid var(--accent);padding:14px 18px;background:#141b1d;color:#b9c5cc;font-size:.82rem;line-height:1.8;margin:24px 0}
+    .back-link{display:inline-block;margin-top:25px;font-size:.83rem;color:var(--accent)}
+    @media(max-width:760px){.car-layout{grid-template-columns:1fr;gap:25px}.car-toc{position:static;display:flex;gap:12px;flex-wrap:wrap}.car-toc a{padding:4px 0}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html">Atharva<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#outside">Outside the lab</a>
+      <a href="../index.html#contact">Contact ↗</a>
+    </nav>
+  </header>
+  <main class="section-wrap">
+    <section class="car-hero">
+      <p class="eyebrow">DESIGN & FABRICATION · CO₂ VEHICLE</p>
+      <h1>CO₂-powered car<span class="red-period">.</span></h1>
+      <p class="lead">A small vehicle project that brought together CAD design, hands-on fabrication, and testing. I designed the car in Autodesk Fusion, built the physical body from wood, and painted it in a Gulf-inspired racing livery.</p>
+      <div class="car-meta"><span>AUTODESK FUSION</span><span>WOOD FABRICATION</span><span>TESTING</span></div>
+    </section>
+    <div class="car-layout">
+      <aside class="car-toc" aria-label="On this page">
+        <a href="#overview">Overview</a>
+        <a href="#cad">CAD design</a>
+        <a href="#build">Physical build</a>
+        <a href="#testing">Testing</a>
+      </aside>
+      <article class="car-body">
+        <h2 id="overview">Project overview</h2>
+        <p>This project gave me a chance to take a vehicle concept from a digital model into a physical build. The CAD screenshot below is from my original Autodesk Fusion work; it documents the design process rather than the finished physical car.</p>
+
+        <h2 id="cad">CAD design</h2>
+        <p>I modeled the car body in Autodesk Fusion. The image is a screenshot of that CAD model, so the Fusion interface is part of the original documentation.</p>
+        <figure class="cad-figure">
+          <img src="../assets/images/co2-car.png" alt="Screenshot of my CO₂-powered car body model in Autodesk Fusion">
+          <figcaption class="figure-caption">ORIGINAL CAD SCREENSHOT · AUTODESK FUSION · MODEL SHOWN WITHOUT WHEELS OR AXLES</figcaption>
+        </figure>
+
+        <h2 id="build">Physical build</h2>
+        <p>I fabricated the physical car from wood and painted it in a Gulf-inspired racing livery. I still have the finished car and plan to add a photograph of it here.</p>
+        <div class="note">Physical-car photo to be added. This page currently uses the original Fusion screenshot only in the CAD section.</div>
+
+        <h2 id="testing">Testing</h2>
+        <p>The car recorded the fastest run in my class over an approximately 80-foot course. I don't currently have competition photos, so this result is documented in text rather than represented by an unrelated image.</p>
+        <a class="back-link" href="../index.html#work">← Back to selected work</a>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer section-wrap"><a class="wordmark" href="../index.html">Atharva<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Independent student work · 2026</span></footer>
+</body>
+</html>
