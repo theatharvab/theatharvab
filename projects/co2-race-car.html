@@ -21,6 +21,9 @@
     .car-body ul{padding-left:22px}
     .cad-figure{margin:24px 0 18px;border:1px solid var(--line);background:#202023;overflow:hidden}
     .cad-figure img{display:block;width:100%;height:auto}
+    .media-figure{margin:24px 0 18px;border:1px solid var(--line);background:#202023;overflow:hidden}
+    .media-figure img{display:block;width:100%;height:auto}
+    .race-video{display:block;width:100%;max-height:78vh;aspect-ratio:9/16;object-fit:contain;background:#08090b}
     .figure-caption{font:.68rem var(--mono);line-height:1.7;color:var(--muted);padding:12px 15px;border-top:1px solid var(--line)}
     .note{border-left:2px solid var(--accent);padding:14px 18px;background:#141b1d;color:#b9c5cc;font-size:.82rem;line-height:1.8;margin:24px 0}
     .back-link{display:inline-block;margin-top:25px;font-size:.83rem;color:var(--accent)}
@@ -65,11 +68,21 @@
         <h2 id="build">Physical build</h2>
         <p>After designing the body in Autodesk Fusion, I printed a side view and glued the printed templates onto a block of wood. I cut the body out by hand with a bandsaw, then hand-sanded it to refine the shape. I finished the build by hand-painting the Gulf-inspired racing livery.</p>
         <p>This process took the project from a digital design to a physical object using a simple, hands-on workflow: model the shape, transfer it to the material with printed templates, cut, sand, and paint.</p>
-        <p>I still have the finished car and plan to add a photograph of it here.</p>
-        <div class="note">Physical-car photo to be added. This page currently uses the original Fusion screenshot only in the CAD section.</div>
+        <figure class="media-figure">
+          <img src="../assets/images/co2carreal%20(1).png" alt="Photograph of my finished CO₂-powered car with its Gulf-inspired racing livery" loading="lazy">
+          <figcaption class="figure-caption">PHYSICAL BUILD · FINISHED CO₂-POWERED CAR · GULF-INSPIRED LIVERY</figcaption>
+        </figure>
 
         <h2 id="testing">Testing</h2>
-        <p>The car recorded the fastest run in my class over an approximately 80-foot course. I don't currently have competition photos, so this result is documented in text rather than represented by an unrelated image.</p>
+        <p>I raced the finished car on an approximately 80-foot course. The race footage below shows the car during competition; the video is presented in its original vertical format.</p>
+        <figure class="media-figure">
+          <video class="race-video" controls playsinline preload="metadata" aria-label="Video of my CO₂-powered car racing on the course">
+            <source src="../assets/images/IMG_8106.MOV" type="video/quicktime">
+            Your browser may not support this MOV file. If playback fails, the video should be converted to MP4 for broader browser compatibility.
+          </video>
+          <figcaption class="figure-caption">RACE FOOTAGE · APPROXIMATELY 80-FOOT COURSE · VERTICAL VIDEO</figcaption>
+        </figure>
+        <div class="note">The reported average speed of approximately 35.9 mph is based on an 80-foot distance over 1.52 seconds and assumes that timing interval covers the full course. It is an estimate from the available footage, not an independently measured top speed.</div>
         <a class="back-link" href="../index.html#work">← Back to selected work</a>
       </article>
     </div>
