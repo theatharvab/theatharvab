@@ -164,10 +164,10 @@
   <script>
   (() => {
     const cars = [
-      {name:'Nissan Laurel Club S Type X Turbo',year:'1998 · C35',category:'JDM SLEEPER',engine:'2.5L turbocharged inline-six',power:'280 PS market-rated',description:'Your featured car: understated C35 styling, rear-drive proportions, and serious tuning heritage.',modelId:'3972456be83c45deaa9fe072505e1bca',credit:'NISSAN LAUREL C35 · MODEL BY SKETCHFAB CREATOR · CC BY',source:'https://sketchfab.com/3d-models/nissan-laurel-club-s-c35-3972456be83c45deaa9fe072505e1bca'},
-      {name:'Mazda RX-7 Spirit R',year:'2002 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'280 PS Japan-spec',description:'A compact rotary sports car with flowing bodywork and a famously balanced chassis.',modelId:'e9c3394294104838bfc89b226f93a52a',credit:'MAZDA RX-7 SPIRIT R · MODEL BY SKETCHFAB CREATOR · CC BY',source:'https://sketchfab.com/3d-models/mazda-rx-7-spirit-r-fd3s-e9c3394294104838bfc89b226f93a52a'},
-      {name:'Nissan Stagea 260RS Autech',year:'2000 · WGNC34',category:'SLEEPER WAGON',engine:'2.6L twin-turbo inline-six',power:'280 PS market-rated',description:'A performance wagon with Skyline GT-R hardware and the everyday practicality of a Stagea.',modelId:'a347d59886de434bb7eaaf85ac1e6a2b',credit:'NISSAN STAGEA 260RS AUTECH · MODEL BY SKETCHFAB CREATOR · CC BY',source:'https://sketchfab.com/3d-models/2000-nissan-stagea-autechversion-260rs-a347d59886de434bb7eaaf85ac1e6a2b'},
-      {name:'Toyota Altezza SXE10',year:'1998 · RS200',category:'JAPANESE SPORT SEDAN',engine:'2.0L naturally aspirated 3S-GE',power:'210 PS (RS200)',description:'A compact rear-wheel-drive sedan with a high-revving four-cylinder and clean proportions.',modelId:'4e78dd65a720492c8797cde72d2a6226',credit:'TOYOTA ALTEZZA SXE10 · MODEL BY SKETCHFAB CREATOR · CC BY',source:'https://sketchfab.com/3d-models/toyota-altezza-sxe10-4e78dd65a720492c8797cde72d2a6226'}
+      {name:'Nissan Laurel Club S Type X Turbo',year:'1998 · C35',category:'JDM SLEEPER',engine:'2.5L turbocharged inline-six',power:'280 PS market-rated',description:'Your featured car: understated C35 styling, rear-drive proportions, and serious tuning heritage.',modelId:'3972456be83c45deaa9fe072505e1bca',credit:'NISSAN LAUREL C35 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/nissan-laurel-club-s-c35-3972456be83c45deaa9fe072505e1bca'},
+      {name:'Mazda RX-7 Spirit R',year:'2002 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'280 PS Japan-spec',description:'A compact rotary sports car with flowing bodywork and a famously balanced chassis.',modelId:'e9c3394294104838bfc89b226f93a52a',credit:'MAZDA RX-7 SPIRIT R · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mazda-rx-7-spirit-r-fd3s-e9c3394294104838bfc89b226f93a52a'},
+      {name:'Nissan Stagea 260RS Autech',year:'2000 · WGNC34',category:'SLEEPER WAGON',engine:'2.6L twin-turbo inline-six',power:'280 PS market-rated',description:'A performance wagon with Skyline GT-R hardware and the everyday practicality of a Stagea.',modelId:'a347d59886de434bb7eaaf85ac1e6a2b',credit:'NISSAN STAGEA 260RS AUTECH · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/2000-nissan-stagea-autechversion-260rs-a347d59886de434bb7eaaf85ac1e6a2b'},
+      {name:'Toyota Altezza SXE10',year:'1998 · RS200',category:'JAPANESE SPORT SEDAN',engine:'2.0L naturally aspirated 3S-GE',power:'210 PS (RS200)',description:'A compact rear-wheel-drive sedan with a high-revving four-cylinder and clean proportions.',modelId:'4e78dd65a720492c8797cde72d2a6226',credit:'TOYOTA ALTEZZA SXE10 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/toyota-altezza-sxe10-4e78dd65a720492c8797cde72d2a6226'}
     ];
     let current = 0;
     const modelFrame = document.getElementById('car-model-frame');
@@ -184,7 +184,7 @@
       document.getElementById('featured-car-power').textContent = car.power;
       document.querySelector('.garage-topline .slot-index').textContent = 'GARAGE NOTES / '+String(current+1).padStart(3,'0');
       if (modelFrame) {
-        modelFrame.src = 'https://sketchfab.com/models/' + car.modelId + '/embed?autostart=1&preload=1&ui_theme=dark&ui_infos=0';
+        modelFrame.src = 'https://sketchfab.com/models/' + car.modelId + '/embed?autostart=1&preload=1&ui_theme=dark';
         modelFrame.title = 'Interactive 3D model: ' + car.name;
       }
       if (viewerCaption) {
