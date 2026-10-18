@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Work in progress: a CAD and kinematic study of the Honda J35Z2 3.5L V6, developed in Fusion 360 and Python.">
+  <meta name="theme-color" content="#171719">
+  <title>Honda J35Z2 V6 Engine Study | Atharva Banchhod</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .engine-hero{padding:90px 0 65px;border-bottom:1px solid var(--line)}
+    .engine-hero h1{font-size:clamp(2.8rem,6vw,5.4rem);max-width:980px}
+    .engine-hero .lead{max-width:790px;color:#b4bec8;font-size:1.05rem;line-height:1.9}
+    .engine-meta{display:flex;flex-wrap:wrap;gap:10px;margin:25px 0}
+    .engine-meta span{font:.68rem var(--mono);color:#c3cdd5;border:1px solid var(--line);padding:7px 10px}
+    .status-line{display:inline-flex;align-items:center;gap:8px;font:.62rem var(--mono);letter-spacing:.07em;color:#d6b1a0;border:1px solid #77504b;padding:8px 10px;margin:0 0 20px}
+    .status-line:before{content:"";width:6px;height:6px;background:#c17b7b;border-radius:50%}
+    .engine-layout{display:grid;grid-template-columns:210px minmax(0,760px);gap:70px;padding:65px 0 100px}
+    .engine-toc{position:sticky;top:25px;align-self:start}
+    .engine-toc a{display:block;font-size:.77rem;color:var(--muted);padding:8px 0}
+    .engine-body h2{font-size:1.65rem;letter-spacing:-.04em;margin:42px 0 15px}
+    .engine-body h2:first-child{margin-top:0}
+    .engine-body p,.engine-body li{font-size:.9rem;line-height:1.9;color:#b6c0c9}
+    .engine-body ul{padding-left:22px}
+    .engine-figure{position:relative;min-height:285px;margin:25px 0 35px;overflow:hidden;border:1px solid var(--line);background:#202023;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:26px 26px}
+    .engine-figure:before{content:"";position:absolute;left:12%;right:12%;top:23%;height:38%;border:1px solid #9d5555;background:linear-gradient(90deg,#781b1b33,#b8b1a833,#6d7d7d22);transform:skewY(-8deg)}
+    .engine-figure-label{position:absolute;left:17px;right:17px;bottom:15px;display:flex;flex-direction:column;gap:4px}
+    .engine-figure-label strong{font-size:.72rem;font-weight:500;color:#e3dede}
+    .engine-figure-label span{font:.6rem var(--mono);color:var(--muted)}
+    .milestone-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}
+    .milestone{border:1px solid var(--line);background:var(--panel);padding:18px}
+    .milestone strong{display:block;color:var(--accent);font-size:1.05rem;margin-bottom:7px}
+    .milestone span{font-size:.75rem;line-height:1.7;color:var(--muted)}
+    .note{border-left:2px solid var(--accent);padding:14px 18px;background:#141b1d;color:#b9c5cc;font-size:.82rem;line-height:1.8;margin:24px 0}
+    .back-link{display:inline-block;margin-top:25px;font-size:.83rem;color:var(--accent)}
+    @media(max-width:760px){.engine-layout{grid-template-columns:1fr;gap:25px}.engine-toc{position:static;display:flex;gap:12px;flex-wrap:wrap}.engine-toc a{padding:4px 0}.milestone-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../index.html">Atharva<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#outside">Outside the lab</a>
+      <a href="../index.html#contact">Contact ↗</a>
+    </nav>
+  </header>
+  <main class="section-wrap">
+    <section class="engine-hero">
+      <p class="eyebrow">INDEPENDENT ENGINEERING · CAD & KINEMATICS</p>
+      <div class="status-line">WORK IN PROGRESS · SINGLE-CYLINDER PROTOTYPE</div>
+      <h1>Honda J35Z2 V6 engine study<span class="red-period">.</span></h1>
+      <p class="lead">A developing CAD and motion-study project focused on the mechanisms inside the 3.5L V6 in my Honda Accord. I'm using Fusion 360 and Python to move from a working crank-slider prototype toward a complete, documented V6 assembly.</p>
+      <div class="engine-meta"><span>AUTODESK FUSION 360</span><span>PYTHON AUTOMATION</span><span>SLIDER-CRANK KINEMATICS</span><span>WIP · 2026</span></div>
+    </section>
+    <div class="engine-layout">
+      <aside class="engine-toc" aria-label="On this page">
+        <a href="#overview">Overview</a>
+        <a href="#current">Current milestone</a>
+        <a href="#roadmap">Development plan</a>
+        <a href="#validation">Validation & scope</a>
+      </aside>
+      <article class="engine-body">
+        <h2 id="overview">Project overview</h2>
+        <p>The goal is to create an explanatory virtual model of the Honda J35Z2 V6: not just a static engine render, but a set of views showing how the crankshaft, pistons, connecting rods, camshafts, and valves work together. The model will grow in stages so the motion can be checked before more detail is added.</p>
+        <figure class="engine-figure" role="img" aria-label="Illustrative placeholder for the evolving J35Z2 engine CAD model">
+          <div class="engine-figure-label"><strong>ENGINE ASSEMBLY PREVIEW · IN DEVELOPMENT</strong><span>Illustrative placeholder, not a CAD render or simulation result</span></div>
+        </figure>
+        <h2 id="current">Current milestone</h2>
+        <p>A single-cylinder crank-slider prototype is working in Fusion 360. It contains a piston, wrist pin, connecting rod, and crank throw positioned using slider-crank kinematics. A Python export workflow renders numbered PNG frames, and a separate utility combines them into a seamless looping GIF.</p>
+        <div class="milestone-grid">
+          <div class="milestone"><strong>01 · Geometry</strong><span>Piston, wrist pin, connecting rod, and crank throw assembled as a first prototype.</span></div>
+          <div class="milestone"><strong>02 · Motion</strong><span>A full crank revolution exported as 72 frames at 5° crank-angle increments.</span></div>
+          <div class="milestone"><strong>03 · Workflow</strong><span>Fusion 360 Python API for model/frame generation; standard Python and Pillow for GIF creation.</span></div>
+          <div class="milestone"><strong>04 · Next</strong><span>Expand to a mechanically coherent six-cylinder layout and synchronize all piston motion.</span></div>
+        </div>
+        <h2 id="roadmap">Development plan</h2>
+        <ul>
+          <li><strong>Full V6 bottom end:</strong> build the cylinder-bank layout, a coherent crankshaft, six pistons, six connecting rods, and synchronized motion.</li>
+          <li><strong>Four-stroke cycle:</strong> visualize the 720° operating cycle and cylinder phasing, rather than treating one crank revolution as the complete cycle.</li>
+          <li><strong>SOHC valvetrain:</strong> add the two camshafts, valve motion, timing relationship, and explanatory close-up views.</li>
+          <li><strong>i-VTEC and timing drive:</strong> research the J35Z2-specific mechanism and implement a clearly labeled model of its operating behavior.</li>
+          <li><strong>Engineering outputs:</strong> create displacement, velocity, acceleration, and valve-lift plots, plus exploded and cutaway views.</li>
+        </ul>
+        <h2 id="validation">Validation & scope</h2>
+        <p>The project will distinguish published engine specifications, mathematically derived values, physical measurements, and estimated component dimensions. The current animation is a kinematic visualization of a simplified mechanism; it is not a combustion, thermal, structural, or CFD simulation.</p>
+        <div class="note">The single-cylinder prototype is a working milestone, not yet a complete J35Z2 engine model. Detailed internal dimensions, crankshaft phasing, and valvetrain behavior will be verified where reliable technical references are available; estimates will be documented rather than presented as OEM measurements.</div>
+        <p>Planned validation includes checking the modeled piston stroke, connecting-rod length, piston-axis alignment, crank-angle relationships, and consistency between the analytical kinematics and exported frames. Any future physical or dynamic simulation will be treated as a separate stage requiring appropriate inputs and validation.</p>
+        <a class="back-link" href="../index.html#work">← Back to selected work</a>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer section-wrap"><a class="wordmark" href="../index.html">Atharva<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Independent student work · 2026</span></footer>
+</body>
+</html>
