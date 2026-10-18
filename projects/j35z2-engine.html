@@ -64,8 +64,9 @@
       <article class="engine-body">
         <h2 id="overview">Project overview</h2>
         <p>The goal is to create an explanatory virtual model of the Honda J35Z2 V6: not just a static engine render, but a set of views showing how the crankshaft, pistons, connecting rods, camshafts, and valves work together. The model will grow in stages so the motion can be checked before more detail is added.</p>
-        <figure class="engine-figure" role="img" aria-label="Illustrative placeholder for the evolving J35Z2 engine CAD model">
-          <div class="engine-figure-label"><strong>ENGINE ASSEMBLY PREVIEW · IN DEVELOPMENT</strong><span>Illustrative placeholder, not a CAD render or simulation result</span></div>
+        <figure class="engine-figure engine-figure-live">
+          <img src="../assets/images/J35Z2_crank_slider.gif" alt="Animated single-cylinder crank-slider prototype showing the piston, connecting rod, and crank throw moving through one crankshaft revolution" loading="lazy">
+          <div class="engine-figure-label"><strong>WORKING PROTOTYPE · CRANK-SLIDER KINEMATICS</strong><span>Single-cylinder mechanism · looping 360° crank animation</span></div>
         </figure>
         <h2 id="current">Current milestone</h2>
         <p>A single-cylinder crank-slider prototype is working in Fusion 360. It contains a piston, wrist pin, connecting rod, and crank throw positioned using slider-crank kinematics. A Python export workflow renders numbered PNG frames, and a separate utility combines them into a seamless looping GIF.</p>
