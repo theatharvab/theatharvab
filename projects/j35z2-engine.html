@@ -34,6 +34,33 @@
     .note{border-left:2px solid var(--accent);padding:14px 18px;background:#141b1d;color:#b9c5cc;font-size:.82rem;line-height:1.8;margin:24px 0}
     .back-link{display:inline-block;margin-top:25px;font-size:.83rem;color:var(--accent)}
     @media(max-width:760px){.engine-layout{grid-template-columns:1fr;gap:25px}.engine-toc{position:static;display:flex;gap:12px;flex-wrap:wrap}.engine-toc a{padding:4px 0}.milestone-grid{grid-template-columns:1fr}}
+    .engine-explorer{padding:45px 0 100px;max-width:1000px;margin:0 auto}
+    .engine-tab-radio{position:absolute;opacity:0;pointer-events:none}
+    .engine-tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--line);margin-bottom:30px;scrollbar-width:thin}
+    .engine-tabs label{flex:0 0 auto;border-bottom:2px solid transparent;color:var(--muted);padding:14px 15px 12px;font:.68rem var(--mono);white-space:nowrap;cursor:pointer}
+    .engine-tabs label:hover{color:var(--text)}
+    #view-overview:checked~.engine-tabs label[for="view-overview"],#view-crank:checked~.engine-tabs label[for="view-crank"],#view-bottom:checked~.engine-tabs label[for="view-bottom"],#view-valvetrain:checked~.engine-tabs label[for="view-valvetrain"],#view-timing:checked~.engine-tabs label[for="view-timing"],#view-ivtec:checked~.engine-tabs label[for="view-ivtec"],#view-kinematics:checked~.engine-tabs label[for="view-kinematics"],#view-analysis:checked~.engine-tabs label[for="view-analysis"]{color:#f0dede;border-bottom-color:var(--accent-soft)}
+    .engine-panel{display:none;max-width:820px}
+    #view-overview:checked~.panel-overview,#view-crank:checked~.panel-crank,#view-bottom:checked~.panel-bottom,#view-valvetrain:checked~.panel-valvetrain,#view-timing:checked~.panel-timing,#view-ivtec:checked~.panel-ivtec,#view-kinematics:checked~.panel-kinematics,#view-analysis:checked~.panel-analysis{display:block;animation:panelIn .22s ease-out}
+    .engine-panel h2{font-size:clamp(1.6rem,4vw,2.25rem);letter-spacing:-.05em;line-height:1.2;margin:0 0 15px}
+    .engine-panel h3{font-size:1.02rem;margin:32px 0 12px}
+    .engine-panel p{font-size:.9rem;line-height:1.9;color:#b6c0c9}
+    .panel-kicker{font:.62rem var(--mono)!important;letter-spacing:.1em;color:#c17b7b!important;margin:0 0 12px}
+    .overview-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:28px 0 35px}
+    .overview-stats>div{padding:16px;border:1px solid var(--line);background:var(--panel);min-width:0}
+    .overview-stats span{display:block;font:.55rem var(--mono);letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
+    .overview-stats strong{display:block;font-size:.82rem;line-height:1.5;font-weight:600}
+    .subsystem-visual{display:flex;flex-direction:column;gap:10px;justify-content:center;min-height:150px;padding:25px;margin:25px 0 30px;border:1px solid #514044;background-color:#202023;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:24px 24px}
+    .subsystem-visual span{font:.6rem var(--mono);letter-spacing:.1em;color:#c17b7b}
+    .subsystem-visual strong{font-size:clamp(1.15rem,3vw,1.65rem);line-height:1.4;font-weight:600}
+    .subsystem-visual small{font-size:.72rem;color:var(--muted);line-height:1.7}
+    .engine-figure-live{min-height:0;aspect-ratio:16/9}
+    .engine-figure-live:before{display:none}
+    .engine-figure-live img{display:block;width:100%;height:100%;object-fit:contain;background:#202023}
+    .engine-figure-live .engine-figure-label{background:linear-gradient(transparent,#101012d9);padding:30px 15px 12px;left:0;right:0;bottom:0}
+    @keyframes panelIn{from{opacity:.55;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:650px){.engine-explorer{padding-top:28px}.engine-tabs{margin-bottom:24px}.engine-tabs label{padding:12px;font-size:.62rem}.overview-stats{grid-template-columns:1fr}.overview-stats>div{padding:12px 14px}.engine-figure-live{aspect-ratio:4/3}}
+    @media(prefers-reduced-motion:reduce){.engine-panel{animation:none}}
   </style>
 </head>
 <body>
@@ -54,43 +81,89 @@
       <p class="lead">A developing CAD and motion-study project focused on the mechanisms inside the 3.5L V6 in my Honda Accord. I'm using Fusion 360 and Python to move from a working crank-slider prototype toward a complete, documented V6 assembly.</p>
       <div class="engine-meta"><span>AUTODESK FUSION 360</span><span>PYTHON AUTOMATION</span><span>SLIDER-CRANK KINEMATICS</span><span>WIP · 2026</span></div>
     </section>
-    <div class="engine-layout">
-      <aside class="engine-toc" aria-label="On this page">
-        <a href="#overview">Overview</a>
-        <a href="#current">Current milestone</a>
-        <a href="#roadmap">Development plan</a>
-        <a href="#validation">Validation & scope</a>
-      </aside>
-      <article class="engine-body">
-        <h2 id="overview">Project overview</h2>
-        <p>The goal is to create an explanatory virtual model of the Honda J35Z2 V6: not just a static engine render, but a set of views showing how the crankshaft, pistons, connecting rods, camshafts, and valves work together. The model will grow in stages so the motion can be checked before more detail is added.</p>
-        <figure class="engine-figure engine-figure-live">
-          <img src="../assets/images/J35Z2_crank_slider.gif" alt="Animated single-cylinder crank-slider prototype showing the piston, connecting rod, and crank throw moving through one crankshaft revolution" loading="lazy">
-          <div class="engine-figure-label"><strong>WORKING PROTOTYPE · CRANK-SLIDER KINEMATICS</strong><span>Single-cylinder mechanism · looping 360° crank animation</span></div>
-        </figure>
-        <h2 id="current">Current milestone</h2>
-        <p>A single-cylinder crank-slider prototype is working in Fusion 360. It contains a piston, wrist pin, connecting rod, and crank throw positioned using slider-crank kinematics. A Python export workflow renders numbered PNG frames, and a separate utility combines them into a seamless looping GIF.</p>
-        <div class="milestone-grid">
-          <div class="milestone"><strong>01 · Geometry</strong><span>Piston, wrist pin, connecting rod, and crank throw assembled as a first prototype.</span></div>
-          <div class="milestone"><strong>02 · Motion</strong><span>A full crank revolution exported as 72 frames at 5° crank-angle increments.</span></div>
-          <div class="milestone"><strong>03 · Workflow</strong><span>Fusion 360 Python API for model/frame generation; standard Python and Pillow for GIF creation.</span></div>
-          <div class="milestone"><strong>04 · Next</strong><span>Expand to a mechanically coherent six-cylinder layout and synchronize all piston motion.</span></div>
-        </div>
-        <h2 id="roadmap">Development plan</h2>
-        <ul>
-          <li><strong>Full V6 bottom end:</strong> build the cylinder-bank layout, a coherent crankshaft, six pistons, six connecting rods, and synchronized motion.</li>
-          <li><strong>Four-stroke cycle:</strong> visualize the 720° operating cycle and cylinder phasing, rather than treating one crank revolution as the complete cycle.</li>
-          <li><strong>SOHC valvetrain:</strong> add the two camshafts, valve motion, timing relationship, and explanatory close-up views.</li>
-          <li><strong>i-VTEC and timing drive:</strong> research the J35Z2-specific mechanism and implement a clearly labeled model of its operating behavior.</li>
-          <li><strong>Engineering outputs:</strong> create displacement, velocity, acceleration, and valve-lift plots, plus exploded and cutaway views.</li>
-        </ul>
-        <h2 id="validation">Validation & scope</h2>
-        <p>The project will distinguish published engine specifications, mathematically derived values, physical measurements, and estimated component dimensions. The current animation is a kinematic visualization of a simplified mechanism; it is not a combustion, thermal, structural, or CFD simulation.</p>
-        <div class="note">The single-cylinder prototype is a working milestone, not yet a complete J35Z2 engine model. Detailed internal dimensions, crankshaft phasing, and valvetrain behavior will be verified where reliable technical references are available; estimates will be documented rather than presented as OEM measurements.</div>
-        <p>Planned validation includes checking the modeled piston stroke, connecting-rod length, piston-axis alignment, crank-angle relationships, and consistency between the analytical kinematics and exported frames. Any future physical or dynamic simulation will be treated as a separate stage requiring appropriate inputs and validation.</p>
-        <a class="back-link" href="../index.html#work">← Back to selected work</a>
+    <section class="engine-explorer" aria-label="Engine subsystem explorer">
+      <input class="engine-tab-radio" type="radio" name="engine-view" id="view-overview" checked>
+      <input class="engine-tab-radio" type="radio" name="engine-view" id="view-crank">
+      <input class="engine-tab-radio" type="radio" name="engine-view" id="view-bottom">
+      <input class="engine-tab-radio" type="radio" name="engine-view" id="view-valvetrain">
+      <input class="engine-tab-radio" type="radio" name="engine-view" id="view-timing">
+      <input class="engine-tab-radio" type="radio" name="engine-view" id="view-ivtec">
+      <input class="engine-tab-radio" type="radio" name="engine-view" id="view-kinematics">
+      <input class="engine-tab-radio" type="radio" name="engine-view" id="view-analysis">
+      <div class="engine-tabs" aria-label="Choose an engine subsystem"><label for="view-overview">Overview</label><label for="view-crank">Crank-slider</label><label for="view-bottom">Bottom end</label><label for="view-valvetrain">Valvetrain</label><label for="view-timing">Timing system</label><label for="view-ivtec">i-VTEC</label><label for="view-kinematics">Kinematics</label><label for="view-analysis">Analysis</label></div>
+      <article class="engine-panel panel-overview">
+        <p class="panel-kicker">PROJECT BRIEF · 00</p><h2>From a working mechanism to a complete V6 study</h2><p>The goal is to create an explanatory virtual model of the Honda J35Z2 3.5L V6, showing how its major mechanical systems work together. The project is being developed in stages, with motion and dimensions checked before additional complexity is introduced.</p>
+        
+        <div class="overview-stats"><div><span>ENGINE</span><strong>3.5L V6</strong></div><div><span>CAD</span><strong>Fusion 360</strong></div><div><span>ACTIVE MILESTONE</span><strong>Crank-slider prototype</strong></div></div>
+        
+        <h3>Development roadmap</h3><p>Completed: single-cylinder crank-slider prototype. Planned: full V6 bottom end, valvetrain, timing drive, and engineering analysis.</p>
+        <div class="milestone-grid"><div class="milestone"><strong>01 · Crank-slider</strong><span>Working prototype and exported animation.</span></div><div class="milestone"><strong>02 · Bottom end</strong><span>Full V6 reciprocating assembly.</span></div><div class="milestone"><strong>03 · Valvetrain</strong><span>Camshafts and valve motion.</span></div><div class="milestone"><strong>04 · Analysis</strong><span>Calculations and validation.</span></div></div>
+        
       </article>
-    </div>
+      <article class="engine-panel panel-crank">
+        <p class="panel-kicker">MILESTONE 01 · WORKING PROTOTYPE</p><h2>Crank-slider mechanism</h2><p>This first prototype demonstrates how crank rotation produces reciprocating piston motion. The simplified assembly contains a piston, wrist pin, connecting rod, and crank throw positioned using slider-crank kinematics.</p>
+        <figure class="engine-figure engine-figure-live"><img src="../assets/images/J35Z2_crank_slider.gif" alt="Animated single-cylinder crank-slider prototype" loading="lazy"><figcaption class="engine-figure-label"><strong>WORKING PROTOTYPE · CRANK-SLIDER KINEMATICS</strong><span>Single-cylinder mechanism · looping 360° crank animation</span></figcaption></figure>
+        
+        
+        <h3>Current implementation</h3><p>Python automation exports 72 frames at 5° crank-angle increments; a Python/Pillow workflow assembles them into a looping GIF. This is a simplified kinematic prototype, not a complete engine assembly.</p>
+        
+        
+      </article>
+      <article class="engine-panel panel-bottom">
+        <p class="panel-kicker">PLANNED SUBSYSTEM · 02</p><h2>V6 bottom end</h2><p>The next major stage is the reciprocating assembly and crankshaft layout for both cylinder banks.</p>
+        
+        
+        <div class="subsystem-visual"><span>DESIGN TARGET</span><strong>Crankshaft + six pistons + six connecting rods</strong><small>Planned work · not a completed CAD model</small></div>
+        <h3>Design target</h3><p>Crankshaft + six pistons + six connecting rods. Planned: verify cylinder-bank geometry, crank-pin phasing, stroke, clearances, and synchronized piston positions.</p>
+        
+        
+      </article>
+      <article class="engine-panel panel-valvetrain">
+        <p class="panel-kicker">PLANNED SUBSYSTEM · 03</p><h2>SOHC valvetrain</h2><p>This view will explain the J35Z2's single-overhead-camshaft-per-bank layout and how cam motion is transmitted to the valves.</p>
+        
+        
+        <div class="subsystem-visual"><span>DESIGN TARGET</span><strong>Camshafts · rocker mechanisms · valves · springs</strong><small>Planned work · not a completed CAD model</small></div>
+        <h3>Design target</h3><p>Camshafts · rocker mechanisms · valves · springs. Engine-specific cylinder-head details will be researched before modeling.</p>
+        
+        
+      </article>
+      <article class="engine-panel panel-timing">
+        <p class="panel-kicker">PLANNED SUBSYSTEM · 04</p><h2>Timing system</h2><p>The timing drive synchronizes crankshaft and camshaft rotation. This view will focus on the drive layout and timing relationship needed for the four-stroke cycle.</p>
+        
+        
+        <div class="subsystem-visual"><span>DESIGN TARGET</span><strong>Timing belt · crank sprocket · cam sprockets</strong><small>Planned work · not a completed CAD model</small></div>
+        <h3>Design target</h3><p>Timing belt · crank sprocket · cam sprockets. Routing and ratios will be verified using technical documentation.</p>
+        
+        
+      </article>
+      <article class="engine-panel panel-ivtec">
+        <p class="panel-kicker">PLANNED SUBSYSTEM · 05</p><h2>i-VTEC system</h2><p>This view will describe the J35Z2-specific variable valve control strategy using a researched explanatory model. Exact behavior will be verified before being presented as engine-specific fact.</p>
+        
+        
+        <div class="subsystem-visual"><span>DESIGN TARGET</span><strong>Variable valve control · operating modes</strong><small>Planned work · not a completed CAD model</small></div>
+        <h3>Design target</h3><p>Variable valve control · operating modes. An explanatory diagram or animation will be developed after the mechanism is verified.</p>
+        
+        
+      </article>
+      <article class="engine-panel panel-kinematics">
+        <p class="panel-kicker">PLANNED ANALYSIS · 06</p><h2>Engine kinematics</h2><p>Once the full bottom end is assembled, this view will connect crank angle, piston position, and cylinder phasing across the engine cycle.</p>
+        
+        
+        <div class="subsystem-visual"><span>DESIGN TARGET</span><strong>Piston displacement, velocity, and acceleration; coordinated six-cylinder positions; a 720° four-stroke cycle visualization; analytical comparison with CAD motion</strong><small>Planned work · not a completed CAD model</small></div>
+        <h3>Planned outputs</h3><p>Piston displacement, velocity, and acceleration; coordinated six-cylinder positions; a 720° four-stroke cycle visualization; analytical comparison with CAD motion.</p>
+        
+        
+      </article>
+      <article class="engine-panel panel-analysis">
+        <p class="panel-kicker">ENGINEERING NOTES · 07</p><h2>Analysis & validation</h2><p>This section will collect calculations, data sources, assumptions, and checks used to assess the model, separating known specifications from derived values and estimated geometry.</p>
+        
+        
+        
+        <h3>Planned validation</h3><p>Verify bore, stroke, displacement, piston travel, rod geometry, alignment, and crank-angle relationships. No result will be claimed before the corresponding check is performed.</p>
+        
+        <div class="note">The current animation is kinematic only. It is not a combustion, thermal, structural, or CFD simulation.</div>
+      </article>
+    </section>
   </main>
   <footer class="site-footer section-wrap"><a class="wordmark" href="../index.html">Atharva<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Independent student work · 2026</span></footer>
 </body>
