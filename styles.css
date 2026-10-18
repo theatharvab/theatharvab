@@ -168,3 +168,19 @@ nav{display:flex;align-items:center;gap:29px;font-size:.8rem;color:#c9c5c5}nav a
 
 /* Real project photography and CAD images */
 .photo-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+
+/* Three-card selected-work layout and the J35Z2 work-in-progress visual. */
+.engine-card-visual{position:absolute;inset:0;overflow:hidden;background-color:#202023;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:24px 24px}
+.engine-bank{position:absolute;top:25%;width:31%;height:31%;border:1px solid #9d5555;background:linear-gradient(135deg,#7c292933,#b9b2ad11);transform:skewY(-24deg)}
+.engine-bank-left{left:17%;transform:skewY(-24deg) rotate(-4deg)}
+.engine-bank-right{right:17%;transform:skewY(24deg) rotate(4deg)}
+.engine-crank{position:absolute;left:24%;right:24%;top:64%;height:2px;background:#b26a6a;transform:rotate(-3deg)}
+.engine-crank:before,.engine-crank:after{content:"";position:absolute;top:-6px;width:14px;height:14px;border:1px solid #c08a8a;border-radius:50%;background:#202023}
+.engine-crank:before{left:18%}.engine-crank:after{right:18%}
+.engine-piston{position:absolute;top:35%;width:13%;height:17%;border:1px solid #c4bfc0;background:#a6a0a033}
+.engine-piston-one{left:25%;transform:rotate(-24deg)}
+.engine-piston-two{left:43%;top:29%;transform:rotate(24deg)}
+.engine-piston-three{right:25%;top:36%;transform:rotate(24deg)}
+.engine-card-label{position:absolute;top:12%;right:12%;font: .65rem var(--mono);letter-spacing:.14em;color:#c17b7b}
+@media(min-width:1000px){.project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.project-grid .project-image{aspect-ratio:1.22/1}.project-grid .project-copy{padding:21px 19px;min-height:320px}.project-grid .project-copy h3{font-size:1.13rem}.project-grid .project-copy>p:not(.project-type){font-size:.75rem}}
