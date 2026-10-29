@@ -6,8 +6,7 @@
   <meta name="description" content="Atharva Banchhod — aerospace engineering, computational modeling, CFD, propulsion research, motorsport, and competitive powerlifting.">
   <meta name="theme-color" content="#050607">
   <title>Atharva Banchhod | Engineering Garage</title>
-  <link rel="icon" type="image/svg+xml" href="assets/ab-favicon.svg">
-  <link rel="icon" type="image/png" href="assets/images/ab1.png">
+  <link rel="icon" type="image/png" href="assets/images/ab1FAVICON.png">
   <link rel="stylesheet" href="garage.css">
 </head>
 <body>
@@ -100,6 +99,7 @@
         <h1 id="heroCarName">NISSAN GT-R R35</h1>
         <p class="hero-specs" id="heroCarSpecs">3.8L V6 Twin-Turbo &nbsp;/&nbsp; 545 HP &nbsp;/&nbsp; AWD &nbsp;/&nbsp; 2009–2024</p>
         <a class="cta-btn" id="heroExploreBtn" href="#projects">EXPLORE VEHICLE &nbsp; →</a>
+        <a class="vehicle-credit" id="vehicleCredit" href="https://sketchfab.com/models/60666625029a461b93d202fe9512a389" target="_blank" rel="noreferrer">3D MODEL CREDIT · DDIAZ DESIGN / CC BY-NC-SA ↗</a>
       </div>
 
       <!-- Specs Panel (lower-right) -->
@@ -159,10 +159,7 @@
           <div class="card-image"><div class="card-image-placeholder card-motor-bg"><img class="card-thumb" src="assets/images/J35Z2_crank_slider.gif" alt="Honda J35Z2 V6 crank-slider CAD animation" loading="lazy"></div><span class="card-number">03</span></div>
           <div class="card-body"><p class="card-kicker">POWERTRAIN / CAD</p><h3 class="card-title">MOTORSPORT</h3><p class="card-desc">A mechanical deep dive into the Honda J35Z2 V6 and the systems behind a road car.</p><span class="card-arrow" aria-hidden="true">→</span></div>
         </a>
-        <a href="#apex-run" class="project-card reveal" id="apex-project">
-          <div class="card-image"><div class="card-image-placeholder card-apex-bg" aria-hidden="true"><div class="apex-track-mark"><span></span><span></span><span></span></div></div><span class="card-number">04</span></div>
-          <div class="card-body"><p class="card-kicker">GAME DEVELOPMENT</p><h3 class="card-title">APEX RUN</h3><p class="card-desc">An arcade driving game built from scratch with custom pixel-art cars.</p><span class="card-arrow" aria-hidden="true">→</span></div>
-        </a>
+
         <a href="powerlifting.html" class="project-card reveal">
           <div class="card-image"><div class="card-image-placeholder card-lift-bg" aria-hidden="true"><div class="lift-visual"><span class="bar"></span><span class="plate plate-l"></span><span class="plate plate-r"></span></div></div><span class="card-number">05</span></div>
           <div class="card-body"><p class="card-kicker">COMPETITION / STRENGTH</p><h3 class="card-title">POWERLIFTING</h3><p class="card-desc">Meet results, records, and the work behind the platform.</p><span class="card-arrow" aria-hidden="true">→</span></div>
@@ -206,25 +203,9 @@
             <div class="collection-controls">
               <button type="button" id="collPrev" aria-label="Previous car" class="coll-btn">←</button>
               <button type="button" id="collNext" aria-label="Next car" class="coll-btn">→</button>
+              <button type="button" id="collPlay" class="coll-btn coll-play-btn">ARCADE MODE ↗</button>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── APEX RUN / GAME DEVELOPMENT ─── -->
-    <section class="garage-section apex-run-section" id="apex-run">
-      <div class="section-inner apex-run-layout">
-        <div>
-          <p class="section-label">PROJECT 04 / GAME DEVELOPMENT</p>
-          <h2 class="section-title">APEX RUN<span class="red-period">.</span></h2>
-          <p class="section-desc">A small arcade driving game built from scratch, featuring custom pixel-art car sprites, lane-based traffic, collision logic, and a distance score. Choose a car in the collection above, then launch the game here.</p>
-          <button type="button" id="collPlay" class="cta-btn">START APEX RUN <span aria-hidden="true">↗</span></button>
-        </div>
-        <div class="apex-run-panel" aria-hidden="true">
-          <span class="apex-panel-index">AR / 001</span>
-          <div class="apex-track-mark"><span></span><span></span><span></span></div>
-          <span class="apex-panel-caption">ARCADE DRIVING SYSTEM</span>
         </div>
       </div>
     </section>
@@ -316,8 +297,8 @@
       engine:'3.8L V6 Twin-Turbo', power:'545 hp (stock)', accel:'2.9 s', drive:'AWD', weight:'3,847 lbs',
       specs:'3.8L V6 Twin-Turbo \u00a0/\u00a0 545 HP \u00a0/\u00a0 AWD \u00a0/\u00a0 2009\u20132024', badge:'R35',
       description:'The ultimate Japanese performance machine — engineered for speed, precision, and dominance.',
-      modelId:'51c912a8310c4e00a82ad7673d84228a',
-      credit:'NISSAN GT-R R35 · CIASNY / CC ATTRIBUTION'
+      modelId:'60666625029a461b93d202fe9512a389',
+      credit:'NISSAN GT-R BLACK EDITION · DDIAZ DESIGN / CC BY-NC-SA'
     },
     {
       name:'Nissan Laurel Club S', year:'1998 · C35', category:'JDM SLEEPER',
@@ -387,6 +368,11 @@
   function updateHeroVehicle() {
     const v = vehicles[currentVehicle];
     document.getElementById('heroCarName').textContent = v.name.toUpperCase();
+    const vehicleCredit = document.getElementById('vehicleCredit');
+    if (vehicleCredit) {
+      vehicleCredit.textContent = '3D MODEL CREDIT · ' + v.credit + ' ↗';
+      vehicleCredit.href = 'https://sketchfab.com/models/' + v.modelId;
+    }
     document.getElementById('heroCarSpecs').innerHTML = v.specs;
     document.getElementById('specsModelBadge').textContent = v.badge;
     document.getElementById('specEngine').textContent = v.engine;
