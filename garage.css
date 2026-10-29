@@ -558,11 +558,13 @@ html {
 
   background:
 
-    radial-gradient(ellipse 80% 60% at 50% 45%, rgba(15, 18, 24, 0.6) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.08) 0%, rgba(3, 5, 8, 0.2) 45%, rgba(3, 5, 8, 0.78) 100%),
 
-    radial-gradient(ellipse 40% 35% at 50% 50%, rgba(25, 20, 15, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 75% 48% at 50% 42%, rgba(24, 29, 36, 0.72) 0%, transparent 72%),
 
-    #050607;
+    repeating-linear-gradient(90deg, transparent 0 13%, rgba(150, 160, 175, 0.055) 13.1% 13.25%, transparent 13.4% 25%),
+
+    linear-gradient(180deg, #14171b 0%, #090b0e 58%, #030405 100%);
 
   z-index: 0;
 
@@ -577,6 +579,8 @@ html {
   inset: 0;
 
   background:
+
+    linear-gradient(180deg, transparent 0 60%, rgba(160, 170, 180, 0.035) 60.2%, transparent 60.5%),
 
     repeating-linear-gradient(
 
@@ -3726,3 +3730,28 @@ body.nav-open { overflow: hidden; }
 .vehicle-credit{display:inline-block;margin-top:12px;padding:5px 8px;background:rgba(5,6,7,.78);color:#bfc4cc;font: .52rem var(--mono);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(255,255,255,.1);max-width:100%;overflow-wrap:anywhere}
 .vehicle-credit:hover{color:#fff;border-color:var(--accent)}
 @media(max-width:768px){.vehicle-credit{font-size:.47rem;margin-top:8px}}
+
+
+/* Industrial garage atmosphere: ceiling bays, workshop uprights, and reflective floor lines. */
+.garage-hero .hero-bg {
+  background-image:
+    linear-gradient(180deg, rgba(2, 3, 5, .08) 0%, rgba(2, 3, 5, .12) 42%, rgba(2, 3, 5, .72) 100%),
+    repeating-linear-gradient(90deg, transparent 0 17%, rgba(180, 190, 205, .055) 17.1% 17.35%, transparent 17.5% 33%),
+    linear-gradient(180deg, transparent 0 12%, rgba(210, 218, 228, .11) 12.2%, transparent 13.3%),
+    linear-gradient(90deg, transparent 0 11%, rgba(210, 10, 36, .42) 11.2%, transparent 11.6%, transparent 88%, rgba(210, 10, 36, .38) 88.2%, transparent 88.6%),
+    repeating-linear-gradient(0deg, transparent 0 58px, rgba(255,255,255,.025) 59px 60px),
+    radial-gradient(ellipse at 50% 75%, rgba(130, 140, 150, .13), transparent 46%),
+    linear-gradient(180deg, #14171b, #080a0d 62%, #020304);
+}
+.garage-hero .hero-bg::before {
+  background:
+    linear-gradient(165deg, transparent 0 68%, rgba(255,255,255,.06) 68.2%, transparent 68.6%),
+    repeating-linear-gradient(90deg, transparent 0 9%, rgba(255,255,255,.018) 9.1% 9.25%, transparent 9.4% 18%),
+    repeating-linear-gradient(0deg, transparent 0 59px, rgba(255,255,255,.025) 59px 60px);
+}
+.garage-hero .hero-bg::after {
+  top: 7%; left: 18%; width: 64%; height: 12%;
+  background: linear-gradient(90deg, transparent, rgba(225,232,240,.16), transparent);
+  filter: blur(15px); opacity: .55;
+}
+.collection-specs { flex-wrap: wrap; gap: 8px 18px; }
