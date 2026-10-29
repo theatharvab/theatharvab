@@ -3722,3 +3722,7 @@ body.nav-open { overflow: hidden; }
 .coll-play-btn{margin-left:12px;border-color:rgba(210,10,36,.65);color:#e8e6e3;font:500 .6rem var(--mono);letter-spacing:.08em;white-space:nowrap}
 .coll-play-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 @media(max-width:768px){.hero-text{left:14px;right:14px;bottom:116px;padding:16px 18px 15px;max-width:calc(100% - 28px);background:linear-gradient(90deg,rgba(5,6,7,.97),rgba(5,6,7,.82))}.hero-text h1{font-size:clamp(2rem,8vw,3rem)}.collection-controls{flex-wrap:wrap}.coll-play-btn{margin-left:0}}
+
+.vehicle-credit{display:inline-block;margin-top:12px;padding:5px 8px;background:rgba(5,6,7,.78);color:#bfc4cc;font: .52rem var(--mono);letter-spacing:.06em;text-decoration:none;border:1px solid rgba(255,255,255,.1);max-width:100%;overflow-wrap:anywhere}
+.vehicle-credit:hover{color:#fff;border-color:var(--accent)}
+@media(max-width:768px){.vehicle-credit{font-size:.47rem;margin-top:8px}}
