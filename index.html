@@ -420,7 +420,12 @@
           if (vehicleIndex !== currentVehicle) return;
           api.setBackground({color: [0.025, 0.03, 0.04]}, function() {
             if (vehicleIndex !== currentVehicle) return;
-            if (vehicleIndex === 0) {
+
+            const frameCamera = function() {
+              if (vehicleIndex !== 0) {
+                finishLoading();
+                return;
+              }
               api.getCameraLookAt(function(err, camera) {
                 if (err || !camera || !camera.position || !camera.target) {
                   finishLoading();
@@ -434,6 +439,42 @@
                   if (vehicleIndex === currentVehicle) finishLoading();
                 });
                 window.setTimeout(finishLoading, 1400);
+              });
+            };
+
+            if (vehicleIndex === 0) {
+              api.getEnvironment(function(envError, env) {
+                if (vehicleIndex !== currentVehicle) return;
+                if (envError || !env) {
+                  frameCamera();
+                  return;
+                }
+                api.setLightFeatureEnabled(true, function() {
+                  if (vehicleIndex !== currentVehicle) return;
+                  let lightsPending = 3;
+                  const finishLighting = function() {
+                    lightsPending -= 1;
+                    if (lightsPending <= 0 && vehicleIndex === currentVehicle) frameCamera();
+                  };
+                  [0, 1, 2].forEach(function(lightId) {
+                    api.getLight(lightId, function(lightError, light) {
+                      if (lightError || !light) {
+                        finishLighting();
+                        return;
+                      }
+                      const brighterLight = Object.assign({}, light, {
+                        enabled: true,
+                        intensity: Math.min(Math.max((Number(light.intensity) || 0.25) * 1.45, 0.35), 1)
+                      });
+                      api.setLight(lightId, brighterLight, function() {
+                        finishLighting();
+                      });
+                    });
+                  });
+                  window.setTimeout(function() {
+                    if (vehicleIndex === currentVehicle) frameCamera();
+                  }, 1200);
+                });
               });
             } else {
               finishLoading();
