@@ -80,9 +80,9 @@
 
       <!-- Vehicle 3D Viewer -->
       <div class="vehicle-viewer" id="vehicleViewer">
-        <div class="vehicle-loading" id="vehicleLoading">
+        <div class="vehicle-loading" id="vehicleLoading" aria-live="polite">
           <span class="loading-pulse"></span>
-          <span>LOADING 3D MODEL</span>
+          <span>CONNECTING TO VEHICLE MODEL</span>
         </div>
         <iframe
           id="vehicleFrame"
@@ -347,8 +347,8 @@
       engine:'3.8L V6 Twin-Turbo', power:'545 hp (stock)', accel:'2.9 s', drive:'AWD', weight:'3,847 lbs',
       specs:'3.8L V6 Twin-Turbo \u00a0/\u00a0 545 HP \u00a0/\u00a0 AWD \u00a0/\u00a0 2009\u20132024', badge:'R35',
       description:'The ultimate Japanese performance machine — engineered for speed, precision, and dominance.',
-      modelId:'78e58dfb0153406f9011707ef1a017fe',
-      credit:'NISSAN GT-R R35 · SKETCHFAB MODEL / CC BY'
+      modelId:'51c912a8310c4e00a82ad7673d84228a',
+      credit:'NISSAN GT-R R35 · CIASNY / CC ATTRIBUTION'
     },
     {
       name:'Nissan Laurel Club S', year:'1998 · C35', category:'JDM SLEEPER',
@@ -428,11 +428,32 @@
     document.getElementById('vehicleCounter').textContent =
       String(currentVehicle + 1).padStart(2, '0') + ' / ' + String(vehicles.length).padStart(2, '0');
 
-    if (vFrame) {
+    if (vFrame && vLoading) {
+      let resolved = false;
       vLoading.style.display = 'flex';
+      vLoading.classList.remove('vehicle-load-error');
+      vLoading.innerHTML = '<span class="loading-pulse"></span><span>CONNECTING TO VEHICLE MODEL</span>';
+
+      const showVehicleFallback = function() {
+        if (resolved) return;
+        resolved = true;
+        vLoading.classList.add('vehicle-load-error');
+        vLoading.innerHTML = '<span class="vehicle-fallback-mark">!</span><span>3D VIEWER UNAVAILABLE</span><a href="https://sketchfab.com/models/' + v.modelId + '" target="_blank" rel="noreferrer">OPEN MODEL ON SKETCHFAB ↗</a>';
+      };
+
+      const loadTimeout = window.setTimeout(showVehicleFallback, 18000);
+      vFrame.onload = function() {
+        window.clearTimeout(loadTimeout);
+        window.setTimeout(function() {
+          if (!resolved) {
+            resolved = true;
+            vLoading.style.display = 'none';
+          }
+        }, 1800);
+      };
+      vFrame.onerror = showVehicleFallback;
       vFrame.src = 'https://sketchfab.com/models/' + v.modelId +
-        '/embed?autostart=1&preload=1&ui_theme=dark&ui_infos=0&ui_controls=0&ui_stop=0&transparent=1&ui_watermark=0';
-      vFrame.onload = function() { if (vLoading) vLoading.style.display = 'none'; };
+        '/embed?autostart=1&ui_theme=dark&ui_infos=0&dnt=1';
     }
   }
 
