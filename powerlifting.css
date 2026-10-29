@@ -93,3 +93,126 @@
   .site-header{width:calc(100% - 32px);height:auto;min-height:72px;gap:16px}
   .site-header nav{gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:.68rem}
 }
+
+/* === GARAGE DESIGN SYSTEM ALIGNMENT === */
+.powerlifting-page{
+  --bg:#050607;
+  --panel:#111215;
+  --panel2:#17181b;
+  --text:#f1f1f2;
+  --muted:#92959b;
+  --line:#2a2c31;
+  --accent:#D20A24;
+  --accent-soft:#D20A24;
+  background-color:#050607;
+  background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+.powerlifting-page .site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  width:min(1240px,calc(100% - 56px));
+  height:76px;
+  margin:0 auto;
+  padding:0 2px;
+  background:rgba(5,6,7,.94);
+  border-bottom:1px solid #2a2c31;
+  backdrop-filter:blur(16px);
+}
+.powerlifting-page .wordmark{
+  color:#f4f4f4;
+  font-size:.82rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  white-space:nowrap;
+}
+.powerlifting-page .wordmark span,
+.powerlifting-page .red-period{color:#D20A24}
+.powerlifting-page .site-header nav{
+  gap:clamp(12px,2vw,27px);
+  color:#a7a9ae;
+  font-family:var(--mono);
+  font-size:.64rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.powerlifting-page .site-header nav a{transition:color .2s ease}
+.powerlifting-page .site-header nav a:hover,
+.powerlifting-page .site-header nav a[aria-current="page"]{color:#fff}
+.powerlifting-page .site-header nav a[aria-current="page"]{position:relative}
+.powerlifting-page .site-header nav a[aria-current="page"]:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-12px;
+  height:2px;
+  background:#D20A24;
+}
+.powerlifting-page .eyebrow,
+.powerlifting-page .data-label,
+.powerlifting-page .lift-index,
+.powerlifting-page .lift-status,
+.powerlifting-page .attempts,
+.powerlifting-page .history-date,
+.powerlifting-page .history-state,
+.powerlifting-page .power-footer>span,
+.powerlifting-page .record-stamp,
+.powerlifting-page .record-bottom{
+  font-family:var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.09em;
+}
+.powerlifting-page .red-mark{background:#D20A24}
+.powerlifting-page .power-hero{padding-top:84px;padding-bottom:78px}
+.powerlifting-page .power-hero-copy h1{font-weight:800;letter-spacing:-.07em}
+.powerlifting-page .total-panel{
+  border:1px solid #34363b;
+  background:linear-gradient(145deg,rgba(25,26,30,.97),rgba(10,11,13,.98));
+  box-shadow:0 18px 70px rgba(0,0,0,.25);
+}
+.powerlifting-page .total-panel:after{border-color:#D20A2430}
+.powerlifting-page .total-rule span{background:#D20A24}
+.powerlifting-page .total-foot span:first-child{color:#f4f4f4}
+.powerlifting-page .power-tags span{
+  border-color:#34363b;
+  background:#0c0d0f;
+  color:#c8c9cc;
+}
+.powerlifting-page .power-section{border-top-color:#2a2c31}
+.powerlifting-page .meet-meta{border-color:#2a2c31}
+.powerlifting-page .meet-meta>div{border-color:#2a2c31;background:rgba(12,13,15,.72)}
+.powerlifting-page .result-strip{border:1px solid #2a2c31;background:#111215}
+.powerlifting-page .lift-card{
+  border-color:#2a2c31;
+  background:linear-gradient(150deg,#17181b,#0c0d0f);
+  transition:border-color .2s ease,transform .2s ease;
+}
+.powerlifting-page .lift-card:hover{border-color:#6b2630;transform:translateY(-2px)}
+.powerlifting-page .lift-track span,
+.powerlifting-page .lift-bench .lift-track span{background:#D20A24}
+.powerlifting-page .record-visual{
+  border-color:#49222a;
+  background:linear-gradient(145deg,#171114,#0b0b0d);
+}
+.powerlifting-page .record-visual-grid{
+  background-image:linear-gradient(#ffffff09 1px,transparent 1px),linear-gradient(90deg,#ffffff09 1px,transparent 1px);
+}
+.powerlifting-page .record-big small{color:#D20A24}
+.powerlifting-page .record-bottom{border-top-color:#49222a}
+.powerlifting-page .attempt-table-wrap{border-color:#2a2c31}
+.powerlifting-page .attempt-table thead th{background:#141518}
+.powerlifting-page .attempt-table th,
+.powerlifting-page .attempt-table td{border-bottom-color:#2a2c31}
+.powerlifting-page .history-row{border-color:#2a2c31}
+.powerlifting-page .history-state{border-color:#34363b}
+.powerlifting-page .power-footer{border-top-color:#2a2c31}
+@media(max-width:760px){
+  .powerlifting-page .site-header{width:calc(100% - 32px);height:auto;min-height:76px;padding:14px 0;align-items:flex-start;flex-direction:column;gap:10px}
+  .powerlifting-page .site-header nav{width:100%;justify-content:flex-start;gap:10px 16px;font-size:.59rem}
+  .powerlifting-page .site-header nav a[aria-current="page"]:after{bottom:-4px}
+  .powerlifting-page .power-hero{padding-top:50px}
+}
+@media(max-width:420px){
+  .powerlifting-page .wordmark{font-size:.72rem}
+  .powerlifting-page .site-header nav{gap:9px 12px;font-size:.55rem}
+}
