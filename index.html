@@ -3,366 +3,710 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Atharva Banchhod's student engineering portfolio, featuring aerospace research, computational modeling, and motorsport projects.">
-  <meta name="theme-color" content="#171719">
-  <title>Atharva Banchhod | Student Engineer</title>
-  <link rel="icon" type="image/png" href="assets/images/ab1.png?v=1">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Atharva Banchhod — aerospace engineering, computational modeling, CFD, propulsion research, motorsport, and competitive powerlifting.">
+  <meta name="theme-color" content="#050607">
+  <title>Atharva Banchhod | Engineering Garage</title>
+  <link rel="icon" type="image/svg+xml" href="assets/ab-favicon.svg">
+  <link rel="icon" type="image/png" href="assets/images/ab1.png">
+  <link rel="stylesheet" href="garage.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="wordmark" href="#home" aria-label="Atharva Banchhod home">Atharva<span>.</span></a>
-    <nav aria-label="Main navigation">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#outside">Outside the lab</a>
-      <a href="powerlifting.html">Powerlifting</a>
-      <a href="#contact">Contact ↗</a>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="garage-header" role="banner">
+    <div class="header-left">
+      <svg class="ab-monogram" viewBox="0 0 64 64" width="32" height="32" aria-hidden="true">
+        <circle cx="32" cy="32" r="31" fill="#111114"/>
+        <circle cx="32" cy="32" r="29" fill="none" stroke="#D20A24" stroke-width="2.5"/>
+        <path d="M15 45 25 18h7l10 27h-7l-2-7H24l-2 7zm11-13h5l-2.5-8z" fill="#f5f5f5"/>
+        <path d="M39 18h9c6 0 9 3 9 8 0 3-1 5-4 6 4 1 5 4 5 7 0 5-4 8-10 8H39zm7 6v6h2c2 0 3-1 3-3s-1-3-3-3zm0 12v5h3c2 0 3-1 3-3s-1-2-3-2z" fill="#D20A24" transform="translate(-4 0)"/>
+      </svg>
+      <span class="header-name">ATHARVA BANCHHOD</span>
+    </div>
+    <nav class="header-nav" aria-label="Category navigation">
+      <span>AEROSPACE</span>
+      <span class="nav-sep">/</span>
+      <span>ENGINEERING</span>
+      <span class="nav-sep">/</span>
+      <span>MOTORSPORT</span>
+      <span class="nav-sep">/</span>
+      <span>PERFORMANCE</span>
     </nav>
+    <button class="mobile-nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <main>
-    <section class="intro section-wrap" id="home">
-      <div class="intro-copy">
-        <p class="eyebrow"><span class="red-mark"></span> STUDENT ENGINEER · CYPRESS, TEXAS</p>
-        <h1>Atharva Banchhod</h1>
-        <p class="intro-lead">I'm a high school junior interested in aerospace engineering, computational modeling, and motorsport.</p>
-        <p class="intro-body">Right now, I'm exploring heat transfer in rocket-engine cooling channels through Python, machine learning, and OpenFOAM CFD. This site is where I keep the projects, results, and things I'm learning along the way.</p>
-        <div class="intro-links">
-          <a class="button" href="#work">Explore my work <span>↘</span></a>
-          <a class="underlined-link" href="https://github.com/theatharvab" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a class="underlined-link" href="https://www.linkedin.com/in/theatharvab/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="garage-sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+    <nav class="sidebar-nav">
+      <a href="#home" class="sidebar-link active" data-section="home">HOME</a>
+      <a href="#research" class="sidebar-link" data-section="research">RESEARCH</a>
+      <a href="#engineering" class="sidebar-link" data-section="engineering">ENGINEERING</a>
+      <a href="#motorsport" class="sidebar-link" data-section="motorsport">MOTORSPORT</a>
+      <a href="powerlifting.html" class="sidebar-link">POWERLIFTING</a>
+      <a href="#about" class="sidebar-link" data-section="about">ABOUT</a>
+    </nav>
+    <div class="sidebar-social">
+      <a href="https://github.com/theatharvab" target="_blank" rel="noreferrer" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/theatharvab/" target="_blank" rel="noreferrer" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="mailto:Atharva.banchhod@gmail.com" class="social-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
+        <span>Email</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ═══ MOBILE SIDEBAR OVERLAY ═══ -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="garage-main">
+
+    <!-- ─── HERO SECTION ─── -->
+    <section class="garage-hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow-red"></div>
+        <div class="hero-vignette"></div>
+      </div>
+
+      <!-- Vehicle 3D Viewer -->
+      <div class="vehicle-viewer" id="vehicleViewer">
+        <div class="vehicle-loading" id="vehicleLoading">
+          <span class="loading-pulse"></span>
+          <span>LOADING 3D MODEL</span>
+        </div>
+        <iframe
+          id="vehicleFrame"
+          title="Interactive 3D vehicle model"
+          allow="autoplay; fullscreen; xr-spatial-tracking"
+          allowfullscreen
+          loading="eager"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+
+      <!-- Hero Text (lower-left) -->
+      <div class="hero-text">
+        <p class="eyebrow"><span class="red-dot"></span> VEHICLE SHOWCASE</p>
+        <h1 id="heroCarName">NISSAN GT-R R35</h1>
+        <p class="hero-specs" id="heroCarSpecs">3.8L V6 Twin-Turbo &nbsp;/&nbsp; 545 HP &nbsp;/&nbsp; AWD &nbsp;/&nbsp; 2009–2024</p>
+        <a class="cta-btn" id="heroExploreBtn" href="#projects">EXPLORE VEHICLE &nbsp; →</a>
+      </div>
+
+      <!-- Specs Panel (lower-right) -->
+      <div class="specs-panel" id="specsPanel">
+        <div class="specs-header">
+          <span class="specs-label">KEY SPECS</span>
+          <span class="specs-model" id="specsModelBadge">R35</span>
+        </div>
+        <div class="specs-rows" id="specsRows">
+          <div class="spec-row"><span class="spec-name"><span class="spec-dot"></span>ENGINE</span><span class="spec-value" id="specEngine">3.8L V6 Twin-Turbo</span></div>
+          <div class="spec-row"><span class="spec-name"><span class="spec-dot"></span>POWER</span><span class="spec-value" id="specPower">545 hp (stock)</span></div>
+          <div class="spec-row"><span class="spec-name"><span class="spec-dot"></span>0-60 MPH</span><span class="spec-value" id="specAccel">2.9 s</span></div>
+          <div class="spec-row"><span class="spec-name"><span class="spec-dot"></span>DRIVETRAIN</span><span class="spec-value" id="specDrive">AWD</span></div>
+          <div class="spec-row"><span class="spec-name"><span class="spec-dot"></span>WEIGHT</span><span class="spec-value" id="specWeight">3,847 lbs</span></div>
         </div>
       </div>
-      <aside class="garage-card" aria-label="Interactive daily featured car">
-        <div class="garage-topline"><span class="slot-index">GARAGE NOTES / 001</span><span class="garage-live"><i></i> DAILY FEATURE</span></div>
-        <div class="car-viewer" id="car-viewer" aria-label="Interactive 3D car model">
-          <div class="car-loading" id="car-loading"><span>●</span> LOADING 3D MODEL</div>
-          <iframe id="car-model-frame" title="Interactive 3D car model" allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-          <span class="viewer-caption" id="viewer-caption">MODEL CREDIT · SKETCHFAB</span>
-        </div>
-        <div class="garage-info">
-          <div class="garage-number" id="car-count">01 / 08</div>
-          <p class="garage-label" id="car-category">JAPANESE PERFORMANCE</p>
-          <h2 id="featured-car-name">Nissan Skyline GT-R</h2>
-          <p class="garage-year" id="featured-car-year">1999 · R34</p>
-          <p class="garage-description" id="featured-car-description">A performance icon built around balance, tuning potential, and all-wheel-drive traction.</p>
-          <div class="garage-specs"><span id="featured-car-engine">2.6L twin-turbo I6</span><span id="featured-car-power">276 hp claimed</span></div>
-          <div class="garage-controls"><button type="button" id="car-prev" aria-label="Previous car">←</button><button type="button" id="car-play" class="play-button">CLICK TO PLAY <span>↗</span></button><button type="button" id="car-next" aria-label="Next car">→</button></div>
-          <p class="garage-footnote">A new feature each day · browse the collection</p>
-        </div>
-      </aside>
-      <div class="intro-bottom"><span>INTERESTS</span><p>Propulsion <i>/</i> Thermal-fluids <i>/</i> CFD <i>/</i> Motorsport</p><span class="intro-note">STUDENT WORK · IN PROGRESS</span></div>
+
+      <!-- Vehicle Navigation (bottom-right) -->
+      <div class="vehicle-nav">
+        <button type="button" class="vnav-btn" id="vehiclePrev" aria-label="Previous vehicle">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button type="button" class="vnav-btn" id="vehicleNext" aria-label="Next vehicle">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <span class="vnav-counter" id="vehicleCounter">01 / 08</span>
+      </div>
     </section>
 
-    <section class="work-section section-wrap" id="work">
-      <div class="section-heading">
-        <div><p class="eyebrow">01 / SELECTED WORK</p><h2>Things I've been<br>working on<span class="red-period">.</span></h2></div>
-        <p class="section-aside">A few projects I'm learning from. I'll add more as there's something worth showing.</p>
+    <!-- ─── INTRO TEXT (below hero, overlapping) ─── -->
+    <section class="garage-intro" id="intro">
+      <div class="intro-content">
+        <p class="eyebrow"><span class="red-dot"></span> ENGINEERING / MOTORSPORT / RESEARCH</p>
+        <h2 class="intro-heading">ATHARVA BANCHHOD</h2>
+        <p class="intro-subtitle">Aerospace Engineering &nbsp;/&nbsp; Computational Modeling &nbsp;/&nbsp; Motorsport</p>
+        <p class="intro-desc">Building, analyzing, and racing — from rocket engines to track days.</p>
+        <a class="cta-btn" href="#projects">EXPLORE MY WORK &nbsp; →</a>
       </div>
+    </section>
 
+    <!-- ─── PROJECT CARDS ─── -->
+    <section class="garage-projects" id="projects">
+      <div class="projects-heading">
+        <p class="section-label">EXPLORE THE GARAGE</p>
+        <p class="section-subtitle">Step into my projects, research, and passions. Each station is an interactive experience built from real work, real data, and real results.</p>
+      </div>
       <div class="project-grid">
-      <article class="project project-research reveal" id="research">
-        <a class="project-image image-slot" href="projects/regenerative-cooling.html" aria-label="Open regenerative cooling research page">
-          <span class="slot-index">PROJECT 01 / CFD</span>
-          <div class="visual-placeholder cfd-placeholder" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="image-slot-caption"><strong>THERMAL-FLUIDS / CFD</strong><small>RESEARCH VISUALIZATION</small></div>
-        </a>
-        <div class="project-copy">
-          <p class="project-type">INDEPENDENT RESEARCH · 2026</p>
-          <h3>Machine-learning-assisted regenerative cooling optimization</h3>
-          <p>I generated a physics-based dataset, trained a PyTorch surrogate model, and compared a selected cooling-channel design against OpenFOAM CFD. The work was presented at TJAS 2026 and received Honorable Mention.</p>
-          <div class="tag-row"><span>Python / PyTorch</span><span>OpenFOAM</span><span>ParaView</span></div>
-          <a class="project-link" href="projects/regenerative-cooling.html">Read the research notes <span>↗</span></a>
-        </div>
-      </article>
 
-      <article class="project project-car reveal">
-        <a class="project-image image-slot" href="projects/co2-race-car.html" aria-label="Open CO₂-powered car project page">
-          <span class="slot-index">PROJECT 02 / DESIGN</span>
-          <img class="project-photo project-photo-car" src="assets/images/co2carreal%20(1).png" alt="Hand-built wooden CO₂-powered race car with a Gulf-inspired blue and orange livery" loading="lazy">
-          <div class="image-slot-caption"><strong>CO₂ VEHICLE / DESIGN</strong><small>CAD & FABRICATION</small></div>
+        <!-- CARD 01: RESEARCH -->
+        <a href="projects/regenerative-cooling.html" class="project-card reveal" id="research">
+          <div class="card-image">
+            <div class="card-image-placeholder card-research-bg" aria-hidden="true">
+              <div class="cfd-visual">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <span class="card-number">01</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">RESEARCH</h3>
+            <p class="card-desc">Rocket engines, CFD, and machine learning.</p>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </div>
         </a>
-        <div class="project-copy" id="car-project">
-          <p class="project-type">DESIGN & FABRICATION</p>
-          <h3>CO₂-powered vehicle</h3>
-          <p>I designed the car in CAD and fabricated it from wood. It recorded the fastest run in my class over an approximately 80-foot course. I'd like to document the design choices and testing in more detail.</p>
-          <div class="tag-row"><span>CAD</span><span>Fabrication</span><span>Testing</span></div>
-          <a class="project-link" href="projects/co2-race-car.html">View project notes <span>↗</span></a>
-        </div>
-      </article>
 
-      <article class="project project-engine reveal">
-        <a class="project-image image-slot" href="projects/j35z2-engine.html" aria-label="Open Honda J35Z2 V6 engine modeling project">
-          <span class="slot-index">PROJECT 03 / CAD</span>
-          <img class="engine-animation-preview" src="assets/images/J35Z2_crank_slider.gif" alt="Looping animation of the J35Z2 single-cylinder piston, connecting rod, and crank-slider prototype" loading="lazy">
-          <div class="image-slot-caption"><strong>POWERTRAIN / KINEMATICS</strong><small>CAD & MOTION STUDY · IN PROGRESS</small></div>
+        <!-- CARD 02: ENGINEERING -->
+        <a href="projects/j35z2-engine.html" class="project-card reveal" id="engineering">
+          <div class="card-image">
+            <div class="card-image-placeholder card-eng-bg" aria-hidden="true">
+              <img class="card-thumb" src="assets/images/J35Z2_crank_slider.gif" alt="Honda J35Z2 engine crank-slider animation" loading="lazy">
+            </div>
+            <span class="card-number">02</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">ENGINEERING</h3>
+            <p class="card-desc">CAD models, design, and mechanical systems.</p>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </div>
         </a>
-        <div class="project-copy">
-          <p class="project-type">INDEPENDENT ENGINEERING · WIP</p>
-          <h3>Honda J35Z2 V6 engine modeling</h3>
-          <p>Building a CAD-based study of the 3.5L V6, starting with a working piston, connecting rod, and crank-slider animation. Next: the full six-cylinder layout, synchronized motion, and SOHC valvetrain.</p>
-          <div class="tag-row"><span>Fusion 360</span><span>Python</span><span>Kinematics</span></div>
-          <a class="project-link" href="projects/j35z2-engine.html">Follow the build <span>↗</span></a>
-        </div>
-      </article>
+
+        <!-- CARD 03: MOTORSPORT -->
+        <a href="#motorsport-section" class="project-card reveal" id="motorsport">
+          <div class="card-image">
+            <div class="card-image-placeholder card-motor-bg" aria-hidden="true">
+              <img class="card-thumb" src="assets/images/co2carreal (1).png" alt="CO₂-powered race car with Gulf livery" loading="lazy">
+            </div>
+            <span class="card-number">03</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">MOTORSPORT</h3>
+            <p class="card-desc">Cars, vehicle dynamics, and Apex Run.</p>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </div>
+        </a>
+
+        <!-- CARD 04: POWERLIFTING -->
+        <a href="powerlifting.html" class="project-card reveal">
+          <div class="card-image">
+            <div class="card-image-placeholder card-lift-bg" aria-hidden="true">
+              <div class="lift-visual">
+                <span class="bar"></span>
+                <span class="plate plate-l"></span>
+                <span class="plate plate-r"></span>
+              </div>
+            </div>
+            <span class="card-number">04</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">POWERLIFTING</h3>
+            <p class="card-desc">Compete. Improve. Set new goals.</p>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </div>
+        </a>
+
       </div>
     </section>
 
-    <section class="about-section" id="about">
-      <div class="section-wrap about-layout">
-        <div class="about-heading"><p class="eyebrow">02 / A LITTLE ABOUT ME</p><h2>Learning by<br>building things<span class="red-period">.</span></h2></div>
-        <div class="about-copy">
-          <p>I'm a junior at Cypress Woods High School interested in propulsion, thermal-fluids, computational modeling, and motorsport. I like learning a tool by applying it to a problem instead of stopping at tutorials.</p>
-          <p>My current research is computational, not experimental, and it has limitations. I want the project pages to be clear about what the results show and what still needs to be tested.</p>
+    <!-- ─── MOTORSPORT / GARAGE SECTION ─── -->
+    <section class="garage-section" id="motorsport-section">
+      <div class="section-inner">
+        <p class="section-label">THE GARAGE</p>
+        <h2 class="section-title">Car Collection & Apex Run</h2>
+        <p class="section-desc">Browse the collection, inspect each car, and play Apex Run — an arcade driving game built from scratch.</p>
+
+        <div class="garage-collection">
+          <div class="collection-viewer">
+            <div class="collection-loading" id="collectionLoading">
+              <span class="loading-pulse"></span> LOADING MODEL
+            </div>
+            <iframe
+              id="collectionFrame"
+              title="Interactive 3D car model"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+          <div class="collection-info">
+            <div class="collection-topline">
+              <span class="collection-category" id="collCategory">JDM SLEEPER</span>
+              <span class="collection-count" id="collCount">01 / 06</span>
+            </div>
+            <h3 class="collection-name" id="collName">Nissan Laurel Club S Type X Turbo</h3>
+            <p class="collection-year" id="collYear">1998 · C35</p>
+            <p class="collection-desc" id="collDesc">Your featured car: understated C35 styling, rear-drive proportions, and serious tuning heritage.</p>
+            <div class="collection-specs">
+              <span id="collEngine">2.5L turbocharged inline-six</span>
+              <span id="collPower">280 PS market-rated</span>
+            </div>
+            <div class="collection-controls">
+              <button type="button" id="collPrev" aria-label="Previous car" class="coll-btn">←</button>
+              <button type="button" id="collPlay" class="coll-btn coll-play-btn">PLAY APEX RUN ↗</button>
+              <button type="button" id="collNext" aria-label="Next car" class="coll-btn">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT SECTION ─── -->
+    <section class="garage-section" id="about">
+      <div class="section-inner about-grid">
+        <div>
+          <p class="section-label">ABOUT</p>
+          <h2 class="section-title">Learning by building things.</h2>
+          <p class="section-desc">I'm a junior at Cypress Woods High School interested in propulsion, thermal-fluids, computational modeling, and motorsport. I like learning a tool by applying it to a problem instead of stopping at tutorials.</p>
+          <p class="section-desc">My current research is computational, not experimental, and it has limitations. I want the project pages to be clear about what the results show and what still needs to be tested.</p>
           <a class="underlined-link" href="https://github.com/theatharvab/physics-informed-ml" target="_blank" rel="noreferrer">Research code on GitHub ↗</a>
         </div>
-      </div>
-    </section>
-
-    <section class="details-section section-wrap">
-      <div class="section-heading">
-        <div><p class="eyebrow">03 / EXPERIENCE</p><h2>Other work worth<br>mentioning<span class="red-period">.</span></h2></div>
-        <p class="section-aside">A few things I've done alongside independent projects and coursework.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item"><span class="timeline-date">2026</span><div><h3>Texas Junior Academy of Science · Engineering I</h3><p>Presented independent computational aerospace research at the statewide competition; received Honorable Mention.</p></div></div>
-        <div class="timeline-item"><span class="timeline-date">2026</span><div><h3>Technology Student Association · CFISD District</h3><p>1st place in Memory Game Soldering; designed and built the game.</p></div></div>
-        <div class="timeline-item"><span class="timeline-date">2026–present</span><div><h3>SCEC STEM Club · Co-founder & research mentor</h3><p>Help lead a student STEM organization and mentor peers exploring research and technical projects.</p></div></div>
-        <div class="timeline-item"><span class="timeline-date">2022</span><div><h3>Destination Imagination Global Finals</h3><p>11th place globally with the Los Amigos team in the Daring Escape challenge.</p></div></div>
-      </div>
-    </section>
-
-    <section class="toolkit-section">
-      <div class="section-wrap toolkit-layout">
-        <div><p class="eyebrow">04 / TOOLS & INTERESTS</p><h2>What I'm using<br>and learning<span class="red-period">.</span></h2></div>
-        <div class="toolkit-list">
-          <div><span>01</span><p><strong>Code & modeling</strong>Python, PyTorch, NumPy, Matplotlib, MATLAB</p></div>
-          <div><span>02</span><p><strong>CFD & visualization</strong>OpenFOAM 14, ParaView, heat-transfer calculations</p></div>
-          <div><span>03</span><p><strong>Design & making</strong>CAD, soldering, electronics assembly, woodworking</p></div>
-          <div><span>04</span><p><strong>Development</strong>Git, GitHub, Linux, Ubuntu, WSL, Google Colab</p></div>
+        <div class="about-stats">
+          <div class="stat-block">
+            <span class="stat-label">TOOLKIT</span>
+            <div class="stat-items">
+              <div><strong>Code & ML</strong><span>Python, PyTorch, NumPy, Matplotlib, MATLAB</span></div>
+              <div><strong>CFD & Viz</strong><span>OpenFOAM 14, ParaView, heat-transfer calculations</span></div>
+              <div><strong>Design</strong><span>Fusion 360, soldering, electronics, woodworking</span></div>
+              <div><strong>Dev</strong><span>Git, GitHub, Linux, Ubuntu, WSL, Google Colab</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="outside-section section-wrap" id="outside">
-      <div class="outside-copy">
-        <p class="eyebrow">05 / OUTSIDE THE LAB</p>
-        <h2>Powerlifting<span class="red-period">.</span></h2>
-        <p>Outside engineering, I spend a lot of time powerlifting. I competed in my first USPA meet in October 2026, winning my age category overall and setting a Texas state bench press record.</p>
-        <p>Engineering and powerlifting scratch different itches, but I enjoy the process behind both: putting in the work, learning from mistakes, and seeing what I can improve.</p>
-        <a class="underlined-link" href="powerlifting.html">View competition results ↗</a>
+    <!-- ─── EXPERIENCE TIMELINE ─── -->
+    <section class="garage-section" id="experience">
+      <div class="section-inner">
+        <p class="section-label">EXPERIENCE</p>
+        <h2 class="section-title">Other work worth mentioning.</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-date">2026</span>
+            <div><h3>Texas Junior Academy of Science · Engineering I</h3><p>Presented independent computational aerospace research at the statewide competition; received Honorable Mention.</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2026</span>
+            <div><h3>Technology Student Association · CFISD District</h3><p>1st place in Memory Game Soldering; designed and built the game.</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2026–present</span>
+            <div><h3>SCEC STEM Club · Co-founder & research mentor</h3><p>Help lead a student STEM organization and mentor peers exploring research and technical projects.</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2022</span>
+            <div><h3>Destination Imagination Global Finals</h3><p>11th place globally with the Los Amigos team in the Daring Escape challenge.</p></div>
+          </div>
+        </div>
       </div>
-      <aside class="lifting-slot image-slot" aria-label="Placeholder for a powerlifting photo">
-        <span class="slot-index">PERSONAL / POWERLIFTING</span>
-        <div class="slot-icon lifting-icon" aria-hidden="true"><span></span><span></span></div>
-        <p>Meet photo goes here</p>
-        <small>A smaller photo from competition<br>is all this section needs.</small>
-      </aside>
     </section>
 
-    <section class="contact-section section-wrap" id="contact">
-      <p class="eyebrow">06 / CONTACT</p>
-      <h2>Interested in similar work?<span class="red-period">.</span></h2>
-      <p>I'm interested in aerospace and motorsport projects, research, and learning from people who work in these fields.</p>
-      <div class="intro-links"><a class="button" href="mailto:Atharva.banchhod@gmail.com">Email me <span>↗</span></a><a class="underlined-link" href="https://www.linkedin.com/in/theatharvab/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="underlined-link" href="https://github.com/theatharvab" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    <!-- ─── CONTACT ─── -->
+    <section class="garage-section contact-section" id="contact">
+      <div class="section-inner">
+        <p class="section-label">CONTACT</p>
+        <h2 class="section-title">Interested in similar work?</h2>
+        <p class="section-desc">I'm interested in aerospace and motorsport projects, research, and learning from people who work in these fields.</p>
+        <div class="contact-links">
+          <a class="cta-btn" href="mailto:Atharva.banchhod@gmail.com">EMAIL ME &nbsp; ↗</a>
+          <a class="underlined-link" href="https://www.linkedin.com/in/theatharvab/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="underlined-link" href="https://github.com/theatharvab" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
     </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="garage-footer">
+      <div class="footer-inner">
+        <div class="footer-rule"></div>
+        <span class="footer-tagline">ENGINEER &nbsp;/&nbsp; ATHLETE &nbsp;/&nbsp; BUILDER</span>
+        <span class="footer-copy">© 2026 Atharva Banchhod</span>
+      </div>
+    </footer>
+
   </main>
 
-  <footer class="site-footer section-wrap"><a class="wordmark" href="#home">Atharva<span>.</span></a><span>© 2026 Atharva Banchhod</span><span>Independent student work · 2026</span></footer>
-  <script>
-    document.documentElement.classList.add('js');
-    if ('IntersectionObserver' in window) {
-      const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}})},{threshold:0.12});
-      document.querySelectorAll('.reveal').forEach(item=>observer.observe(item));
-    } else document.querySelectorAll('.reveal').forEach(item=>item.classList.add('is-visible'));
-  </script>
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- SCRIPTS                                            -->
+  <!-- ═══════════════════════════════════════════════════ -->
 
   <script>
-  (() => {
-    const cars = [
-      {name:'Nissan Laurel Club S Type X Turbo',year:'1998 · C35',category:'JDM SLEEPER',engine:'2.5L turbocharged inline-six',power:'280 PS market-rated',description:'Your featured car: understated C35 styling, rear-drive proportions, and serious tuning heritage.',modelId:'3972456be83c45deaa9fe072505e1bca',credit:'NISSAN LAUREL C35 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/nissan-laurel-club-s-c35-3972456be83c45deaa9fe072505e1bca'},
-      {name:'Mazda RX-7 Spirit R',year:'2002 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'280 PS Japan-spec',description:'A compact rotary sports car with flowing bodywork and a famously balanced chassis.',modelId:'e9c3394294104838bfc89b226f93a52a',credit:'MAZDA RX-7 SPIRIT R · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mazda-rx-7-spirit-r-fd3s-e9c3394294104838bfc89b226f93a52a'},
-      {name:'Nissan Stagea 260RS Autech',year:'2000 · WGNC34',category:'SLEEPER WAGON',engine:'2.6L twin-turbo inline-six',power:'280 PS market-rated',description:'A performance wagon with Skyline GT-R hardware and the everyday practicality of a Stagea.',modelId:'a347d59886de434bb7eaaf85ac1e6a2b',credit:'NISSAN STAGEA 260RS AUTECH · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/2000-nissan-stagea-autechversion-260rs-a347d59886de434bb7eaaf85ac1e6a2b'},
-      {name:'Toyota Altezza SXE10',year:'1998 · RS200',category:'JAPANESE SPORT SEDAN',engine:'2.0L naturally aspirated 3S-GE',power:'210 PS (RS200)',description:'A compact rear-wheel-drive sedan with a high-revving four-cylinder and clean proportions.',modelId:'4e78dd65a720492c8797cde72d2a6226',credit:'TOYOTA ALTEZZA SXE10 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/toyota-altezza-sxe10-4e78dd65a720492c8797cde72d2a6226'}
-,
-      {name:'McLaren Senna',year:'2018 · Ultimate Series',category:'AERODYNAMIC EXTREME',engine:'4.0L twin-turbo V8',power:'800 PS · 789 bhp',description:'A track-focused hypercar built around extreme aerodynamic performance, active aero, and a carbon-fibre chassis.',modelId:'ea3e43a6eb004853a87fe9c58422eb96',credit:'MCLAREN SENNA · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mclaren-senna-free-ea3e43a6eb004853a87fe9c58422eb96'},
-      {name:'Peel P50',year:'1962 · Microcar',category:'MINIMALIST ENGINEERING',engine:'49 cc single-cylinder',power:'4.2 bhp',description:'A famously tiny single-seat microcar: the complete opposite of the Senna, and a brilliant study in packaging.',modelId:'3a9903a308f743aa92b63b8767835d78',credit:'PEEL P50 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/peel-p50-3a9903a308f743aa92b63b8767835d78'}    ];
-    let current = 0;
-    const modelFrame = document.getElementById('car-model-frame');
-    const viewerCaption = document.getElementById('viewer-caption');
-    const loading = document.getElementById('car-loading');
-    const updateText = () => {
-      const car = cars[current];
-      document.getElementById('car-count').textContent = String(current+1).padStart(2,'0')+' / '+String(cars.length).padStart(2,'0');
-      document.getElementById('car-category').textContent = car.category;
-      document.getElementById('featured-car-name').textContent = car.name;
-      document.getElementById('featured-car-year').textContent = car.year;
-      document.getElementById('featured-car-description').textContent = car.description;
-      document.getElementById('featured-car-engine').textContent = car.engine;
-      document.getElementById('featured-car-power').textContent = car.power;
-      document.querySelector('.garage-topline .slot-index').textContent = 'GARAGE NOTES / '+String(current+1).padStart(3,'0');
-      if (modelFrame) {
-        modelFrame.src = 'https://sketchfab.com/models/' + car.modelId + '/embed?autostart=1&preload=1&ui_theme=dark';
-        modelFrame.title = 'Interactive 3D model: ' + car.name;
-      }
-      if (viewerCaption) {
-        viewerCaption.textContent = car.credit;
-        viewerCaption.title = 'Open the original model listing for licensing and creator details.';
-        viewerCaption.style.cursor = 'pointer';
-        viewerCaption.onclick = () => window.open(car.source, '_blank', 'noopener,noreferrer');
-      }
-      if (loading) {
-        loading.style.display = 'flex';
-        if (modelFrame) {
-          modelFrame.onload = () => { if (loading) loading.style.display = 'none'; };
+  /* ── Vehicle Garage Data ── */
+  const vehicles = [
+    {
+      name:'Nissan GT-R R35', year:'2009–2024 · R35', category:'GT PERFORMANCE',
+      engine:'3.8L V6 Twin-Turbo', power:'545 hp (stock)', accel:'2.9 s', drive:'AWD', weight:'3,847 lbs',
+      specs:'3.8L V6 Twin-Turbo \u00a0/\u00a0 545 HP \u00a0/\u00a0 AWD \u00a0/\u00a0 2009\u20132024', badge:'R35',
+      description:'The ultimate Japanese performance machine — engineered for speed, precision, and dominance.',
+      modelId:'78e58dfb0153406f9011707ef1a017fe',
+      credit:'NISSAN GT-R R35 · SKETCHFAB MODEL / CC BY'
+    },
+    {
+      name:'Nissan Laurel Club S', year:'1998 · C35', category:'JDM SLEEPER',
+      engine:'2.5L turbo I6', power:'280 PS', accel:'—', drive:'RWD', weight:'~1,430 kg',
+      specs:'2.5L Turbo I6 \u00a0/\u00a0 280 PS \u00a0/\u00a0 RWD \u00a0/\u00a0 1998', badge:'C35',
+      description:'Understated C35 styling, rear-drive proportions, and serious tuning heritage.',
+      modelId:'3972456be83c45deaa9fe072505e1bca',
+      credit:'NISSAN LAUREL C35 · SKETCHFAB MODEL / CC BY'
+    },
+    {
+      name:'Mazda RX-7 Spirit R', year:'2002 · FD3S', category:'ROTARY ENGINEERING',
+      engine:'1.3L twin-rotor twin-turbo', power:'280 PS', accel:'~5.0 s', drive:'RWD', weight:'~1,270 kg',
+      specs:'1.3L Twin-Rotor \u00a0/\u00a0 280 PS \u00a0/\u00a0 RWD \u00a0/\u00a0 2002', badge:'FD3S',
+      description:'A compact rotary sports car with flowing bodywork and a famously balanced chassis.',
+      modelId:'e9c3394294104838bfc89b226f93a52a',
+      credit:'MAZDA RX-7 SPIRIT R · SKETCHFAB MODEL / CC BY'
+    },
+    {
+      name:'Nissan Stagea 260RS', year:'2000 · WGNC34', category:'SLEEPER WAGON',
+      engine:'2.6L twin-turbo I6', power:'280 PS', accel:'—', drive:'AWD', weight:'~1,680 kg',
+      specs:'2.6L Twin-Turbo I6 \u00a0/\u00a0 280 PS \u00a0/\u00a0 AWD \u00a0/\u00a0 2000', badge:'WGNC34',
+      description:'A performance wagon with Skyline GT-R hardware and everyday practicality.',
+      modelId:'a347d59886de434bb7eaaf85ac1e6a2b',
+      credit:'NISSAN STAGEA 260RS · SKETCHFAB MODEL / CC BY'
+    },
+    {
+      name:'Toyota Altezza RS200', year:'1998 · SXE10', category:'SPORT SEDAN',
+      engine:'2.0L NA 3S-GE', power:'210 PS', accel:'~7.0 s', drive:'RWD', weight:'~1,280 kg',
+      specs:'2.0L NA I4 \u00a0/\u00a0 210 PS \u00a0/\u00a0 RWD \u00a0/\u00a0 1998', badge:'SXE10',
+      description:'A compact rear-wheel-drive sedan with a high-revving four-cylinder.',
+      modelId:'4e78dd65a720492c8797cde72d2a6226',
+      credit:'TOYOTA ALTEZZA SXE10 · SKETCHFAB MODEL / CC BY'
+    },
+    {
+      name:'McLaren Senna', year:'2018 · Ultimate', category:'AERO EXTREME',
+      engine:'4.0L twin-turbo V8', power:'800 PS', accel:'2.8 s', drive:'RWD', weight:'~1,198 kg',
+      specs:'4.0L Twin-Turbo V8 \u00a0/\u00a0 800 PS \u00a0/\u00a0 RWD \u00a0/\u00a0 2018', badge:'UTD',
+      description:'Track-focused hypercar built around extreme aerodynamic performance.',
+      modelId:'ea3e43a6eb004853a87fe9c58422eb96',
+      credit:'MCLAREN SENNA · SKETCHFAB MODEL / CC BY'
+    },
+    {
+      name:'Peel P50', year:'1962 · Microcar', category:'MINIMALIST',
+      engine:'49 cc single-cyl', power:'4.2 bhp', accel:'—', drive:'RWD', weight:'~59 kg',
+      specs:'49 cc Single \u00a0/\u00a0 4.2 bhp \u00a0/\u00a0 RWD \u00a0/\u00a0 1962', badge:'P50',
+      description:'The famously tiny single-seat microcar — a brilliant study in packaging.',
+      modelId:'3a9903a308f743aa92b63b8767835d78',
+      credit:'PEEL P50 · SKETCHFAB MODEL / CC BY'
+    }
+  ];
+
+  /* ── Collection cars (for Apex Run section, excludes GT-R hero) ── */
+  const collectionCars = [
+    {name:'Nissan Laurel Club S Type X Turbo',year:'1998 · C35',category:'JDM SLEEPER',engine:'2.5L turbocharged inline-six',power:'280 PS market-rated',description:'Your featured car: understated C35 styling, rear-drive proportions, and serious tuning heritage.',modelId:'3972456be83c45deaa9fe072505e1bca',credit:'NISSAN LAUREL C35 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/nissan-laurel-club-s-c35-3972456be83c45deaa9fe072505e1bca'},
+    {name:'Mazda RX-7 Spirit R',year:'2002 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'280 PS Japan-spec',description:'A compact rotary sports car with flowing bodywork and a famously balanced chassis.',modelId:'e9c3394294104838bfc89b226f93a52a',credit:'MAZDA RX-7 SPIRIT R · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mazda-rx-7-spirit-r-fd3s-e9c3394294104838bfc89b226f93a52a'},
+    {name:'Nissan Stagea 260RS Autech',year:'2000 · WGNC34',category:'SLEEPER WAGON',engine:'2.6L twin-turbo inline-six',power:'280 PS market-rated',description:'A performance wagon with Skyline GT-R hardware and the everyday practicality of a Stagea.',modelId:'a347d59886de434bb7eaaf85ac1e6a2b',credit:'NISSAN STAGEA 260RS AUTECH · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/2000-nissan-stagea-autechversion-260rs-a347d59886de434bb7eaaf85ac1e6a2b'},
+    {name:'Toyota Altezza SXE10',year:'1998 · RS200',category:'JAPANESE SPORT SEDAN',engine:'2.0L naturally aspirated 3S-GE',power:'210 PS (RS200)',description:'A compact rear-wheel-drive sedan with a high-revving four-cylinder and clean proportions.',modelId:'4e78dd65a720492c8797cde72d2a6226',credit:'TOYOTA ALTEZZA SXE10 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/toyota-altezza-sxe10-4e78dd65a720492c8797cde72d2a6226'},
+    {name:'McLaren Senna',year:'2018 · Ultimate Series',category:'AERODYNAMIC EXTREME',engine:'4.0L twin-turbo V8',power:'800 PS · 789 bhp',description:'A track-focused hypercar built around extreme aerodynamic performance, active aero, and a carbon-fibre chassis.',modelId:'ea3e43a6eb004853a87fe9c58422eb96',credit:'MCLAREN SENNA · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mclaren-senna-free-ea3e43a6eb004853a87fe9c58422eb96'},
+    {name:'Peel P50',year:'1962 · Microcar',category:'MINIMALIST ENGINEERING',engine:'49 cc single-cylinder',power:'4.2 bhp',description:'A famously tiny single-seat microcar: the complete opposite of the Senna, and a brilliant study in packaging.',modelId:'3a9903a308f743aa92b63b8767835d78',credit:'PEEL P50 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/peel-p50-3a9903a308f743aa92b63b8767835d78'}
+  ];
+
+  /* ── Hero Vehicle System ── */
+  let currentVehicle = 0;
+  const vFrame = document.getElementById('vehicleFrame');
+  const vLoading = document.getElementById('vehicleLoading');
+
+  function updateHeroVehicle() {
+    const v = vehicles[currentVehicle];
+    document.getElementById('heroCarName').textContent = v.name.toUpperCase();
+    document.getElementById('heroCarSpecs').innerHTML = v.specs;
+    document.getElementById('specsModelBadge').textContent = v.badge;
+    document.getElementById('specEngine').textContent = v.engine;
+    document.getElementById('specPower').textContent = v.power;
+    document.getElementById('specAccel').textContent = v.accel;
+    document.getElementById('specDrive').textContent = v.drive;
+    document.getElementById('specWeight').textContent = v.weight;
+    document.getElementById('vehicleCounter').textContent =
+      String(currentVehicle + 1).padStart(2, '0') + ' / ' + String(vehicles.length).padStart(2, '0');
+
+    if (vFrame) {
+      vLoading.style.display = 'flex';
+      vFrame.src = 'https://sketchfab.com/models/' + v.modelId +
+        '/embed?autostart=1&preload=1&ui_theme=dark&ui_infos=0&ui_controls=0&ui_stop=0&transparent=1&ui_watermark=0';
+      vFrame.onload = function() { if (vLoading) vLoading.style.display = 'none'; };
+    }
+  }
+
+  document.getElementById('vehiclePrev').addEventListener('click', function() {
+    currentVehicle = (currentVehicle - 1 + vehicles.length) % vehicles.length;
+    updateHeroVehicle();
+  });
+  document.getElementById('vehicleNext').addEventListener('click', function() {
+    currentVehicle = (currentVehicle + 1) % vehicles.length;
+    updateHeroVehicle();
+  });
+  updateHeroVehicle();
+
+  /* ── Collection Viewer ── */
+  let currentColl = 0;
+  const cFrame = document.getElementById('collectionFrame');
+  const cLoading = document.getElementById('collectionLoading');
+
+  function updateCollection() {
+    const c = collectionCars[currentColl];
+    document.getElementById('collCategory').textContent = c.category;
+    document.getElementById('collCount').textContent =
+      String(currentColl + 1).padStart(2, '0') + ' / ' + String(collectionCars.length).padStart(2, '0');
+    document.getElementById('collName').textContent = c.name;
+    document.getElementById('collYear').textContent = c.year;
+    document.getElementById('collDesc').textContent = c.description;
+    document.getElementById('collEngine').textContent = c.engine;
+    document.getElementById('collPower').textContent = c.power;
+    if (cFrame) {
+      cLoading.style.display = 'flex';
+      cFrame.src = 'https://sketchfab.com/models/' + c.modelId +
+        '/embed?autostart=1&preload=1&ui_theme=dark';
+      cFrame.onload = function() { if (cLoading) cLoading.style.display = 'none'; };
+    }
+  }
+
+  document.getElementById('collPrev').addEventListener('click', function() {
+    currentColl = (currentColl - 1 + collectionCars.length) % collectionCars.length;
+    updateCollection();
+  });
+  document.getElementById('collNext').addEventListener('click', function() {
+    currentColl = (currentColl + 1) % collectionCars.length;
+    updateCollection();
+  });
+  updateCollection();
+
+  /* ── Sidebar active state on scroll ── */
+  const sections = document.querySelectorAll('[id]');
+  const sidebarLinks = document.querySelectorAll('.sidebar-link[data-section]');
+
+  function updateActiveSidebar() {
+    let current = '';
+    sections.forEach(function(section) {
+      const top = section.offsetTop - 120;
+      if (window.scrollY >= top) current = section.id;
+    });
+    sidebarLinks.forEach(function(link) {
+      link.classList.toggle('active', link.dataset.section === current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveSidebar, { passive: true });
+
+  /* ── Scroll reveal ── */
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
         }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }
+
+  /* ── Mobile navigation ── */
+  const mobileToggle = document.querySelector('.mobile-nav-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+
+  function toggleMobileNav() {
+    const isOpen = sidebar.classList.toggle('open');
+    overlay.classList.toggle('open', isOpen);
+    mobileToggle.setAttribute('aria-expanded', isOpen);
+    document.body.classList.toggle('nav-open', isOpen);
+  }
+
+  mobileToggle.addEventListener('click', toggleMobileNav);
+  overlay.addEventListener('click', toggleMobileNav);
+
+  document.querySelectorAll('.sidebar-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (sidebar.classList.contains('open')) toggleMobileNav();
+    });
+  });
+
+  /* ── Smooth scrolling ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', this.getAttribute('href'));
+      }
+    });
+  });
+
+  /* ══════════════════════════════════════════════════════ */
+  /* APEX RUN GAME (preserved from existing site)         */
+  /* ══════════════════════════════════════════════════════ */
+  document.getElementById('collPlay').addEventListener('click', function() {
+    const selectedGarageCar = collectionCars[currentColl] || collectionCars[0];
+    const garageName = selectedGarageCar.name;
+
+    const modal = document.createElement('div');
+    modal.className = 'game-modal';
+    modal.innerHTML = '<div class="game-panel" role="dialog" aria-modal="true" aria-labelledby="game-title">' +
+      '<button class="game-close" aria-label="Close game">\u00d7</button>' +
+      '<p class="eyebrow">GARAGE ARCADE / 001</p>' +
+      '<h2 id="game-title">APEX RUN<span>.</span></h2>' +
+      '<p class="game-instructions">Dodge the traffic. Use \u2190 \u2192 or A / D. Tap the sides on mobile.</p>' +
+      '<p class="game-instructions">Six custom pixel-art cars \u00b7 player sprite follows your selected garage car.</p>' +
+      '<canvas class="game-canvas" width="720" height="420" aria-label="Car driving game"></canvas>' +
+      '<div class="game-footer"><span id="game-score">DISTANCE 000</span><button class="game-start">START DRIVE \u2197</button></div>' +
+      '</div>';
+    document.body.appendChild(modal);
+
+    const canvas = modal.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    const scoreEl = modal.querySelector('#game-score');
+    const start = modal.querySelector('.game-start');
+    let running = false, frame = 0, score = 0, lane = 1, obstacles = [], raf = 0;
+
+    const roadHalf = function(y) { var t = Math.max(0, Math.min(1, y / canvas.height)); return canvas.width * (0.17 + 0.30 * t); };
+    const laneX = function(laneIndex, y) { return canvas.width * 0.5 + (laneIndex - 1) * roadHalf(y) * 0.67; };
+
+    const playerProfile = /Peel P50/i.test(garageName) ? 'micro' : /Stagea/i.test(garageName) ? 'wagon' : /Senna|RX-7/i.test(garageName) ? 'sports' : 'sedan';
+    const playerColor = /RX-7/i.test(garageName) ? '#a52d32' : /Stagea/i.test(garageName) ? '#687581' : /Altezza/i.test(garageName) ? '#d5d0c5' : /Senna/i.test(garageName) ? '#c9c9c5' : /Peel P50/i.test(garageName) ? '#d4b44b' : '#c7c5c0';
+
+    const spriteFiles = {
+      laurel: 'assets/images/apex-cars/laurel.svg',
+      rx7: 'assets/images/apex-cars/rx7.svg',
+      stagea: 'assets/images/apex-cars/stagea.svg',
+      altezza: 'assets/images/apex-cars/altezza.svg',
+      senna: 'assets/images/apex-cars/senna.svg',
+      peel: 'assets/images/apex-cars/peel.svg'
+    };
+    const carSprites = {};
+    Object.entries(spriteFiles).forEach(function(entry) {
+      var img = new Image(); img.src = entry[1]; carSprites[entry[0]] = img;
+    });
+    const playerSpriteKey = /Laurel/i.test(garageName) ? 'laurel' : /RX-7/i.test(garageName) ? 'rx7' : /Stagea/i.test(garageName) ? 'stagea' : /Altezza/i.test(garageName) ? 'altezza' : /Senna/i.test(garageName) ? 'senna' : 'peel';
+
+    const drawFallbackCar = function(x, y, width, height, color, isPlayer, profile) {
+      profile = profile || 'sports';
+      var block = function(c, rx, ry, rw, rh) { ctx.fillStyle = c; ctx.fillRect(Math.round(rx), Math.round(ry), Math.max(1, Math.round(rw)), Math.max(1, Math.round(rh))); };
+      ctx.save(); ctx.translate(Math.round(x), Math.round(y));
+      var wheelW = width * (profile === 'micro' ? 0.19 : 0.17), wheelH = height * 0.23;
+      block('#08090b', -width * 0.53, height * 0.18, wheelW, wheelH); block('#08090b', width * 0.36, height * 0.18, wheelW, wheelH);
+      block('#08090b', -width * 0.53, height * 0.66, wheelW, wheelH); block('#08090b', width * 0.36, height * 0.66, wheelW, wheelH);
+      block('#09090b', -width * 0.39, -height * 0.015, width * 0.78, height * 1.03);
+      var bodyWidth = profile === 'micro' ? 0.65 : profile === 'wagon' ? 0.76 : profile === 'sedan' ? 0.72 : 0.68;
+      block(color, -width * bodyWidth / 2, height * 0.04, width * bodyWidth, height * 0.90);
+      block('#f0dfad', -width * 0.31, height * 0.055, width * 0.18, height * 0.045); block('#f0dfad', width * 0.13, height * 0.055, width * 0.18, height * 0.045);
+      block('#a52c35', -width * 0.31, height * 0.84, width * 0.17, height * 0.055); block('#a52c35', width * 0.14, height * 0.84, width * 0.17, height * 0.055);
+      block('#111215', -width * 0.17, height * 0.91, width * 0.34, height * 0.035);
+      if (isPlayer) block('#f4eee3', -width * 0.12, height * 0.94, width * 0.24, height * 0.035);
+      ctx.restore();
+    };
+
+    var drawCar = function(x, y, width, height, color, isPlayer, profile, spriteKey) {
+      var sprite = carSprites[spriteKey || (isPlayer ? playerSpriteKey : '')];
+      if (!sprite || !sprite.complete || !sprite.naturalWidth) { drawFallbackCar(x, y, width, height, color, isPlayer, profile); return; }
+      ctx.save(); ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(sprite, Math.round(x - width / 2), Math.round(y), Math.max(1, Math.round(width)), Math.max(1, Math.round(height)));
+      ctx.restore();
+    };
+
+    var draw = function(playing) {
+      var w = canvas.width, h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+      var sky = ctx.createLinearGradient(0, 0, 0, h);
+      sky.addColorStop(0, '#0B0D10'); sky.addColorStop(1, '#050607');
+      ctx.fillStyle = sky; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = '#18191e'; ctx.beginPath();
+      ctx.moveTo(w * 0.5 - roadHalf(0), 0); ctx.lineTo(w * 0.5 + roadHalf(0), 0);
+      ctx.lineTo(w * 0.5 + roadHalf(h), h); ctx.lineTo(w * 0.5 - roadHalf(h), h);
+      ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = '#D20A24'; ctx.lineWidth = 3; ctx.beginPath();
+      ctx.moveTo(w * 0.5 - roadHalf(0), 0); ctx.lineTo(w * 0.5 - roadHalf(h), h);
+      ctx.moveTo(w * 0.5 + roadHalf(0), 0); ctx.lineTo(w * 0.5 + roadHalf(h), h); ctx.stroke();
+      var dashOffset = playing ? (frame * 5) % 52 : 0;
+      for (var divider = -1; divider <= 1; divider += 2) {
+        for (var y = -52 + dashOffset; y < h; y += 52) {
+          var y2 = Math.min(h, y + 24); if (y2 < 0) continue;
+          ctx.strokeStyle = '#6b7280'; ctx.lineWidth = 1.8; ctx.beginPath();
+          ctx.moveTo(w * 0.5 + divider * roadHalf(Math.max(0, y)) * 0.333, Math.max(0, y));
+          ctx.lineTo(w * 0.5 + divider * roadHalf(y2) * 0.333, y2); ctx.stroke();
+        }
+      }
+      ctx.fillStyle = '#6b7280'; ctx.font = '12px monospace'; ctx.fillText('APEX RUN', 22, 26);
+      if (playing) {
+        obstacles.forEach(function(o) {
+          var scale = 0.46 + 0.78 * Math.max(0, o.y / h);
+          drawCar(laneX(o.lane, o.y), o.y, 29 * scale, 43 * scale, o.color, false, 'sports', o.spriteKey);
+        });
+        var playerY = h - 86;
+        drawCar(laneX(lane, playerY), playerY, playerProfile === 'micro' ? 35 : playerProfile === 'sports' ? 43 : 46, playerProfile === 'micro' ? 53 : 64, playerColor, true, playerProfile, playerSpriteKey);
+        ctx.fillStyle = '#e8e6e3'; ctx.font = 'bold 20px monospace';
+        ctx.fillText(String(score).padStart(3, '0'), w - 62, 30);
+        ctx.fillStyle = '#6b7280'; ctx.font = '10px monospace';
+        ctx.fillText(('PLAYER \u00b7 ' + garageName).toUpperCase().slice(0, 34), 22, h - 15);
       }
     };
-    document.getElementById('car-prev').addEventListener('click',()=>{current=(current-1+cars.length)%cars.length;updateText()});
-    document.getElementById('car-next').addEventListener('click',()=>{current=(current+1)%cars.length;updateText()});
-    updateText();
 
-    const playButton=document.getElementById('car-play');
-    playButton.addEventListener('click',()=>{
-      const modal=document.createElement('div');
-      modal.className='game-modal';
-      modal.innerHTML='<div class="game-panel" role="dialog" aria-modal="true" aria-labelledby="game-title"><button class="game-close" aria-label="Close game">×</button><p class="eyebrow">GARAGE ARCADE / 001</p><h2 id="game-title">APEX RUN<span>.</span></h2><p class="game-instructions">Dodge the traffic. Use ← → or A / D. Tap the sides on mobile.</p><p class="game-instructions">Six custom pixel-art cars · player sprite follows your selected garage car.</p><canvas class="game-canvas" width="720" height="420" aria-label="Car driving game"></canvas><div class="game-footer"><span id="game-score">DISTANCE 000</span><button class="game-start">START DRIVE ↗</button></div></div>';
-      document.body.appendChild(modal);
-      const canvas=modal.querySelector('canvas'),ctx=canvas.getContext('2d'),scoreEl=modal.querySelector('#game-score'),start=modal.querySelector('.game-start');
-      let running=false,frame=0,score=0,lane=1,obstacles=[],raf=0;
-      const roadHalf=(y)=>{const t=Math.max(0,Math.min(1,y/canvas.height));return canvas.width*(.17+.30*t)};
-      const laneX=(laneIndex,y)=>canvas.width*.5+(laneIndex-1)*roadHalf(y)*.67;
-      const selectedGarageCar=cars[current]||cars[0];
-      const garageName=selectedGarageCar.name;
-      const playerProfile=/Peel P50/i.test(garageName)?'micro':/Stagea/i.test(garageName)?'wagon':/Senna|RX-7/i.test(garageName)?'sports':'sedan';
-      const playerColor=/RX-7/i.test(garageName)?'#a52d32':/Stagea/i.test(garageName)?'#687581':/Altezza/i.test(garageName)?'#d5d0c5':/Senna/i.test(garageName)?'#c9c9c5':/Peel P50/i.test(garageName)?'#d4b44b':'#c7c5c0';
-      const drawFallbackCar=(x,y,width,height,color,isPlayer,profile='sports')=>{
-        const block=(c,rx,ry,rw,rh)=>{ctx.fillStyle=c;ctx.fillRect(Math.round(rx),Math.round(ry),Math.max(1,Math.round(rw)),Math.max(1,Math.round(rh)))};
-        ctx.save();ctx.translate(Math.round(x),Math.round(y));
-        const wheelW=width*(profile==='micro'?.19:.17),wheelH=height*.23;
-        block('#08090b',-width*.53,height*.18,wheelW,wheelH);block('#08090b',width*.36,height*.18,wheelW,wheelH);
-        block('#08090b',-width*.53,height*.66,wheelW,wheelH);block('#08090b',width*.36,height*.66,wheelW,wheelH);
-        block('#151518',-width*.47,height*.25,width*.12,height*.11);block('#151518',width*.35,height*.25,width*.12,height*.11);
-        block('#09090b',-width*.39,-height*.015,width*.78,height*1.03);
-        const bodyWidth=profile==='micro'?.65:profile==='wagon'?.76:profile==='sedan'?.72:.68;
-        block(color,-width*bodyWidth/2,height*.04,width*bodyWidth,height*.90);
-        block(color,-width*(bodyWidth*.42),height*.005,width*(bodyWidth*.84),height*.13);
-        if(profile==='sports'){
-          block('#25292d',-width*.25,height*.24,width*.50,height*.20);block('#3d4549',-width*.21,height*.26,width*.42,height*.055);
-          block('#202327',-width*.22,height*.48,width*.44,height*.12);block(color,-width*.31,height*.61,width*.62,height*.20);
-          block('#141518',-width*.38,height*.80,width*.76,height*.07);
-          if(/Senna/i.test(garageName)){block('#171719',-width*.53,height*.87,width*1.06,height*.07);block('#b5b4af',-width*.48,height*.91,width*.96,height*.025)}
-        }else if(profile==='wagon'){
-          block('#262b30',-width*.29,height*.20,width*.58,height*.38);block('#3b454c',-width*.25,height*.23,width*.50,height*.12);
-          block('#202428',-width*.25,height*.38,width*.50,height*.16);block(color,-width*.34,height*.61,width*.68,height*.22);block('#151619',-width*.34,height*.79,width*.68,height*.07);
-        }else if(profile==='micro'){
-          block('#24282b',-width*.24,height*.26,width*.48,height*.22);block('#4c565a',-width*.20,height*.29,width*.40,height*.07);
-          block(color,-width*.28,height*.61,width*.56,height*.18);block('#151619',-width*.30,height*.79,width*.60,height*.06);
-        }else{
-          block('#262a2d',-width*.28,height*.20,width*.56,height*.31);block('#41494d',-width*.24,height*.23,width*.48,height*.11);
-          block('#202326',-width*.24,height*.37,width*.48,height*.12);block(color,-width*.32,height*.54,width*.64,height*.27);block('#151619',-width*.34,height*.80,width*.68,height*.06);
-          if(/Laurel/i.test(garageName)){block('#ded8cb',-width*.025,height*.12,width*.05,height*.65)}
-        }
-        block('#f0dfad',-width*.31,height*.055,width*.18,height*.045);block('#f0dfad',width*.13,height*.055,width*.18,height*.045);
-        block('#a52c35',-width*.31,height*.84,width*.17,height*.055);block('#a52c35',width*.14,height*.84,width*.17,height*.055);
-        block('#111215',-width*.17,height*.91,width*.34,height*.035);
-        if(isPlayer)block('#f4eee3',-width*.12,height*.94,width*.24,height*.035);
-        ctx.restore();
-      };
-      // Crisp, custom SVG pixel-art sprites. Keep the old renderer as a fallback while images load.
-      const spriteFiles={
-        laurel:'assets/images/apex-cars/laurel.svg',
-        rx7:'assets/images/apex-cars/rx7.svg',
-        stagea:'assets/images/apex-cars/stagea.svg',
-        altezza:'assets/images/apex-cars/altezza.svg',
-        senna:'assets/images/apex-cars/senna.svg',
-        peel:'assets/images/apex-cars/peel.svg'
-      };
-      const carSprites={};
-      Object.entries(spriteFiles).forEach(([key,src])=>{const img=new Image();img.src=src;carSprites[key]=img;});
-      const playerSpriteKey=/Laurel/i.test(garageName)?'laurel':/RX-7/i.test(garageName)?'rx7':/Stagea/i.test(garageName)?'stagea':/Altezza/i.test(garageName)?'altezza':/Senna/i.test(garageName)?'senna':'peel';
-      const drawCar=(x,y,width,height,color,isPlayer,profile='sports',spriteKey=null)=>{
-        const sprite=carSprites[spriteKey||(isPlayer?playerSpriteKey:'')];
-        if(!sprite||!sprite.complete||!sprite.naturalWidth){
-          drawFallbackCar(x,y,width,height,color,isPlayer,profile);
-          return;
-        }
-        ctx.save();
-        ctx.imageSmoothingEnabled=false;
-        ctx.drawImage(sprite,Math.round(x-width/2),Math.round(y),Math.max(1,Math.round(width)),Math.max(1,Math.round(height)));
-        ctx.restore();
-      };
-      const draw=(playing)=>{
-        const w=canvas.width,h=canvas.height;
-        ctx.clearRect(0,0,w,h);
-        const sky=ctx.createLinearGradient(0,0,0,h);
-        sky.addColorStop(0,'#29292d');sky.addColorStop(1,'#171719');
-        ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);
-        // Road edges and lane markers share the same perspective geometry.
-        ctx.fillStyle='#303034';ctx.beginPath();
-        ctx.moveTo(w*.5-roadHalf(0),0);ctx.lineTo(w*.5+roadHalf(0),0);
-        ctx.lineTo(w*.5+roadHalf(h),h);ctx.lineTo(w*.5-roadHalf(h),h);
-        ctx.closePath();ctx.fill();
-        ctx.strokeStyle='#a94b4b';ctx.lineWidth=3;ctx.beginPath();
-        ctx.moveTo(w*.5-roadHalf(0),0);ctx.lineTo(w*.5-roadHalf(h),h);
-        ctx.moveTo(w*.5+roadHalf(0),0);ctx.lineTo(w*.5+roadHalf(h),h);ctx.stroke();
-        // Two perspective lane dividers; dash movement sells forward motion.
-        const dashOffset=playing?(frame*5)%52:0;
-        for(let divider of [-1,1]){
-          for(let y=-52+dashOffset;y<h;y+=52){
-            const y2=Math.min(h,y+24);
-            if(y2<0)continue;
-            ctx.strokeStyle='#8d888b';ctx.lineWidth=1.8;
-            ctx.beginPath();
-            ctx.moveTo(w*.5+divider*roadHalf(Math.max(0,y))*.333,Math.max(0,y));
-            ctx.lineTo(w*.5+divider*roadHalf(y2)*.333,y2);
-            ctx.stroke();
-          }
-        }
-        ctx.fillStyle='#b8b3b4';ctx.font='12px monospace';ctx.fillText('APEX RUN',22,26);
-        if(playing){
-          obstacles.forEach(o=>{
-            const scale=.46+.78*Math.max(0,o.y/h);
-            drawCar(laneX(o.lane,o.y),o.y,29*scale,43*scale,o.color,false,'sports',o.spriteKey);
-          });
-          const playerY=h-86;
-          drawCar(laneX(lane,playerY),playerY,playerProfile==='micro'?35:playerProfile==='sports'?43:46,playerProfile==='micro'?53:64,playerColor,true,playerProfile,playerSpriteKey);
-          ctx.fillStyle='#e8e6e3';ctx.font='bold 20px monospace';
-          ctx.fillText(String(score).padStart(3,'0'),w-62,30);
-          ctx.fillStyle='#c9c2c3';ctx.font='10px monospace';ctx.fillText(('PLAYER · '+garageName).toUpperCase().slice(0,34),22,h-15);
-        }
-      };
-      const tick=()=>{
-        if(!running)return;
-        frame++;
-        if(frame%43===0){
-          let nextLane=Math.floor(Math.random()*3);
-          const last=obstacles[obstacles.length-1];
-          if(last&&nextLane===last.lane&&Math.random()<.7)nextLane=(nextLane+1+Math.floor(Math.random()*2))%3;
-          obstacles.push({lane:nextLane,y:-42,color:['#a09da0','#56656b','#9a7777','#b3a58b'][Math.floor(Math.random()*4)],spriteKey:['laurel','rx7','stagea','altezza','senna','peel'][Math.floor(Math.random()*6)]});
-        }
-        obstacles.forEach(o=>o.y+=4.2+Math.min(score/180,2.2));
-        obstacles=obstacles.filter(o=>o.y<canvas.height+60);
-        if(obstacles.some(o=>o.lane===lane&&o.y>canvas.height-150&&o.y<canvas.height-35)){
-          running=false;start.textContent='TRY AGAIN ↗';start.disabled=false;
-          scoreEl.textContent='CRASHED · DISTANCE '+String(score).padStart(3,'0');draw(true);return;
-        }
-        if(frame%8===0)score++;
-        scoreEl.textContent='DISTANCE '+String(score).padStart(3,'0');
-        draw(true);raf=requestAnimationFrame(tick)
-      };
-      const key=e=>{if(!modal.isConnected)return;if(['ArrowLeft','a','A'].includes(e.key)){lane=Math.max(0,lane-1);e.preventDefault()}if(['ArrowRight','d','D'].includes(e.key)){lane=Math.min(2,lane+1);e.preventDefault()}};
-      document.addEventListener('keydown',key);
-      canvas.addEventListener('pointerdown',e=>{if(e.offsetX<canvas.width/3)lane=Math.max(0,lane-1);else if(e.offsetX>canvas.width*2/3)lane=Math.min(2,lane+1)});
-      const begin=()=>{cancelAnimationFrame(raf);running=true;frame=0;score=0;lane=1;obstacles=[];start.disabled=true;start.textContent='DRIVING…';scoreEl.textContent='DISTANCE 000';tick()};
-      start.addEventListener('click',begin);
-      modal.querySelector('.game-close').addEventListener('click',()=>{running=false;cancelAnimationFrame(raf);document.removeEventListener('keydown',key);modal.remove()});
-      modal.addEventListener('click',e=>{if(e.target===modal){running=false;cancelAnimationFrame(raf);document.removeEventListener('keydown',key);modal.remove()}});
-      draw(false);
+    var tick = function() {
+      if (!running) return;
+      frame++;
+      if (frame % 43 === 0) {
+        var nextLane = Math.floor(Math.random() * 3);
+        var last = obstacles[obstacles.length - 1];
+        if (last && nextLane === last.lane && Math.random() < 0.7) nextLane = (nextLane + 1 + Math.floor(Math.random() * 2)) % 3;
+        obstacles.push({ lane: nextLane, y: -42, color: ['#a09da0', '#56656b', '#9a7777', '#b3a58b'][Math.floor(Math.random() * 4)], spriteKey: ['laurel', 'rx7', 'stagea', 'altezza', 'senna', 'peel'][Math.floor(Math.random() * 6)] });
+      }
+      obstacles.forEach(function(o) { o.y += 4.2 + Math.min(score / 180, 2.2); });
+      obstacles = obstacles.filter(function(o) { return o.y < canvas.height + 60; });
+      if (obstacles.some(function(o) { return o.lane === lane && o.y > canvas.height - 150 && o.y < canvas.height - 35; })) {
+        running = false; start.textContent = 'TRY AGAIN \u2197'; start.disabled = false;
+        scoreEl.textContent = 'CRASHED \u00b7 DISTANCE ' + String(score).padStart(3, '0');
+        draw(true); return;
+      }
+      if (frame % 8 === 0) score++;
+      scoreEl.textContent = 'DISTANCE ' + String(score).padStart(3, '0');
+      draw(true); raf = requestAnimationFrame(tick);
+    };
+
+    var key = function(e) {
+      if (!modal.isConnected) return;
+      if (['ArrowLeft', 'a', 'A'].includes(e.key)) { lane = Math.max(0, lane - 1); e.preventDefault(); }
+      if (['ArrowRight', 'd', 'D'].includes(e.key)) { lane = Math.min(2, lane + 1); e.preventDefault(); }
+    };
+    document.addEventListener('keydown', key);
+    canvas.addEventListener('pointerdown', function(e) {
+      if (e.offsetX < canvas.width / 3) lane = Math.max(0, lane - 1);
+      else if (e.offsetX > canvas.width * 2 / 3) lane = Math.min(2, lane + 1);
     });
 
-  })();
+    var begin = function() {
+      cancelAnimationFrame(raf); running = true; frame = 0; score = 0; lane = 1; obstacles = [];
+      start.disabled = true; start.textContent = 'DRIVING\u2026';
+      scoreEl.textContent = 'DISTANCE 000'; tick();
+    };
+    start.addEventListener('click', begin);
+
+    modal.querySelector('.game-close').addEventListener('click', function() {
+      running = false; cancelAnimationFrame(raf);
+      document.removeEventListener('keydown', key); modal.remove();
+    });
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        running = false; cancelAnimationFrame(raf);
+        document.removeEventListener('keydown', key); modal.remove();
+      }
+    });
+    draw(false);
+  });
+
   </script>
 </body>
 </html>
