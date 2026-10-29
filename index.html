@@ -442,7 +442,31 @@
               });
             };
 
-            if (vehicleIndex === 0) {
+            const applySennaPaint = function() {
+              api.getMaterialList(function(materialError, materials) {
+                if (materialError || !materials || vehicleIndex !== currentVehicle) return;
+                const paintMaterials = materials.filter(function(material) {
+                  return /paint|body|car.?paint|exterior|shell/i.test(material.name || '');
+                });
+                paintMaterials.forEach(function(material) {
+                  material.channels = material.channels || {};
+                  const volcanoOrange = [0.95, 0.19, 0.025];
+                  ['AlbedoPBR', 'DiffuseColor', 'DiffusePBR'].forEach(function(channelName) {
+                    const channel = material.channels[channelName];
+                    if (channel) {
+                      channel.enable = true;
+                      channel.color = volcanoOrange.slice();
+                    }
+                  });
+                  api.setMaterial(material, function() {});
+                });
+              });
+            };
+
+            if (vehicleIndex === 5) {
+              applySennaPaint();
+              finishLoading();
+            } else if (vehicleIndex === 0) {
               api.getEnvironment(function(envError, env) {
                 if (vehicleIndex !== currentVehicle) return;
                 if (envError || !env) {
