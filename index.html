@@ -449,14 +449,32 @@
                   frameCamera();
                   return;
                 }
-                const brighterEnvironment = Object.assign({}, env, {
-                  exposure: Math.min((Number(env.exposure) || 1) + 0.35, 2.5),
-                  lightIntensity: Math.min((Number(env.lightIntensity) || 1) * 1.3, 2)
+                api.setLightFeatureEnabled(true, function() {
+                  if (vehicleIndex !== currentVehicle) return;
+                  let lightsPending = 3;
+                  const finishLighting = function() {
+                    lightsPending -= 1;
+                    if (lightsPending <= 0 && vehicleIndex === currentVehicle) frameCamera();
+                  };
+                  [0, 1, 2].forEach(function(lightId) {
+                    api.getLight(lightId, function(lightError, light) {
+                      if (lightError || !light) {
+                        finishLighting();
+                        return;
+                      }
+                      const brighterLight = Object.assign({}, light, {
+                        enabled: true,
+                        intensity: Math.min(Math.max((Number(light.intensity) || 0.25) * 1.45, 0.35), 1)
+                      });
+                      api.setLight(lightId, brighterLight, function() {
+                        finishLighting();
+                      });
+                    });
+                  });
+                  window.setTimeout(function() {
+                    if (vehicleIndex === currentVehicle) frameCamera();
+                  }, 1200);
                 });
-                api.setEnvironment(brighterEnvironment, function() {
-                  if (vehicleIndex === currentVehicle) frameCamera();
-                });
-                window.setTimeout(frameCamera, 1200);
               });
             } else {
               finishLoading();
