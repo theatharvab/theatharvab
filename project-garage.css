@@ -1,0 +1,53 @@
+/* Shared project-page skin: dark technical garage */
+:root{--bg:#050607;--panel:#101318;--panel2:#15191f;--text:#e8e6e3;--muted:#858b96;--line:#282d35;--accent:#d20a24;--accent-soft:#d20a24;--mono:'DM Mono',monospace;--sans:'Inter','Manrope',system-ui,sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0!important;background:#050607!important;color:var(--text)!important;font-family:var(--sans)!important;line-height:1.7!important;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px)!important;background-size:34px 34px!important}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(210,10,36,.09),transparent 48%);z-index:-1}
+.site-header{position:sticky!important;top:0!important;z-index:100!important;width:100%!important;max-width:none!important;height:56px!important;margin:0!important;padding:0 clamp(20px,4vw,64px)!important;box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important;background:rgba(5,6,7,.94)!important;border-bottom:1px solid #282d35!important;backdrop-filter:blur(14px)!important}
+.wordmark{font-family:var(--sans)!important;font-size:.82rem!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#f0eeeb!important}
+.wordmark span,.red-period{color:var(--accent)!important}
+.site-header nav{display:flex!important;align-items:center!important;gap:clamp(12px,2.2vw,30px)!important;font: .63rem var(--mono)!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:#a5aab3!important}
+.site-header nav a{transition:color .2s!important}.site-header nav a:hover{color:#fff!important}
+.section-wrap{width:min(1320px,calc(100% - clamp(32px,8vw,128px)))!important;margin-inline:auto!important}
+.car-hero,.engine-hero{position:relative!important;padding:clamp(70px,10vw,130px) 0 58px!important;border-bottom:1px solid var(--line)!important}
+.car-hero:before,.engine-hero:before{content:"PROJECT FILE / ENGINEERING GARAGE";display:block;margin-bottom:18px;font: .62rem var(--mono);letter-spacing:.16em;color:var(--accent)}
+.eyebrow,.project-type,.timeline-date{font-family:var(--mono)!important;font-size:.64rem!important;letter-spacing:.13em!important;color:#a7adb7!important;text-transform:uppercase!important}
+.car-hero h1,.engine-hero h1{font-size:clamp(2.6rem,6vw,5.6rem)!important;line-height:1.02!important;letter-spacing:-.065em!important;font-weight:700!important;max-width:1050px!important;margin:12px 0 24px!important;color:#f0eeeb!important}
+.car-hero .lead,.engine-hero .lead{max-width:820px!important;color:#aeb4bf!important;font-size:1rem!important;line-height:1.9!important}
+.car-meta,.engine-meta{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin:25px 0 0!important}
+.car-meta span,.engine-meta span{font:.59rem var(--mono)!important;letter-spacing:.08em!important;color:#c3c8d0!important;border:1px solid #343943!important;background:#101318!important;padding:8px 10px!important}
+.car-layout,.engine-layout{display:grid!important;grid-template-columns:minmax(150px,210px) minmax(0,1fr)!important;gap:clamp(28px,5vw,76px)!important;padding:54px 0 100px!important}
+.car-toc,.engine-toc{position:sticky!important;top:84px!important;align-self:start!important;border-top:1px solid var(--line)!important;padding-top:14px!important}
+.car-toc a,.engine-toc a{display:block!important;font:.62rem var(--mono)!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:#8d949f!important;padding:10px 0!important;border-bottom:1px solid #1b2027!important}
+.car-toc a:hover,.engine-toc a:hover{color:var(--accent)!important}
+.car-body,.engine-body,.engine-panel{max-width:none!important;min-width:0!important}
+.car-body h2,.engine-body h2{font-size:clamp(1.5rem,2.6vw,2rem)!important;letter-spacing:-.045em!important;margin:48px 0 16px!important;color:#f0eeeb!important}
+.car-body h2:first-child,.engine-body h2:first-child{margin-top:0!important}
+.car-body p,.car-body li,.engine-body p,.engine-body li,.engine-panel p{font-size:.88rem!important;line-height:1.95!important;color:#b2b8c2!important}
+.car-body ul,.engine-body ul{padding-left:22px!important}
+.cad-figure,.media-figure,.engine-figure{margin:26px 0 20px!important;border:1px solid #303640!important;background:#0d1015!important;overflow:hidden!important}
+.cad-figure img,.media-figure img{display:block;width:100%;height:auto}
+.figure-caption{font:.58rem var(--mono)!important;letter-spacing:.05em!important;line-height:1.8!important;color:#9097a2!important;padding:12px 15px!important;border-top:1px solid #303640!important}
+.race-video{background:#050607!important}
+.note{border-left:2px solid var(--accent)!important;padding:15px 18px!important;background:#111419!important;color:#b9c0ca!important;font-size:.8rem!important;line-height:1.9!important;margin:25px 0!important}
+.back-link{display:inline-flex!important;margin-top:28px!important;font:.65rem var(--mono)!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:#f0a2ad!important}
+.status-line{font:.59rem var(--mono)!important;letter-spacing:.08em!important;color:#f0a2ad!important;border:1px solid #63303a!important;background:#170d10!important;padding:8px 10px!important;margin:0 0 22px!important}
+.status-line:before{background:var(--accent)!important}
+.engine-explorer{max-width:none!important;padding:45px 0 100px!important;margin:0!important}
+.engine-tabs{border-bottom:1px solid var(--line)!important;margin-bottom:30px!important}
+.engine-tabs label{font:.6rem var(--mono)!important;letter-spacing:.05em!important;color:#8c929d!important;padding:14px 12px!important}
+.engine-panel{max-width:none!important}
+.engine-panel h2{font-size:clamp(1.7rem,3.5vw,2.5rem)!important;letter-spacing:-.05em!important;color:#f0eeeb!important}
+.engine-panel h3{color:#e8e6e3!important}
+.panel-kicker{font:.6rem var(--mono)!important;letter-spacing:.14em!important;color:#f08a98!important}
+.overview-stats>div,.milestone,.application,.spec-table{background:#101318!important;border-color:#2c323b!important}
+.overview-stats strong,.milestone strong,.application strong{color:#e8e6e3!important}
+.overview-stats span,.milestone span,.application span{color:#969eaa!important}
+.spec-table-wrap{border-color:#2c323b!important}
+.spec-table th,.spec-table td{border-color:#2c323b!important}
+.spec-table th{color:#969eaa!important;background:#0b0d10!important}
+.spec-table td:first-child{color:#e0e3e8!important}.spec-table td:last-child{color:#b2b8c2!important}
+.subsystem-visual{border-color:#38323a!important;background-color:#101318!important}
+.subsystem-visual span{color:#f08a98!important}.subsystem-visual small{color:#969eaa!important}
+@media(max-width:760px){.section-wrap{width:calc(100% - 36px)!important}.site-header{padding:0 18px!important}.site-header nav{gap:12px!important;font-size:.54rem!important}.car-layout,.engine-layout{grid-template-columns:1fr!important;gap:24px!important}.car-toc,.engine-toc{position:static!important;display:flex!important;flex-wrap:wrap!important;gap:10px 16px!important}.car-toc a,.engine-toc a{border-bottom:0!important;padding:4px 0!important}.engine-tabs{max-width:calc(100vw - 36px)}}
+@media(max-width:480px){.site-header nav a:nth-child(2){display:none!important}.car-hero,.engine-hero{padding-top:72px!important}.car-hero h1,.engine-hero h1{font-size:clamp(2.4rem,12vw,3.5rem)!important}}
