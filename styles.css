@@ -1,197 +1,393 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 :root{--bg:#171719;--panel:#202023;--panel2:#242427;--text:#e8e6e3;--muted:#a09da0;--line:#383639;--accent:#781b1b;--accent-soft:#a94b4b;--mono:'DM Mono',monospace;--sans:'Manrope',sans-serif}
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth;scroll-padding-top:88px}
+
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+
 a{color:inherit;text-decoration:none}
+
 ::selection{background:#781b1b;color:#fff}
+
 .section-wrap{width:min(1120px,calc(100% - 56px));margin-inline:auto}
+
 .site-header{width:min(1240px,calc(100% - 56px));height:82px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+
 .wordmark{font-size:1.1rem;font-weight:700;letter-spacing:-.045em}.wordmark span,.red-period{color:var(--accent-soft)}
+
 nav{display:flex;align-items:center;gap:29px;font-size:.8rem;color:#c9c5c5}nav a{transition:color .2s}nav a:hover,.underlined-link:hover,.project-link:hover{color:#c16a6a}
+
 .eyebrow,.project-type,.timeline-date,.slot-index,.intro-bottom>span,.image-slot-caption small,.profile-link-note{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;color:var(--muted)}
+
 .eyebrow{margin:0 0 22px}.red-mark{display:inline-block;width:7px;height:7px;background:var(--accent-soft);margin:0 10px 1px 0}
+
 .intro{min-height:610px;display:grid;grid-template-columns:minmax(0,1fr) 260px;column-gap:90px;align-items:center;position:relative;padding-top:72px;padding-bottom:112px}
+
 .intro-copy{max-width:700px}.intro h1{font-size:clamp(3.2rem,7vw,5.8rem);line-height:1.04;letter-spacing:-.075em;font-weight:700;margin:0 0 25px}
+
 .intro-lead{font-size:1.25rem;line-height:1.6;max-width:640px;margin-bottom:15px;color:#e0dddc}
+
 .intro-body{font-size:.92rem;color:#aaa6a6;max-width:620px;line-height:1.9;margin-bottom:0}
+
 .intro-links{display:flex;align-items:center;gap:25px;flex-wrap:wrap;margin-top:29px}
+
 .button{display:inline-flex;align-items:center;gap:25px;background:var(--accent);color:#fff;padding:12px 16px;font-size:.8rem;font-weight:600;transition:background .2s,transform .2s}.button:hover{background:#923333;transform:translateY(-2px)}
+
 .underlined-link{font-size:.8rem;color:#d4d0d0;border-bottom:1px solid #60595a;padding-bottom:3px;transition:color .2s,border-color .2s}
+
 .image-slot{position:relative;overflow:hidden;background:#1d1d20;border:1px solid #494448}
+
 .portrait-slot{width:100%;aspect-ratio:4/5;align-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;background:linear-gradient(145deg,#222225,#19191c)}
+
 .slot-index{position:absolute;top:15px;left:15px;font-size:.57rem}
+
 .slot-icon{position:relative;width:58px;height:58px;margin-bottom:18px;border:1px solid #5b4245;border-radius:50%}
+
 .slot-icon:before{content:"";position:absolute;width:15px;height:15px;border:1px solid #a15b5b;border-radius:50%;left:20px;top:10px}
+
 .slot-icon:after{content:"";position:absolute;width:30px;height:14px;border:1px solid #a15b5b;border-radius:18px 18px 8px 8px;left:13px;bottom:8px}
+
 .portrait-slot p,.lifting-slot p{font-size:.8rem;margin:0 0 5px;color:#ded8d8}.portrait-slot small,.lifting-slot small{font-size:.68rem;line-height:1.7;color:var(--muted)}
+
 .intro-bottom{position:absolute;bottom:29px;left:0;right:0;border-top:1px solid var(--line);padding-top:15px;display:flex;align-items:center;gap:22px}
+
 .intro-bottom p{margin:0;font-size:.75rem;color:#c7c2c2}.intro-bottom i{color:var(--accent-soft);font-style:normal;padding:0 6px}.intro-note{margin-left:auto!important}
+
 .work-section{padding:106px 0 118px}
+
 .section-heading{display:flex;align-items:end;justify-content:space-between;gap:48px;margin-bottom:46px}
+
 .section-heading h2,.about-heading h2,.toolkit-layout h2,.outside-copy h2,.contact-section h2{font-size:clamp(2.3rem,4.6vw,3.8rem);line-height:1.12;letter-spacing:-.065em;margin:0}
+
 .section-aside{max-width:340px;font-size:.85rem;color:var(--muted);line-height:1.85;margin:0 0 5px}
+
 .project{display:grid;grid-template-columns:1.03fr .97fr;gap:0;background:#1d1d20;border:1px solid var(--line);margin-top:24px;transition:border-color .25s,transform .25s}
+
 .project:hover{border-color:#665153}.project-image{display:block;min-height:350px;border:0;border-right:1px solid var(--line);background:#202023}
+
 .project-copy{padding:34px 36px;display:flex;flex-direction:column;align-items:flex-start}
+
 .project-type{color:#c17b7b;margin:0 0 13px;font-size:.62rem}
+
 .project-copy h3{font-size:1.45rem;line-height:1.35;letter-spacing:-.045em;margin:0 0 13px}
+
 .project-copy>p:not(.project-type){font-size:.84rem;color:#b5b0b0;line-height:1.9;margin:0 0 20px}
+
 .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}.tag-row span{font-family:var(--mono);font-size:.59rem;padding:5px 8px;border:1px solid #454044;color:#c7c0c0}
+
 .project-link{display:inline-flex;align-items:center;gap:22px;margin-top:26px;font-size:.79rem;color:#c16a6a;transition:color .2s}.project-link span{font-size:.95rem}
+
 .project-note{font-family:var(--mono);font-size:.65rem;color:var(--muted);margin-top:23px}
+
 .image-slot-caption{position:absolute;left:18px;right:18px;bottom:16px;display:flex;flex-direction:column;gap:3px;z-index:2}
+
 .image-slot-caption strong{font-size:.73rem;font-weight:500;color:#e3dede}.image-slot-caption small{font-size:.56rem;letter-spacing:.025em}
+
 .cfd-placeholder{position:absolute;inset:0;background-color:#202023;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:26px 26px;overflow:hidden}
+
 .cfd-placeholder:before{content:"";position:absolute;left:8%;right:8%;top:24%;height:42%;border:1px solid #a45a5a;background:linear-gradient(90deg,#692d2d55,#a64b4b55,#d29a6c33,#4f777355);transform:skewY(-12deg);opacity:.75}
+
 .cfd-placeholder span{position:absolute;left:10%;right:10%;height:1px;background:#c58c8c;opacity:.35;transform:rotate(-12deg)}.cfd-placeholder span:nth-child(1){top:31%}.cfd-placeholder span:nth-child(2){top:40%}.cfd-placeholder span:nth-child(3){top:49%}.cfd-placeholder span:nth-child(4){top:58%}
+
 .car-placeholder{position:absolute;inset:0;background:linear-gradient(145deg,#242326,#1b1b1e)}
+
 .car-placeholder:before,.car-placeholder:after{content:"";position:absolute;left:12%;right:12%;height:1px;background:#765255;transform:rotate(-18deg)}.car-placeholder:before{top:35%}.car-placeholder:after{top:66%;transform:rotate(14deg)}
+
 .car-shape{position:absolute;left:22%;top:39%;width:56%;height:25%;border:1px solid #a15c5c;transform:skewX(-24deg);background:#781b1b20}
+
 .car-shape span{position:absolute;bottom:-11px;width:20px;height:20px;border:1px solid #b57a7a;border-radius:50%;background:#202023}.car-shape span:first-child{left:12%}.car-shape span:nth-child(2){right:12%}.car-shape i{position:absolute;left:30%;top:-13px;width:32%;height:14px;border:1px solid #a15c5c;border-bottom:0}
+
 .about-section{background:#1d1d20;border-block:1px solid var(--line);padding:100px 0}
+
 .about-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px}
+
 .about-copy{max-width:560px}.about-copy p{font-size:.9rem;color:#bdb7b7;line-height:1.95;margin:0 0 19px}.about-copy .underlined-link{display:inline-block;margin-top:6px}
+
 .details-section{padding:106px 0 112px}
+
 .timeline{border-top:1px solid var(--line)}.timeline-item{display:grid;grid-template-columns:145px 1fr;gap:30px;padding:23px 0;border-bottom:1px solid var(--line)}
+
 .timeline-date{padding-top:3px}.timeline-item h3{font-size:.95rem;font-weight:600;margin:0 0 5px}.timeline-item p{font-size:.81rem;color:var(--muted);margin:0;line-height:1.8;max-width:720px}
+
 .toolkit-section{background:#1d1d20;border-block:1px solid var(--line);padding:92px 0}
+
 .toolkit-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px}.toolkit-list{border-top:1px solid var(--line)}
+
 .toolkit-list>div{display:grid;grid-template-columns:35px 1fr;gap:15px;border-bottom:1px solid var(--line);padding:16px 0}
+
 .toolkit-list span{font: .65rem var(--mono);color:#c17b7b;padding-top:4px}.toolkit-list p{margin:0;font-size:.78rem;color:var(--muted);line-height:1.8}.toolkit-list strong{display:block;color:#e1dcdc;font-size:.82rem;font-weight:600;margin-bottom:2px}
+
 .outside-section{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:80px;align-items:center;padding-top:110px;padding-bottom:110px}
+
 .outside-copy{max-width:710px}.outside-copy h2{max-width:700px;font-size:clamp(2rem,4vw,3.2rem);margin-bottom:22px}
+
 .outside-copy>p:not(.eyebrow){font-size:.88rem;line-height:1.9;color:#bdb7b7;max-width:680px;margin:0 0 15px}
+
 .profile-link-note{display:block;margin-top:22px;font-size:.59rem;letter-spacing:.035em}
+
 .lifting-slot{aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px}
+
 .lifting-icon{width:66px;height:42px;border:0;margin-bottom:18px}
+
 .lifting-icon:before{content:"";position:absolute;left:9px;right:9px;top:19px;height:3px;background:#a15c5c}
+
 .lifting-icon:after{content:"";position:absolute;left:4px;top:7px;width:8px;height:27px;border:1px solid #a15c5c;box-shadow:8px 0 0 -1px #202023,10px 0 0 0 #a15c5c,40px 0 0 -1px #202023,42px 0 0 0 #a15c5c,50px 0 0 0 #a15c5c}
+
 .contact-section{padding:100px 0 110px;border-top:1px solid var(--line)}
+
 .contact-section h2{font-size:clamp(2.1rem,4.3vw,3.5rem);margin-bottom:18px}.contact-section>p:not(.eyebrow){max-width:570px;font-size:.88rem;color:var(--muted);line-height:1.9;margin:0}
+
 .site-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px;padding-bottom:25px;border-top:1px solid var(--line);color:#888384;font-size:.67rem}.site-footer .wordmark{color:var(--text)}
+
 .js .reveal{opacity:0;transform:translateY(13px);transition:opacity .65s ease,transform .65s ease}.js .reveal.is-visible{opacity:1;transform:translateY(0)}
+
 @media(max-width:850px){.site-header{height:72px}.intro{grid-template-columns:minmax(0,1fr) 200px;gap:35px}.intro h1{font-size:clamp(3rem,7vw,4.7rem)}.project{grid-template-columns:1fr 1fr}.project-image{min-height:320px}.project-copy{padding:27px}.about-layout,.toolkit-layout{gap:45px}.outside-section{gap:40px}.section-heading{gap:28px}}
+
 @media(max-width:650px){.section-wrap,.site-header{width:calc(100% - 36px)}nav{gap:16px;font-size:.73rem}nav a:nth-child(3){display:none}.intro{grid-template-columns:1fr;gap:30px;padding-top:65px;padding-bottom:110px}.intro h1{font-size:clamp(3.1rem,12vw,4.8rem)}.intro-lead{font-size:1.1rem}.portrait-slot{width:150px;aspect-ratio:4/5;justify-self:start;grid-row:2}.intro-bottom{flex-wrap:wrap;gap:8px 16px}.intro-bottom p{width:100%;order:3}.intro-note{margin-left:0!important}.work-section,.details-section{padding:78px 0}.section-heading{display:block}.section-aside{margin-top:17px}.project{grid-template-columns:1fr}.project-image{min-height:285px;border-right:0;border-bottom:1px solid var(--line)}.project-copy{padding:25px 23px;min-height:300px}.about-section,.toolkit-section{padding:76px 0}.about-layout,.toolkit-layout{grid-template-columns:1fr;gap:32px}.timeline-item{grid-template-columns:1fr;gap:5px}.outside-section{grid-template-columns:1fr;gap:28px;padding-top:78px;padding-bottom:78px}.lifting-slot{width:140px;aspect-ratio:3/4;justify-self:start;grid-row:2}.contact-section{padding:78px 0}.site-footer span:last-child{display:none}}
+
 @media(max-width:420px){nav{gap:12px}nav a:nth-child(2){display:none}.intro h1{font-size:3.05rem}.intro-links{gap:18px}.image-slot-caption small{max-width:280px}.site-footer{font-size:.61rem}}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}}
 
+
+
 /* Portfolio refinement: consistent rhythm, compact project cells, and the interactive garage. */
+
 :root{--section-space:clamp(76px,8vw,108px);--grid-gap:18px}
+
 .site-header{width:min(1120px,calc(100% - 56px))}
+
 .intro{grid-template-columns:minmax(0,1fr) minmax(330px,390px);column-gap:clamp(34px,5vw,72px);min-height:640px;padding-top:64px;padding-bottom:112px}
+
 .intro-copy{min-width:0}
+
 .garage-card{align-self:center;position:relative;min-width:0;border:1px solid #494448;background:#1d1d20;box-shadow:0 18px 55px #0002}
+
 .garage-topline{height:37px;display:flex;align-items:center;justify-content:space-between;padding:0 13px;border-bottom:1px solid var(--line);background:#222225}
+
 .garage-topline .slot-index{position:static;font-size:.55rem}
+
 .garage-live{font: .55rem var(--mono);letter-spacing:.06em;color:#c7bfc0}
+
 .garage-live i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#a94b4b;margin-right:6px}
+
 .car-viewer{height:220px;position:relative;overflow:hidden;background:#202023;touch-action:pan-y}
+
 .car-viewer canvas{display:block;width:100%;height:100%;cursor:grab;outline:none}
+
 .car-viewer canvas:active{cursor:grabbing}
+
 .viewer-hint{position:absolute;z-index:2;left:13px;bottom:10px;font: .53rem var(--mono);letter-spacing:.07em;color:#b2a9aa;pointer-events:none}
+
 .car-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;background:#202023;font:.58rem var(--mono);letter-spacing:.08em;color:#c4bfc0;z-index:3}
+
 .car-loading span{color:#c16a6a;animation:loadingPulse 1s infinite alternate}
+
 @keyframes loadingPulse{to{opacity:.25}}
+
 .garage-info{padding:17px 17px 13px}
+
 .garage-number{float:right;font:.58rem var(--mono);color:#a09da0}
+
 .garage-label{font:.58rem var(--mono);letter-spacing:.09em;color:#c17b7b;margin:0 0 5px}
+
 .garage-info h2{font-size:1.36rem;line-height:1.25;letter-spacing:-.05em;margin:0 0 2px}
+
 .garage-year{font:.62rem var(--mono);color:#a09da0;margin:0 0 10px}
+
 .garage-description{font-size:.72rem;line-height:1.7;color:#b5b0b0;margin:0 0 12px}
+
 .garage-specs{display:flex;flex-wrap:wrap;gap:6px 14px;border-top:1px solid var(--line);padding-top:10px;font:.56rem var(--mono);color:#c9c2c3}
+
 .garage-controls{display:grid;grid-template-columns:35px 1fr 35px;gap:8px;margin-top:13px}
+
 .garage-controls button{height:34px;border:1px solid #51484b;background:transparent;color:#e8e6e3;font: .7rem var(--mono);cursor:pointer;transition:background .2s,border-color .2s}
+
 .garage-controls button:hover{background:#2c2528;border-color:#a15c5c}
+
 .garage-controls .play-button{background:var(--accent);border-color:var(--accent);font-size:.6rem;letter-spacing:.08em;font-weight:500}
+
 .garage-controls .play-button:hover{background:#923333}
+
 .play-button span{margin-left:8px}
+
 .garage-footnote{font:.51rem var(--mono);letter-spacing:.035em;color:#8f898b;margin:10px 0 0;text-align:center}
+
 .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+
 .project{display:flex;flex-direction:column;min-width:0;margin:0;height:100%;transition:border-color .25s,transform .25s}
+
 .project-image{position:relative;display:block;min-height:0;height:auto;aspect-ratio:1.45/1;border-right:0;border-bottom:1px solid var(--line);flex:none}
+
 .project-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}.project-photo-car{object-position:center 52%}.project-car .image-slot-caption{padding:32px 12px 10px;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(10,10,12,.88))}
+
 .project-copy{padding:24px 24px 25px;min-height:280px;flex:1}
+
 .project-copy h3{font-size:1.25rem}
+
 .project-copy>p:not(.project-type){font-size:.79rem;line-height:1.8}
+
 .image-slot-caption small{font-size:.52rem;letter-spacing:.035em}
+
 .section-heading{margin-bottom:34px}
+
 .work-section,.details-section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+
 .about-section,.toolkit-section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+
 .outside-section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+
 .contact-section{padding-top:var(--section-space);padding-bottom:var(--section-space)}
+
 .game-modal{position:fixed;inset:0;z-index:1000;background:#0c0c0de8;display:grid;place-items:center;padding:22px;backdrop-filter:blur(8px)}
+
 .game-panel{position:relative;width:min(760px,100%);padding:clamp(20px,4vw,34px);background:#1d1d20;border:1px solid #51484b;box-shadow:0 30px 100px #0008}
+
 .game-close{position:absolute;right:14px;top:10px;border:0;background:transparent;color:#e8e6e3;font-size:1.8rem;cursor:pointer}
+
 .game-panel .eyebrow{margin-bottom:8px}
+
 .game-panel h2{font-size:clamp(2rem,6vw,3.4rem);letter-spacing:-.07em;line-height:1;margin:0 0 10px}
+
 .game-panel h2 span{color:var(--accent-soft)}
+
 .game-instructions{font-size:.75rem;color:var(--muted);margin:0 0 18px}
+
 .game-canvas{display:block;width:100%;height:auto;aspect-ratio:12/7;background:#202023;border:1px solid #3e393d}
+
 .game-footer{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:14px}
+
 .game-footer span{font:.62rem var(--mono);color:#c7bfc0}
+
 .game-start{background:var(--accent);border:1px solid var(--accent);color:#fff;padding:10px 14px;font:.63rem var(--mono);cursor:pointer}
+
 .game-start:disabled{opacity:.65;cursor:wait}
+
 @media(max-width:850px){.intro{grid-template-columns:minmax(0,1fr) minmax(280px,330px);gap:28px}.project-copy{padding:22px;min-height:300px}.garage-info h2{font-size:1.2rem}}
+
 @media(max-width:700px){.intro{grid-template-columns:1fr;gap:30px;padding-top:58px;padding-bottom:118px}.garage-card{width:min(100%,420px);justify-self:start}.car-viewer{height:230px}.project-grid{grid-template-columns:1fr}.project-image{aspect-ratio:1.6/1}.project-copy{min-height:0;padding:24px}.project-copy .tag-row{margin-top:8px}.project-copy h3{font-size:1.35rem}}
+
 @media(max-width:420px){.garage-info{padding:15px}.car-viewer{height:205px}.garage-info h2{font-size:1.2rem}.game-footer{align-items:flex-start;flex-direction:column}.game-start{width:100%}}
+
 @media(prefers-reduced-motion:reduce){.car-loading span{animation:none}}
 
+
+
 /* Emergency layout/rendering fix: keep the garage viewport bounded. */
+
 .intro{grid-template-columns:minmax(0,1fr) minmax(300px,370px);column-gap:clamp(28px,4vw,56px);align-items:center}
+
 .intro-copy{width:100%;min-width:0}
+
 .garage-card{width:100%;max-width:370px;min-width:0;overflow:hidden;justify-self:end;align-self:center}
+
 .car-viewer{display:block;width:100%;height:210px;min-height:210px;max-height:210px;position:relative;overflow:hidden;contain:layout paint size;background:#202023}
+
 .car-viewer img{display:block;position:absolute;inset:0;width:100%;height:100%;max-width:100%;object-fit:cover;object-position:center 55%}
+
 .viewer-caption{position:absolute;left:12px;bottom:10px;padding:4px 7px;background:#171719cc;color:#e8e6e3;font:.52rem var(--mono);letter-spacing:.06em}
+
 .car-viewer canvas{display:none!important}
+
 @media(max-width:850px){.intro{grid-template-columns:minmax(0,1fr) minmax(280px,320px);gap:26px}.garage-card{max-width:320px}.car-viewer{height:190px;min-height:190px;max-height:190px}}
+
 @media(max-width:700px){.intro{grid-template-columns:minmax(0,1fr);gap:28px}.garage-card{width:min(100%,420px);max-width:420px;justify-self:start}.car-viewer{height:230px;min-height:230px;max-height:230px}}
+
 @media(max-width:420px){.car-viewer{height:205px;min-height:205px;max-height:205px}}
 
+
+
 /* 3D garage prototype: fixed viewport, no image zoom/crop or layout growth. */
+
 .car-viewer{isolation:isolate}
+
 .car-viewer canvas{position:absolute;inset:0;display:block!important;width:100%!important;height:100%!important;max-width:100%;max-height:100%;z-index:1;touch-action:none;outline:none}
+
 .car-viewer .car-loading{pointer-events:none}
+
 .viewer-caption,.viewer-hint{z-index:4}
+
 .viewer-hint{position:absolute;left:12px;bottom:34px;font:.48rem var(--mono);letter-spacing:.035em;color:#c9c2c3;pointer-events:none;text-shadow:0 1px 4px #000}
+
 .car-viewer .car-loading{font:.56rem var(--mono);letter-spacing:.07em;color:#d4cecf}
+
 @media(max-width:700px){.viewer-hint{max-width:90%;font-size:.43rem}}
 
 
+
+
+
 /* Embedded vehicle models for the garage collection */
+
 .car-viewer iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0;background:#202023;z-index:1}
+
 .car-viewer #car-loading{z-index:3;transition:opacity .2s}
+
 .car-viewer #viewer-caption{z-index:4;max-width:calc(100% - 24px);cursor:pointer;pointer-events:auto;line-height:1.5}
+
 .car-viewer #viewer-caption:hover{color:#fff;background:#781b1bee}
 
 
+
+
+
 /* Real project photography and CAD images */
+
 .photo-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 
 
+
+
+
 /* Three-card selected-work layout and the J35Z2 work-in-progress visual. */
+
 .engine-card-visual{position:absolute;inset:0;overflow:hidden;background-color:#202023;background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:24px 24px}
+
 .engine-bank{position:absolute;top:25%;width:31%;height:31%;border:1px solid #9d5555;background:linear-gradient(135deg,#7c292933,#b9b2ad11);transform:skewY(-24deg)}
+
 .engine-bank-left{left:17%;transform:skewY(-24deg) rotate(-4deg)}
+
 .engine-bank-right{right:17%;transform:skewY(24deg) rotate(4deg)}
+
 .engine-crank{position:absolute;left:24%;right:24%;top:64%;height:2px;background:#b26a6a;transform:rotate(-3deg)}
+
 .engine-crank:before,.engine-crank:after{content:"";position:absolute;top:-6px;width:14px;height:14px;border:1px solid #c08a8a;border-radius:50%;background:#202023}
+
 .engine-crank:before{left:18%}.engine-crank:after{right:18%}
+
 .engine-piston{position:absolute;top:35%;width:13%;height:17%;border:1px solid #c4bfc0;background:#a6a0a033}
+
 .engine-piston-one{left:25%;transform:rotate(-24deg)}
+
 .engine-piston-two{left:43%;top:29%;transform:rotate(24deg)}
+
 .engine-piston-three{right:25%;top:36%;transform:rotate(24deg)}
+
 .engine-card-label{position:absolute;top:12%;right:12%;font: .65rem var(--mono);letter-spacing:.14em;color:#c17b7b}
+
 @media(min-width:1000px){.project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.project-grid .project-image{aspect-ratio:1.22/1}.project-grid .project-copy{padding:21px 19px;min-height:320px}.project-grid .project-copy h3{font-size:1.13rem}.project-grid .project-copy>p:not(.project-type){font-size:.75rem}}
 
 
+
+
+
 /* Real J35Z2 prototype animation previews. */
+
 .project-engine .project-image{display:block;position:relative;overflow:hidden}
+
 .engine-animation-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#202023}
+
 .project-engine .image-slot-caption{z-index:2}
+
 .project-engine .slot-index{z-index:2}
+
 .engine-figure-live{display:flex;align-items:center;justify-content:center;min-height:0;aspect-ratio:16/9;background:#202023}
+
 .engine-figure-live:before{display:none}
+
 .engine-figure-live img{display:block;width:100%;height:100%;object-fit:contain}
+
 .engine-figure-live .engine-figure-label{z-index:1;background:linear-gradient(transparent,rgba(12,13,15,.94));padding:42px 17px 15px}
