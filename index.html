@@ -92,7 +92,7 @@
       <div class="hero-text">
         <p class="eyebrow"><span class="red-dot"></span> VEHICLE SHOWCASE</p>
         <h1 id="heroCarName">NISSAN GT-R R35</h1>
-        <p class="hero-specs" id="heroCarSpecs">3.8L V6 Twin-Turbo &nbsp;/&nbsp; 545 HP &nbsp;/&nbsp; AWD &nbsp;/&nbsp; 2009–2024</p>
+        <p class="hero-specs" id="heroCarSpecs">3.8L V6 Twin-Turbo &nbsp;/&nbsp; 545 hp &nbsp;/&nbsp; AWD &nbsp;/&nbsp; 2009–2024</p>
         <a class="cta-btn" id="heroExploreBtn" href="#projects">EXPLORE VEHICLE &nbsp; →</a>
         <a class="vehicle-credit" id="vehicleCredit" href="https://sketchfab.com/models/60666625029a461b93d202fe9512a389" target="_blank" rel="noreferrer">3D MODEL CREDIT · DDIAZ DESIGN / CC BY-NC-SA ↗</a>
       </div>
@@ -193,7 +193,7 @@
             <p class="collection-desc" id="collDesc">Your featured car: understated C35 styling, rear-drive proportions, and serious tuning heritage.</p>
             <div class="collection-specs">
               <span id="collEngine">2.5L turbocharged inline-six</span>
-              <span id="collPower">280 PS market-rated</span>
+              <span id="collPower">276 hp market-rated</span>
             </div>
             <div class="collection-controls">
               <button type="button" id="collPrev" aria-label="Previous car" class="coll-btn">←</button>
@@ -290,56 +290,56 @@
   const vehicles = [
     {
       name:'Nissan GT-R R35', year:'2009–2024 · R35', category:'GT PERFORMANCE',
-      engine:'3.8L V6 Twin-Turbo', power:'545 hp (stock)', accel:'2.9 s', drive:'AWD', weight:'3,847 lbs',
-      specs:'3.8L V6 Twin-Turbo \u00a0/\u00a0 545 HP \u00a0/\u00a0 AWD \u00a0/\u00a0 2009\u20132024', badge:'R35',
+      engine:'3.8L V6 Twin-Turbo', power:'545 hp', accel:'3.0 s', drive:'AWD', weight:'1,746 kg / 3,851 lbs',
+      specs:'3.8L V6 Twin-Turbo \u00a0/\u00a0 545 hp \u00a0/\u00a0 AWD \u00a0/\u00a0 2009\u20132024', badge:'R35',
       description:'The ultimate Japanese performance machine — engineered for speed, precision, and dominance.',
       modelId:'60666625029a461b93d202fe9512a389',
       credit:'NISSAN GT-R BLACK EDITION · DDIAZ DESIGN / CC BY-NC-SA'
     },
     {
       name:'Nissan Laurel Club S', year:'1998 · C35', category:'JDM SLEEPER',
-      engine:'2.5L turbo I6', power:'280 PS', accel:'—', drive:'RWD', weight:'~1,430 kg',
-      specs:'2.5L Turbo I6 \u00a0/\u00a0 280 PS \u00a0/\u00a0 RWD \u00a0/\u00a0 1998', badge:'C35',
+      engine:'2.5L turbo I6', power:'276 hp', accel:'N/A', drive:'RWD', weight:'1,430 kg / 3,153 lbs',
+      specs:'2.5L Turbo I6 \u00a0/\u00a0 276 hp \u00a0/\u00a0 RWD \u00a0/\u00a0 1998', badge:'C35',
       description:'Understated C35 styling, rear-drive proportions, and serious tuning heritage.',
       modelId:'3972456be83c45deaa9fe072505e1bca',
       credit:'NISSAN LAUREL C35 · SKETCHFAB MODEL / CC BY'
     },
     {
       name:'Mazda RX-7 Spirit R', year:'2002 · FD3S', category:'ROTARY ENGINEERING',
-      engine:'1.3L twin-rotor twin-turbo', power:'280 PS', accel:'~5.0 s', drive:'RWD', weight:'~1,270 kg',
-      specs:'1.3L Twin-Rotor \u00a0/\u00a0 280 PS \u00a0/\u00a0 RWD \u00a0/\u00a0 2002', badge:'FD3S',
+      engine:'1.3L twin-rotor twin-turbo', power:'276 hp', accel:'N/A', drive:'RWD', weight:'1,270 kg / 2,800 lbs',
+      specs:'1.3L Twin-Rotor \u00a0/\u00a0 276 hp \u00a0/\u00a0 RWD \u00a0/\u00a0 2002', badge:'FD3S',
       description:'A compact rotary sports car with flowing bodywork and a famously balanced chassis.',
       modelId:'e9c3394294104838bfc89b226f93a52a',
       credit:'MAZDA RX-7 SPIRIT R · SKETCHFAB MODEL / CC BY'
     },
     {
       name:'Nissan Stagea 260RS', year:'2000 · WGNC34', category:'SLEEPER WAGON',
-      engine:'2.6L twin-turbo I6', power:'280 PS', accel:'—', drive:'AWD', weight:'~1,680 kg',
-      specs:'2.6L Twin-Turbo I6 \u00a0/\u00a0 280 PS \u00a0/\u00a0 AWD \u00a0/\u00a0 2000', badge:'WGNC34',
+      engine:'2.6L twin-turbo I6', power:'276 hp', accel:'N/A', drive:'AWD', weight:'1,680 kg / 3,704 lbs',
+      specs:'2.6L Twin-Turbo I6 \u00a0/\u00a0 276 hp \u00a0/\u00a0 AWD \u00a0/\u00a0 2000', badge:'WGNC34',
       description:'A performance wagon with Skyline GT-R hardware and everyday practicality.',
       modelId:'a347d59886de434bb7eaaf85ac1e6a2b',
       credit:'NISSAN STAGEA 260RS · SKETCHFAB MODEL / CC BY'
     },
     {
       name:'Toyota Altezza RS200', year:'1998 · SXE10', category:'SPORT SEDAN',
-      engine:'2.0L NA 3S-GE', power:'210 PS', accel:'~7.0 s', drive:'RWD', weight:'~1,280 kg',
-      specs:'2.0L NA I4 \u00a0/\u00a0 210 PS \u00a0/\u00a0 RWD \u00a0/\u00a0 1998', badge:'SXE10',
+      engine:'2.0L NA 3S-GE', power:'207 hp', accel:'N/A', drive:'RWD', weight:'1,280 kg / 2,822 lbs',
+      specs:'2.0L NA I4 \u00a0/\u00a0 207 hp \u00a0/\u00a0 RWD \u00a0/\u00a0 1998', badge:'SXE10',
       description:'A compact rear-wheel-drive sedan with a high-revving four-cylinder.',
       modelId:'4e78dd65a720492c8797cde72d2a6226',
       credit:'TOYOTA ALTEZZA SXE10 · SKETCHFAB MODEL / CC BY'
     },
     {
       name:'McLaren Senna', year:'2018 · Ultimate', category:'AERO EXTREME',
-      engine:'4.0L twin-turbo V8', power:'800 PS', accel:'2.8 s', drive:'RWD', weight:'~1,198 kg',
-      specs:'4.0L Twin-Turbo V8 \u00a0/\u00a0 800 PS \u00a0/\u00a0 RWD \u00a0/\u00a0 2018', badge:'UTD',
+      engine:'4.0L twin-turbo V8', power:'789 hp', accel:'2.8 s (0–62 mph)', drive:'RWD', weight:'1,198 kg / 2,641 lbs (dry)',
+      specs:'4.0L Twin-Turbo V8 \u00a0/\u00a0 789 hp \u00a0/\u00a0 RWD \u00a0/\u00a0 2018', badge:'UTD',
       description:'Track-focused hypercar built around extreme aerodynamic performance.',
       modelId:'ea3e43a6eb004853a87fe9c58422eb96',
       credit:'MCLAREN SENNA · SKETCHFAB MODEL / CC BY'
     },
     {
       name:'Peel P50', year:'1962 · Microcar', category:'MINIMALIST',
-      engine:'49 cc single-cyl', power:'4.2 bhp', accel:'—', drive:'RWD', weight:'~59 kg',
-      specs:'49 cc Single \u00a0/\u00a0 4.2 bhp \u00a0/\u00a0 RWD \u00a0/\u00a0 1962', badge:'P50',
+      engine:'49 cc single-cyl', power:'4.2 hp', accel:'N/A', drive:'RWD', weight:'59 kg / 130 lbs',
+      specs:'49 cc Single \u00a0/\u00a0 4.2 hp \u00a0/\u00a0 RWD \u00a0/\u00a0 1962', badge:'P50',
       description:'The famously tiny single-seat microcar — a brilliant study in packaging.',
       modelId:'3a9903a308f743aa92b63b8767835d78',
       credit:'PEEL P50 · SKETCHFAB MODEL / CC BY'
@@ -348,12 +348,12 @@
 
   /* ── Collection cars (for Apex Run section, excludes GT-R hero) ── */
   const collectionCars = [
-    {name:'Nissan Laurel Club S Type X Turbo',year:'1998 · C35',category:'JDM SLEEPER',engine:'2.5L turbocharged inline-six',power:'280 PS market-rated',description:'Your featured car: understated C35 styling, rear-drive proportions, and serious tuning heritage.',modelId:'3972456be83c45deaa9fe072505e1bca',credit:'NISSAN LAUREL C35 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/nissan-laurel-club-s-c35-3972456be83c45deaa9fe072505e1bca'},
-    {name:'Mazda RX-7 Spirit R',year:'2002 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'280 PS Japan-spec',description:'A compact rotary sports car with flowing bodywork and a famously balanced chassis.',modelId:'e9c3394294104838bfc89b226f93a52a',credit:'MAZDA RX-7 SPIRIT R · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mazda-rx-7-spirit-r-fd3s-e9c3394294104838bfc89b226f93a52a'},
-    {name:'Nissan Stagea 260RS Autech',year:'2000 · WGNC34',category:'SLEEPER WAGON',engine:'2.6L twin-turbo inline-six',power:'280 PS market-rated',description:'A performance wagon with Skyline GT-R hardware and the everyday practicality of a Stagea.',modelId:'a347d59886de434bb7eaaf85ac1e6a2b',credit:'NISSAN STAGEA 260RS AUTECH · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/2000-nissan-stagea-autechversion-260rs-a347d59886de434bb7eaaf85ac1e6a2b'},
-    {name:'Toyota Altezza SXE10',year:'1998 · RS200',category:'JAPANESE SPORT SEDAN',engine:'2.0L naturally aspirated 3S-GE',power:'210 PS (RS200)',description:'A compact rear-wheel-drive sedan with a high-revving four-cylinder and clean proportions.',modelId:'4e78dd65a720492c8797cde72d2a6226',credit:'TOYOTA ALTEZZA SXE10 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/toyota-altezza-sxe10-4e78dd65a720492c8797cde72d2a6226'},
-    {name:'McLaren Senna',year:'2018 · Ultimate Series',category:'AERODYNAMIC EXTREME',engine:'4.0L twin-turbo V8',power:'800 PS · 789 bhp',description:'A track-focused hypercar built around extreme aerodynamic performance, active aero, and a carbon-fibre chassis.',modelId:'ea3e43a6eb004853a87fe9c58422eb96',credit:'MCLAREN SENNA · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mclaren-senna-free-ea3e43a6eb004853a87fe9c58422eb96'},
-    {name:'Peel P50',year:'1962 · Microcar',category:'MINIMALIST ENGINEERING',engine:'49 cc single-cylinder',power:'4.2 bhp',description:'A famously tiny single-seat microcar: the complete opposite of the Senna, and a brilliant study in packaging.',modelId:'3a9903a308f743aa92b63b8767835d78',credit:'PEEL P50 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/peel-p50-3a9903a308f743aa92b63b8767835d78'}
+    {name:'Nissan Laurel Club S Type X Turbo',year:'1998 · C35',category:'JDM SLEEPER',engine:'2.5L turbocharged inline-six',power:'276 hp market-rated',weight:'1,430 kg / 3,153 lbs',description:'Your featured car: understated C35 styling, rear-drive proportions, and serious tuning heritage.',modelId:'3972456be83c45deaa9fe072505e1bca',credit:'NISSAN LAUREL C35 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/nissan-laurel-club-s-c35-3972456be83c45deaa9fe072505e1bca'},
+    {name:'Mazda RX-7 Spirit R',year:'2002 · FD3S',category:'ROTARY ENGINEERING',engine:'1.3L twin-rotor twin-turbo',power:'276 hp Japan-spec',description:'A compact rotary sports car with flowing bodywork and a famously balanced chassis.',modelId:'e9c3394294104838bfc89b226f93a52a',credit:'MAZDA RX-7 SPIRIT R · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mazda-rx-7-spirit-r-fd3s-e9c3394294104838bfc89b226f93a52a'},
+    {name:'Nissan Stagea 260RS Autech',year:'2000 · WGNC34',category:'SLEEPER WAGON',engine:'2.6L twin-turbo inline-six',power:'276 hp market-rated',weight:'1,680 kg / 3,704 lbs',description:'A performance wagon with Skyline GT-R hardware and the everyday practicality of a Stagea.',modelId:'a347d59886de434bb7eaaf85ac1e6a2b',credit:'NISSAN STAGEA 260RS AUTECH · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/2000-nissan-stagea-autechversion-260rs-a347d59886de434bb7eaaf85ac1e6a2b'},
+    {name:'Toyota Altezza SXE10',year:'1998 · RS200',category:'JAPANESE SPORT SEDAN',engine:'2.0L naturally aspirated 3S-GE',power:'207 hp (RS200)',weight:'1,280 kg / 2,822 lbs',description:'A compact rear-wheel-drive sedan with a high-revving four-cylinder and clean proportions.',modelId:'4e78dd65a720492c8797cde72d2a6226',credit:'TOYOTA ALTEZZA SXE10 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/toyota-altezza-sxe10-4e78dd65a720492c8797cde72d2a6226'},
+    {name:'McLaren Senna',year:'2018 · Ultimate Series',category:'AERODYNAMIC EXTREME',engine:'4.0L twin-turbo V8',power:'789 hp · 789 bhp',description:'A track-focused hypercar built around extreme aerodynamic performance, active aero, and a carbon-fibre chassis.',modelId:'ea3e43a6eb004853a87fe9c58422eb96',credit:'MCLAREN SENNA · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/mclaren-senna-free-ea3e43a6eb004853a87fe9c58422eb96'},
+    {name:'Peel P50',year:'1962 · Microcar',category:'MINIMALIST ENGINEERING',engine:'49 cc single-cylinder',power:'4.2 hp',description:'A famously tiny single-seat microcar: the complete opposite of the Senna, and a brilliant study in packaging.',modelId:'3a9903a308f743aa92b63b8767835d78',credit:'PEEL P50 · SKETCHFAB MODEL / CC BY',source:'https://sketchfab.com/3d-models/peel-p50-3a9903a308f743aa92b63b8767835d78'}
   ];
 
   /* ── Hero Vehicle System ── */
@@ -472,6 +472,7 @@
     document.getElementById('collDesc').textContent = c.description;
     document.getElementById('collEngine').textContent = c.engine;
     document.getElementById('collPower').textContent = c.power;
+    document.getElementById('collWeight').textContent = c.weight;
     if (cFrame) {
       cLoading.style.display = 'flex';
       cFrame.src = 'https://sketchfab.com/models/' + c.modelId +
