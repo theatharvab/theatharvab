@@ -3597,3 +3597,36 @@ body.nav-open { overflow: hidden; }
   flex-direction: column;
 
 }
+
+
+/* Sketchfab viewer load/error states */
+.vehicle-loading.vehicle-load-error{
+  z-index:5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:24px;
+  background:rgba(5,6,7,.94);
+  text-align:center;
+}
+.vehicle-load-error .vehicle-fallback-mark{
+  display:grid;
+  place-items:center;
+  width:30px;height:30px;
+  border:1px solid #D20A24;
+  color:#D20A24;
+  font:700 1rem 'DM Mono',monospace;
+}
+.vehicle-load-error a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 13px;
+  border:1px solid #D20A24;
+  color:#f3f3f3;
+  font:500 .65rem 'DM Mono',monospace;
+  letter-spacing:.08em;
+  text-decoration:none;
+}
+.vehicle-load-error a:hover{background:#D20A24}
