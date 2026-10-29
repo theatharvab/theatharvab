@@ -3709,3 +3709,16 @@ body.nav-open { overflow: hidden; }
   .garage-hero{min-height:600px}
   .collection-viewer{min-height:340px}
 }
+
+
+/* Contrast protection for light-background vehicle renders */
+.hero-text{isolation:isolate;padding:24px 28px 22px;background:linear-gradient(90deg,rgba(5,6,7,.97) 0%,rgba(5,6,7,.88) 72%,rgba(5,6,7,0) 100%);border-left:2px solid var(--accent);text-shadow:0 2px 12px rgba(0,0,0,.95)}
+.hero-text h1,.hero-text .hero-specs,.hero-text .eyebrow{position:relative;z-index:1}
+.hero-text .hero-specs{color:#e2e4e8;text-shadow:0 2px 8px #000}
+.specs-panel{background:rgba(5,6,7,.94);border-color:rgba(255,255,255,.14);box-shadow:0 12px 36px rgba(0,0,0,.5);backdrop-filter:blur(14px)}
+.vehicle-nav{padding:8px;background:rgba(5,6,7,.88);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
+.collection-info{background:linear-gradient(145deg,rgba(12,14,18,.98),rgba(5,6,7,.98))}
+.collection-name,.collection-year,.collection-desc,.collection-specs{text-shadow:0 1px 5px rgba(0,0,0,.8)}
+.coll-play-btn{margin-left:12px;border-color:rgba(210,10,36,.65);color:#e8e6e3;font:500 .6rem var(--mono);letter-spacing:.08em;white-space:nowrap}
+.coll-play-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+@media(max-width:768px){.hero-text{left:14px;right:14px;bottom:116px;padding:16px 18px 15px;max-width:calc(100% - 28px);background:linear-gradient(90deg,rgba(5,6,7,.97),rgba(5,6,7,.82))}.hero-text h1{font-size:clamp(2rem,8vw,3rem)}.collection-controls{flex-wrap:wrap}.coll-play-btn{margin-left:0}}
