@@ -284,6 +284,7 @@
   <!-- SCRIPTS                                            -->
   <!-- ═══════════════════════════════════════════════════ -->
 
+  <script src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
   <script>
   /* ── Vehicle Garage Data ── */
   const vehicles = [
@@ -362,6 +363,7 @@
 
   function updateHeroVehicle() {
     const v = vehicles[currentVehicle];
+    const vehicleIndex = currentVehicle;
     document.getElementById('heroCarName').textContent = v.name.toUpperCase();
     const vehicleCredit = document.getElementById('vehicleCredit');
     if (vehicleCredit) {
@@ -378,35 +380,73 @@
     document.getElementById('vehicleCounter').textContent =
       String(currentVehicle + 1).padStart(2, '0') + ' / ' + String(vehicles.length).padStart(2, '0');
 
-    if (vFrame && vLoading) {
-      let resolved = false;
-      vLoading.style.display = 'flex';
-      vLoading.classList.remove('vehicle-load-error');
-      vLoading.innerHTML = '<span class="loading-pulse"></span><span>CONNECTING TO VEHICLE MODEL</span>';
+    if (!vFrame || !vLoading) return;
 
-      const showVehicleFallback = function() {
-        if (resolved) return;
-        resolved = true;
-        vLoading.classList.add('vehicle-load-error');
-        vLoading.innerHTML = '<span class="vehicle-fallback-mark">!</span><span>3D VIEWER UNAVAILABLE</span><a href="https://sketchfab.com/models/' + v.modelId + '" target="_blank" rel="noreferrer">OPEN MODEL ON SKETCHFAB ↗</a>';
-      };
+    let resolved = false;
+    vLoading.style.display = 'flex';
+    vLoading.classList.remove('vehicle-load-error');
+    vLoading.innerHTML = '<span class="loading-pulse"></span><span>CONNECTING TO VEHICLE MODEL</span>';
 
-      const loadTimeout = window.setTimeout(showVehicleFallback, 18000);
-      vFrame.onload = function() {
-        window.clearTimeout(loadTimeout);
-        window.setTimeout(function() {
-          if (!resolved) {
-            resolved = true;
-            vLoading.style.display = 'none';
-          }
-        }, 1800);
-      };
-      vFrame.onerror = showVehicleFallback;
-      vFrame.src = 'https://sketchfab.com/models/' + v.modelId +
-        '/embed?autostart=1&ui_theme=dark&ui_infos=0&dnt=1';
+    const showVehicleFallback = function() {
+      if (resolved) return;
+      resolved = true;
+      vLoading.classList.add('vehicle-load-error');
+      vLoading.innerHTML = '<span class="vehicle-fallback-mark">!</span><span>3D VIEWER UNAVAILABLE</span><a href="https://sketchfab.com/models/' + v.modelId + '" target="_blank" rel="noreferrer">OPEN MODEL ON SKETCHFAB ↗</a>';
+    };
+
+    const finishLoading = function() {
+      if (resolved) return;
+      resolved = true;
+      vLoading.style.display = 'none';
+    };
+
+    const loadTimeout = window.setTimeout(showVehicleFallback, 18000);
+    if (typeof Sketchfab === 'undefined') {
+      window.clearTimeout(loadTimeout);
+      showVehicleFallback();
+      return;
     }
-  }
 
+    const client = new Sketchfab('1.12.1', vFrame);
+    client.init(v.modelId, {
+      autostart: 1,
+      camera: 0,
+      ui_theme: 'dark',
+      ui_infos: 0,
+      dnt: 1,
+      success: function(api) {
+        api.addEventListener('viewerready', function() {
+          if (vehicleIndex !== currentVehicle) return;
+          api.setBackground({color: [0.025, 0.03, 0.04]}, function() {
+            if (vehicleIndex !== currentVehicle) return;
+            if (vehicleIndex === 0) {
+              api.getCameraLookAt(function(err, camera) {
+                if (err || !camera || !camera.position || !camera.target) {
+                  finishLoading();
+                  return;
+                }
+                const zoomOut = 1.22;
+                const position = camera.position.map(function(value, index) {
+                  return camera.target[index] + (value - camera.target[index]) * zoomOut;
+                });
+                api.setCameraLookAt(position, camera.target, 0.7, function() {
+                  if (vehicleIndex === currentVehicle) finishLoading();
+                });
+                window.setTimeout(finishLoading, 1400);
+              });
+            } else {
+              finishLoading();
+            }
+          });
+          api.start();
+        });
+      },
+      error: function() {
+        window.clearTimeout(loadTimeout);
+        showVehicleFallback();
+      }
+    });
+  }
   document.getElementById('vehiclePrev').addEventListener('click', function() {
     currentVehicle = (currentVehicle - 1 + vehicles.length) % vehicles.length;
     updateHeroVehicle();
